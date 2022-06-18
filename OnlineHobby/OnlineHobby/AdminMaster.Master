@@ -20,12 +20,12 @@
         }
 
         .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-            color: #BB7930; /*Sets the text hover color on navbar*/
+            color: #BB7930; 
         }
 
         .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >
         a:hover, .navbar-default .navbar-nav > .active > a:focus {
-            color: #BB7930; /*BACKGROUND color for active*/
+            color: #BB7930; 
             background-color: #030033;
         }
 
@@ -35,7 +35,15 @@
         }
 
         .navbar-default .navbar-nav > li > a {
-            color: #5E3C18; /*Change active text color here*/
+            color: #5E3C18; 
+        }
+
+        .navbar-custom .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(94,60,24, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
+
+        .navbar-custom.navbar-toggler {
+            border-color: #5E3C18;
         }
     </style>
 </head>
@@ -47,15 +55,16 @@
                     <a class="navbar-brand" href="#">
                         <img src="Resources/logoRelife1.png" height="75" alt="ReLife" />
                     </a>
-                    <button class="navbar-toggler" 
-                        type="button" 
-                        data-bs-toggle="collapse" 
-                        data-bs-target="#navbarNav" 
-                        aria-controls="navbarNav" 
-                        aria-expanded="false" 
+                    <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
@@ -66,13 +75,12 @@
                             </li>
                         </ul>
 
-                        <ul class="navbar-nav mb-2 mb-lg-0 d-flex">                           
+                        <ul class="navbar-nav mb-2 mb-lg-0">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">
                                     <img src="Resources/profile_icon.png" class="rounded-circle img-fluid" height='35' width='35'>
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li>
+                                <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">My Profile</a></li>
                                     <li>
                                         <hr class="dropdown-divider" />
