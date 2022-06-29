@@ -8,6 +8,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <style>
         .navbar-custom {
             background-color: #fff0d4;
@@ -32,6 +33,7 @@
         .dropdown-menu > li > a:hover,
         .dropdown-menu > li > a:focus {
             color: #BB7930;
+            background-color:#e9ecef;
         }
 
         .navbar-default .navbar-nav > li > a {
@@ -76,7 +78,10 @@
                         </ul>
 
                         <ul class="navbar-nav mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
+                            <li class="nav-item">
+                                <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="nav-link" OnClick="lbtnLogout_Click" >Log Out</asp:LinkButton>
+                            </li>
+                           <%-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">
                                     <img src="Resources/profile_icon.png" class="rounded-circle img-fluid" height='35' width='35'>
                                 </a>
@@ -85,9 +90,9 @@
                                     <li>
                                         <hr class="dropdown-divider" />
                                     </li>
-                                    <li><a class="dropdown-item" href="#">Log Out</a></li>
+                                    <li><asp:LinkButton ID="lbtnLogout" runat="server" CssClass="dropdown-item" OnClick="lbtnLogout_Click" >Log Out</asp:LinkButton></li>
                                 </ul>
-                            </li>
+                            </li>--%>
 
                         </ul>
                     </div>
@@ -98,7 +103,7 @@
         </div>
     </form>
 
-    <nav class="navbar fixed-bottom justify-content-center navbar-custom navbar-default">
+    <nav class="navbar justify-content-center navbar-custom navbar-default">
         <div class="text-center">
             © 2022 ReLife Online Hobby Learning System. All Rights Reserved.
         </div>

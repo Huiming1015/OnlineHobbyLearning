@@ -11,7 +11,23 @@ namespace OnlineHobby
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserEmail"] != null)
+            {
+                //login success
+                lbtnLogout.Visible = true;
+            }
+            else
+            {
+                //no login, just a guest
+                lbtnLogout.Visible = false;
+            }
+        }
 
+        protected void lbtnLogout_Click(object sender, EventArgs e)
+        {
+            Session["UserEmail"] = null;
+            Session["Role"] = null;
+            Response.Redirect("AdminLogIn.aspx");
         }
     }
 }

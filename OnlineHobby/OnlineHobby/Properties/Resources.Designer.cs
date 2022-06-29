@@ -63,6 +63,26 @@ namespace OnlineHobby.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loginAdmin {
+            get {
+                object obj = ResourceManager.GetObject("loginAdmin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoLoginAdmin {
+            get {
+                object obj = ResourceManager.GetObject("logoLoginAdmin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoRelife1 {
             get {
                 object obj = ResourceManager.GetObject("logoRelife1", resourceCulture);
@@ -76,6 +96,26 @@ namespace OnlineHobby.Properties {
         internal static System.Drawing.Bitmap logoRelife2 {
             get {
                 object obj = ResourceManager.GetObject("logoRelife2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap passwordHide {
+            get {
+                object obj = ResourceManager.GetObject("passwordHide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap passwordShow {
+            get {
+                object obj = ResourceManager.GetObject("passwordShow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
