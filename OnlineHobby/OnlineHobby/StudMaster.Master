@@ -9,7 +9,7 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    
+
     <style>
         .navbar-custom {
             background-color: #fff0d4;
@@ -34,7 +34,7 @@
         .dropdown-menu > li > a:hover,
         .dropdown-menu > li > a:focus {
             color: #BB7930;
-            background-color:#e9ecef;
+            background-color: #e9ecef;
         }
 
         .navbar-default .navbar-nav > li > a {
@@ -94,13 +94,16 @@
                                     <img src="Resources/profile_icon.png" class="rounded-circle img-fluid" height='35' width='35'>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li>
                                     <li><a class="dropdown-item" href="#">My Order</a></li>
                                     <li>
-                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Chats</a></li>
                                     <li>
                                         <hr class="dropdown-divider" />
                                     </li>
-                                    <li><asp:LinkButton ID="lbtnLogout" runat="server" CssClass="dropdown-item" OnClick="lbtnLogout_Click">Log Out</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="dropdown-item" OnClick="lbtnLogout_Click">Log Out</asp:LinkButton></li>
                                 </ul>
                             </li>
 
