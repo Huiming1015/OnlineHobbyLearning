@@ -91,7 +91,8 @@
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">
-                                    <img src="Resources/profile_icon.png" class="rounded-circle img-fluid" height='35' width='35'>
+                                    <asp:Image ID="Image1" runat="server" CssClass="rounded-circle img-fluid" Height="35" Width="35"  ImageUrl="~/Resources/profile_icon.png" />
+                                  <%--  <img src="Resources/profile_icon.png" class="rounded-circle img-fluid" height='35' width='35'>--%>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">My Profile</a></li>

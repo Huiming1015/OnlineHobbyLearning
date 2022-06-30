@@ -111,7 +111,6 @@
     <Content Include="AdminLogIn.aspx" />
     <Content Include="ResetPassword.aspx" />
     <None Include="Resources\logoLoginAdmin.png" />
-    <None Include="Resources\logoAdmin.jpg" />
     <None Include="Resources\loginAdmin.png" />
     <Content Include="SignUpEducator.aspx" />
     <None Include="Resources\passwordShow.png" />
