@@ -110,8 +110,8 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="AdminLogIn.aspx" />
     <Content Include="ResetPassword.aspx" />
-    <None Include="Resources\logoLoginAdmin.png" />
     <None Include="Resources\loginAdmin.png" />
+    <Content Include="Resources\cart.png" />
     <Content Include="SignUpEducator.aspx" />
     <None Include="Resources\passwordShow.png" />
     <None Include="Resources\passwordHide.png" />
@@ -126,7 +126,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="SignUpStud.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.esm.min.js.map" />

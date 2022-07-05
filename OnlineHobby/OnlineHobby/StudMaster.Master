@@ -86,26 +86,67 @@
 
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Course Timetable</a>
+                                <%--<a class="nav-link" href="#">Course Timetable</a>--%>
+                                <asp:LinkButton ID="lbtnCourseTimetable" runat="server" CssClass="nav-link">Course Timetable</asp:LinkButton>
                             </li>
+
+                            <div class="pt-2">
+                                <asp:ImageButton ID="ImageButton1" runat="server" Height="33px" ImageUrl="~/Resources/cart.png" Width="33px" PostBackUrl="#" />
+                            </div>
+
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">
-                                    <asp:Image ID="Image1" runat="server" CssClass="rounded-circle img-fluid" Height="35" Width="35"  ImageUrl="~/Resources/profile_icon.png" />
-                                  <%--  <img src="Resources/profile_icon.png" class="rounded-circle img-fluid" height='35' width='35'>--%>
+                                    <asp:Image ID="Image1" runat="server" CssClass="rounded-circle img-fluid" Height="35" Width="35" ImageUrl="~/Resources/profile_icon.png" />
+                                    <%--  <img src="Resources/profile_icon.png" class="rounded-circle img-fluid" height='35' width='35'>--%>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">My Profile</a></li>
                                     <li>
-                                    <li><a class="dropdown-item" href="#">My Order</a></li>
+                                        <asp:LinkButton ID="lbtnMyProfile" runat="server" CssClass="dropdown-item">My Profile</asp:LinkButton></li>
                                     <li>
-                                    <li><a class="dropdown-item" href="#">Chats</a></li>
+                                        <asp:LinkButton ID="lbtnMyOrder" runat="server" CssClass="dropdown-item">My Order</asp:LinkButton></li>
                                     <li>
-                                        <hr class="dropdown-divider" />
-                                    </li>
+                                        <asp:LinkButton ID="lbtnChats" runat="server" CssClass="dropdown-item mb-0 pb-0">Chats</asp:LinkButton></li>
+                                    <%--<li>
+                                        <hr class="dropdown-divider" id="divider" />
+                                    </li>--%>
+                                    
+                                    <asp:Label ID="divider" runat="server" CssClass="dropdown-divider"><hr/></asp:Label>
+
+                                    <%--<li><a class="dropdown-item" href="#" id="profile">My Profile</a></li>
                                     <li>
-                                        <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="dropdown-item" OnClick="lbtnLogout_Click">Log Out</asp:LinkButton></li>
+                                    <li><a class="dropdown-item" href="#" id="order">My Order</a></li>
+                                    <li>
+                                    <li><a class="dropdown-item" href="#" id="chats">Chats</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider" id="divider" />
+                                    </li>--%>
+
+                                    <li>
+                                        <asp:LinkButton ID="lbtnSignUp" runat="server" CssClass="dropdown-item" OnClick="lbtnSignUp_Click">Sign Up</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lbtnLogin" runat="server" CssClass="dropdown-item" OnClick="lbtnLogin_Click">Log In</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lbtnLogout" runat="server" CssClass="dropdown-item mt-0 pt-0" OnClick="lbtnLogout_Click">Log Out</asp:LinkButton></li>
                                 </ul>
+
+                                <%--<script>
+                                    var session = '<%#Session["UserEmail"]%>';
+                                    if (session != null) {
+                                        //login success
+                                        document.getElementById("lbtnSignUp").remove();
+                                        document.getElementById("lbtnLogin").remove();
+                                    }
+                                    else {
+                                        //no login, just a guest
+                                        document.getElementById("profile").remove();
+                                        document.getElementById("order").remove();
+                                        document.getElementById("chats").remove();
+                                        document.getElementById("divider").remove();
+                                        document.getElementById("lbtnLogout").remove();
+                                    }
+
+                                </script>--%>
                             </li>
 
                         </ul>

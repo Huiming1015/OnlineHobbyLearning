@@ -15,18 +15,27 @@ namespace OnlineHobby
             {
                 //login success
                 lbtnLogout.Visible = true;
+                lbtnReports.Visible = true;
+                lbtnApplication.Visible = true;
+                lbtnEduSU.Visible = true;
+                lbtnNewCourse.Visible = true;
+                lbtnEduIncidents.Visible = true;
             }
             else
             {
                 //no login, just a guest
                 lbtnLogout.Visible = false;
+                lbtnReports.Visible = false;
+                lbtnApplication.Visible = false;
+                lbtnEduSU.Visible = false;
+                lbtnNewCourse.Visible = false;
+                lbtnEduIncidents.Visible = false;
             }
         }
 
         protected void lbtnLogout_Click(object sender, EventArgs e)
         {
-            Session["UserEmail"] = null;
-            Session["Role"] = null;
+            Session.RemoveAll();
             Response.Redirect("AdminLogIn.aspx");
         }
     }

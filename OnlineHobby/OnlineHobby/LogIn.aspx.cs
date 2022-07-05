@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace OnlineHobby
 {
@@ -94,7 +95,7 @@ namespace OnlineHobby
                         Session["Role"] = "stud";
 
                         Response.Redirect("Homepage.aspx");
-                        //Response.Write("<script>alert('" + Session["UserEmail"] + Session["UserId"] + Session["UserName"] + Session["Role"] + "') </script>");
+                       // Response.Write("<script>alert('" + Session["UserEmail"] + Session["UserId"] + Session["UserName"] + Session["Role"] + "') </script>");
                     }
                     else
                     {
