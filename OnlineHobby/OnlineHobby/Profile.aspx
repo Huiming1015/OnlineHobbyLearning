@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row my-2">
-                            <asp:Label ID="Label4" runat="server" Text="Upload Profile Image" AutoPostBack="True" onchange="this.form.submit();">Upload Profile Image  <i class="fas fa-upload"></i> </asp:Label>
+                            <asp:Label ID="Label4" runat="server" Text="Upload Profile Image" AutoPostBack="True" onchange="this.form.submit();">Upload Profile Image </asp:Label>
                         </div>
                         <div class="row">
                             <div class="input-group">

@@ -59,19 +59,19 @@
                 <div class="mt-4" id="accordion" style="background-color: #fffdfc">
                     <div class="panel mb-1">
                         <div class="card-header rounded">
-                            <a class="card-link" href="Profile.aspx">My Profile</a>
+                            <a class="card-link" href="Profile.aspx"><i class="fa fa-user"></i>&nbsp My Profile</a>
                             
                         </div>
                     </div>
                     <div class="panel mb-1">
                         <div class="card-header rounded">
-                            <a class="card-link" href="ChangePassword.aspx">Change Password</a>
+                            <a class="card-link" href="ChangePassword.aspx"><i class="fa fa-key"></i>&nbsp Change Password</a>
                         </div>
                     </div>
                     <asp:Panel ID="pnlAddressBook" runat="server">
                         <div class="panel mb-1">
                             <div class="card-header rounded">
-                                <a class="card-link" href="#">Address Book</a>
+                                <a class="card-link" href="#"><i class="fa fa-address-book"></i>&nbsp Address Book</a>
                             </div>
                         </div>
                     </asp:Panel>
@@ -80,7 +80,7 @@
                         <div class="panel mb-1">
                             <div class="card-header rounded">
                                 <%--Change to Followers when role is edu, and change link also --%>
-                                <asp:LinkButton ID="lbtnFollowing" runat="server"><a class="card-link" href="#">Following</a></asp:LinkButton>
+                                <asp:LinkButton ID="lbtnFollowing" runat="server"><a class="card-link" href="#"><i class="fa fa-heart"></i>&nbsp Following</a></asp:LinkButton>
                                 <%--<a class="card-link text-dark" href="#">Following</a>--%>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                     <asp:Panel ID="pnlFollowers" runat="server">
                         <div class="panel mb-1">
                             <div class="card-header rounded">
-                                <asp:LinkButton ID="lbtnFollowers" runat="server"><a class="card-link" href="#">Followers</a></asp:LinkButton>
+                                <asp:LinkButton ID="lbtnFollowers" runat="server"><a class="card-link" href="#"><i class="fa fa-heart"></i>&nbsp Followers</a></asp:LinkButton>
                             </div>
                         </div>
                     </asp:Panel>
@@ -98,7 +98,7 @@
                     <asp:Panel ID="pnlDashboard" runat="server">
                         <div class="panel mb-1">
                             <div class="card-header rounded">
-                                <asp:LinkButton ID="lbtnDashboard" runat="server" CssClass="card-link" Text="Dashboard"></asp:LinkButton>
+                                <asp:LinkButton ID="lbtnDashboard" runat="server" CssClass="card-link"><i class="fa fa-globe"></i>&nbsp Dashboard</asp:LinkButton>
                             </div>
                         </div>
                     </asp:Panel>
@@ -106,14 +106,14 @@
                     <asp:Panel ID="pnlAchivements" runat="server">
                         <div class="panel mb-1">
                             <div class="card-header rounded">
-                                <asp:LinkButton ID="lbtnAchivements" runat="server" CssClass="card-link" Text="Achivements"></asp:LinkButton>
+                                <asp:LinkButton ID="lbtnAchivements" runat="server" CssClass="card-link"><i class="fa fa-trophy"></i>&nbsp Achievements</asp:LinkButton>
                             </div>
                         </div>
                     </asp:Panel>
 
                     <div class="panel mb-1">
                         <div class="card-header rounded">
-                            <a class="card-link" href="DeleteAccount.aspx">Delete Account</a>
+                            <a class="card-link" href="DeleteAccount.aspx"><i class="fa fa-ban"></i>&nbsp Delete Account</a>
                         </div>
                     </div>
 
