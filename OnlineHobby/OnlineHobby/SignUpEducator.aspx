@@ -108,8 +108,12 @@
                         <asp:Label ID="Label3" runat="server" Text="Name"></asp:Label>
                     </div>
                     <div class="row">
-                        <asp:TextBox ID="txtSUName" type="text" CssClass="form-control" placeholder="YourName" runat="server"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*Please include letters only." ControlToValidate="txtSUName" Font-Size="Small" ForeColor="Red" ValidationExpression="[a-zA-Z][a-zA-Z ]*">*Please include letters only.</asp:RegularExpressionValidator>
+                        <div class="input-group">
+                            <div class="flex-grow-1">
+                                <asp:TextBox ID="txtSUName" type="text" CssClass="form-control" placeholder="YourName" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*Please include letters only." ControlToValidate="txtSUName" Font-Size="Small" ForeColor="Red" ValidationExpression="[a-zA-Z][a-zA-Z ]*">*Please include letters only.</asp:RegularExpressionValidator>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -122,9 +126,12 @@
                         <asp:Label ID="Label4" runat="server" Text="Email Address"></asp:Label>
                     </div>
                     <div class="row">
-                        <asp:TextBox ID="txtSUEmail" type="text" CssClass="form-control" placeholder="example@gmail.com" runat="server"></asp:TextBox>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*Please enter a valid email address." ControlToValidate="txtSUEmail" Font-Size="Small" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*Please enter a valid email address.</asp:RegularExpressionValidator>
-
+                        <div class="input-group">
+                            <div class="flex-grow-1">
+                                <asp:TextBox ID="txtSUEmail" type="text" CssClass="form-control" placeholder="example@gmail.com" runat="server"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*Please enter a valid email address." ControlToValidate="txtSUEmail" Font-Size="Small" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*Please enter a valid email address.</asp:RegularExpressionValidator>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -152,11 +159,15 @@
                         <asp:Label ID="Label5" runat="server" Text="Course Category"></asp:Label>
                     </div>
                     <div class="row">
-                        <asp:DropDownList ID="ddlSUCourse" runat="server" CssClass="form-control">
-                            <asp:ListItem>Painting</asp:ListItem>
-                            <asp:ListItem>Craft</asp:ListItem>
-                            <asp:ListItem>Photography &amp; Video</asp:ListItem>
-                        </asp:DropDownList>
+                        <div class="input-group">
+                            <div class="flex-grow-1">
+                                <asp:DropDownList ID="ddlSUCourse" runat="server" CssClass="form-control">
+                                    <asp:ListItem>Painting</asp:ListItem>
+                                    <asp:ListItem>Craft</asp:ListItem>
+                                    <asp:ListItem>Photography &amp; Video</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -170,10 +181,14 @@
                         <asp:Label ID="Label6" runat="server" Text="Teaching Experience"></asp:Label>
                     </div>
                     <div class="row mx-2">
-                        <asp:RadioButtonList ID="rblSUExperience" runat="server">
-                            <asp:ListItem>Yes</asp:ListItem>
-                            <asp:ListItem>No</asp:ListItem>
-                        </asp:RadioButtonList>
+                        <div class="input-group">
+                            <div class="flex-grow-1">
+                                <asp:RadioButtonList ID="rblSUExperience" runat="server">
+                                    <asp:ListItem>Yes</asp:ListItem>
+                                    <asp:ListItem>No</asp:ListItem>
+                                </asp:RadioButtonList>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -186,8 +201,12 @@
                         <asp:Label ID="Label7" runat="server" Text="Educator Qualification, Portfolio and Videos"></asp:Label>
                     </div>
                     <div class="row">
-                        <asp:TextBox ID="txtSUQualification" type="text" CssClass="form-control" placeholder="https://drive.google.com/drive/folders/1GSIlsPtd2irlr6mzxNwI3uei__b__QF3?usp=sharing" runat="server"></asp:TextBox>
-                        <asp:Label ID="Label8" runat="server" Text="(share the Google Drive link of your work)" Font-Size="Smaller" ForeColor="Gray"></asp:Label>
+                        <div class="input-group">
+                            <div class="flex-grow-1">
+                                <asp:TextBox ID="txtSUQualification" type="text" CssClass="form-control" placeholder="https://drive.google.com/drive/folders/1GSIlsPtd2irlr6mzxNwI3uei__b__QF3?usp=sharing" runat="server"></asp:TextBox>
+                                <asp:Label ID="Label8" runat="server" Text="(share the Google Drive link of your work)" Font-Size="Smaller" ForeColor="Gray"></asp:Label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-1"></div>

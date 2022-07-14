@@ -83,7 +83,7 @@
 
                                 <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
                                     <li><asp:LinkButton ID="lbtnEduSU" runat="server" CssClass="dropdown-item">Educator Sign Up</asp:LinkButton></li>
-                                    <li><asp:LinkButton ID="lbtnNewCourse" runat="server" CssClass="dropdown-item">New Course</asp:LinkButton></li>
+                                    <%--<li><asp:LinkButton ID="lbtnNewCourse" runat="server" CssClass="dropdown-item">New Course</asp:LinkButton></li>--%>
                                     <li><asp:LinkButton ID="lbtnEduIncidents" runat="server" CssClass="dropdown-item">Educator Incidents</asp:LinkButton></li>
 
                                 </ul>

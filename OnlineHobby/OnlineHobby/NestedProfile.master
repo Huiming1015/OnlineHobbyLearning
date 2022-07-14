@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/StudMaster.Master" AutoEventWireup="true" CodeBehind="NestedProfile.master.cs" Inherits="OnlineHobby.NestedProfile" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <style>
+        .bg {
+            background-color: #fffefa;
+        }
+
+        .card-header > a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            color: #e67300; 
+        }
+
+        /*a:focus {
+            color: green; /*colour change when hover the side menu*/
+        /*}*/
+
+
+    </style>
+    <%--<script>
+        var idleInterval = setInterval("reloadPage()", 5000);
+
+        function reloadPage() {
+            location.reload();
+        }
+    </script>--%>
+
+    <div class="container-fluid bg">
+        <div class="row">
+            <div class="col-md-2" style="border-right: 1px solid lightgray">
+                <div class="text-center mt-4">
+                    <asp:Image ID="imgProfile" runat="server" CssClass="rounded-circle img-fluid" Height="150" Width="150" ImageUrl="~/Resources/profile_orange.png" />
+                </div>
+                <div class="text-center my-3">
+                    <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>
+                </div>
+                <div class=" row text-center">
+                    <div class="col-md-6">
+                        <asp:Label ID="lblRateOrCourses" runat="server" Text="--" ForeColor="#F98006" Font-Bold="True"></asp:Label>
+                    </div>
+                    <div class="col-md-6">
+                        <asp:Label ID="lblFllw" runat="server" Text="--" ForeColor="#F98006" Font-Bold="True"></asp:Label>
+                    </div>
+                </div>
+                <div class="row text-center mb-4">
+                    <div class="col-md-6">
+                        <asp:Label ID="lblRateCoursesWord" runat="server" Text="Courses"></asp:Label>
+                    </div>
+                    <div class="col-md-6">
+                        <asp:Label ID="lblFllwWord" runat="server" Text="Following"></asp:Label>
+                    </div>
+                </div>
+                <div class="mt-4" id="accordion" style="background-color: #fffdfc">
+                    <div class="panel mb-1">
+                        <div class="card-header rounded">
+                            <a class="card-link" href="Profile.aspx">My Profile</a>
+                            
+                        </div>
+                    </div>
+                    <div class="panel mb-1">
+                        <div class="card-header rounded">
+                            <a class="card-link" href="ChangePassword.aspx">Change Password</a>
+                        </div>
+                    </div>
+                    <asp:Panel ID="pnlAddressBook" runat="server">
+                        <div class="panel mb-1">
+                            <div class="card-header rounded">
+                                <a class="card-link" href="#">Address Book</a>
+                            </div>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlFollowing" runat="server">
+                        <div class="panel mb-1">
+                            <div class="card-header rounded">
+                                <%--Change to Followers when role is edu, and change link also --%>
+                                <asp:LinkButton ID="lbtnFollowing" runat="server"><a class="card-link" href="#">Following</a></asp:LinkButton>
+                                <%--<a class="card-link text-dark" href="#">Following</a>--%>
+                            </div>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlFollowers" runat="server">
+                        <div class="panel mb-1">
+                            <div class="card-header rounded">
+                                <asp:LinkButton ID="lbtnFollowers" runat="server"><a class="card-link" href="#">Followers</a></asp:LinkButton>
+                            </div>
+                        </div>
+                    </asp:Panel>
+
+
+                    <asp:Panel ID="pnlDashboard" runat="server">
+                        <div class="panel mb-1">
+                            <div class="card-header rounded">
+                                <asp:LinkButton ID="lbtnDashboard" runat="server" CssClass="card-link" Text="Dashboard"></asp:LinkButton>
+                            </div>
+                        </div>
+                    </asp:Panel>
+
+                    <asp:Panel ID="pnlAchivements" runat="server">
+                        <div class="panel mb-1">
+                            <div class="card-header rounded">
+                                <asp:LinkButton ID="lbtnAchivements" runat="server" CssClass="card-link" Text="Achivements"></asp:LinkButton>
+                            </div>
+                        </div>
+                    </asp:Panel>
+
+                    <div class="panel mb-1">
+                        <div class="card-header rounded">
+                            <a class="card-link" href="DeleteAccount.aspx">Delete Account</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                <asp:ContentPlaceHolder ID="Body" runat="server"></asp:ContentPlaceHolder>
+            </div>
+
+        </div>
+    </div>
+
+</asp:Content>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,6 +11,9 @@ namespace OnlineHobby
 {
     public partial class StudMaster : System.Web.UI.MasterPage
     {
+        SqlConnection con;
+        string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserEmail"] != null)
@@ -22,6 +27,51 @@ namespace OnlineHobby
                 lbtnMyOrder.Visible = true;
                 lbtnChats.Visible = true;
                 lbtnCourseTimetable.Visible = true;
+
+                Int64 UserId = Convert.ToInt64(Session["UserId"]);
+                string role = Session["Role"].ToString();
+
+                con = new SqlConnection(strCon);
+
+                if (role == "stud")
+                {
+                    con.Open();
+                    string cmd = "Select profileImg from Student where studId =" + UserId;
+                    SqlCommand cmdSelect = new SqlCommand(cmd, con);
+                    SqlDataReader dr = cmdSelect.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        if (dr.GetValue(0) == DBNull.Value)
+                        {
+                            imgProfile.ImageUrl = "~/Resources/profile_orange.png";
+                        }
+                        else
+                        {
+                            imgProfile.ImageUrl = dr.GetValue(0).ToString();
+                        }
+
+                    }
+                }
+                else
+                {
+                    con.Open();
+                    string cmd = "Select profileImg from Educator where eduId =" + UserId;
+                    SqlCommand cmdSelect = new SqlCommand(cmd, con);
+                    SqlDataReader dr = cmdSelect.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        if (dr.GetValue(0) == DBNull.Value)
+                        {
+                            imgProfile.ImageUrl = "~/Resources/profile_orange.png";
+                        }
+                        else
+                        {
+                            imgProfile.ImageUrl = dr.GetValue(0).ToString();
+                        }
+
+                    }
+
+                }
             }
             else
             {
@@ -55,5 +105,10 @@ namespace OnlineHobby
         {
             Response.Redirect("LogIn.aspx");
         }
+
+        protected void lbtnMyProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Profile.aspx");
+        } 
     }
 }

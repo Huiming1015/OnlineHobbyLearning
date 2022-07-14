@@ -91,18 +91,18 @@
                             </li>
 
                             <div class="pt-2">
-                                <asp:ImageButton ID="ImageButton1" runat="server" Height="33px" ImageUrl="~/Resources/cart.png" Width="33px" PostBackUrl="#" />
+                                <asp:ImageButton ID="ImageButton1" runat="server" Height="32px" ImageUrl="~/Resources/cart_orange.png" Width="32px" PostBackUrl="#" />
                             </div>
 
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">
-                                    <asp:Image ID="Image1" runat="server" CssClass="rounded-circle img-fluid" Height="35" Width="35" ImageUrl="~/Resources/profile_icon.png" />
+                                    <asp:Image ID="imgProfile" runat="server" CssClass="rounded-circle img-fluid" Height="35" Width="35" ImageUrl="~/Resources/profile_orange.png" />
                                     <%--  <img src="Resources/profile_icon.png" class="rounded-circle img-fluid" height='35' width='35'>--%>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <asp:LinkButton ID="lbtnMyProfile" runat="server" CssClass="dropdown-item">My Profile</asp:LinkButton></li>
+                                        <asp:LinkButton ID="lbtnMyProfile" runat="server" CssClass="dropdown-item" OnClick="lbtnMyProfile_Click">My Profile</asp:LinkButton></li>
                                     <li>
                                         <asp:LinkButton ID="lbtnMyOrder" runat="server" CssClass="dropdown-item">My Order</asp:LinkButton></li>
                                     <li>

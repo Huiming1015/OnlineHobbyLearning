@@ -73,18 +73,18 @@ namespace OnlineHobby
                     Session["UserId"] = UserId.ToString();
 
                     //Session save name
-                    string cmd3 = "Select adminName from Admin where adminEmail=@adminEmail";
-                    SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
-                    cmdSelect3.Parameters.AddWithValue("@adminEmail", GetUserEmail);
-                    string UserName = cmdSelect3.ExecuteScalar().ToString();
-                    Session["UserName"] = UserName.ToString();
-                    con.Close();
+                    //string cmd3 = "Select adminName from Admin where adminEmail=@adminEmail";
+                    //SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+                    //cmdSelect3.Parameters.AddWithValue("@adminEmail", GetUserEmail);
+                    //string UserName = cmdSelect3.ExecuteScalar().ToString();
+                    //Session["UserName"] = UserName.ToString();
+                    //con.Close();
 
                     //Session save role
                     Session["Role"] = "admin";
 
-                    //Response.Redirect("Homepage.aspx");
-                    Response.Write("<script>alert('" + Session["UserEmail"] + Session["UserId"] + Session["UserName"] + Session["Role"] + "') </script>");
+                    Response.Redirect("AdminHomepage.aspx");
+                    //Response.Write("<script>alert('" + Session["UserEmail"] + Session["UserId"] + Session["UserName"] + Session["Role"] + "') </script>");
                 }
                 else
                 {

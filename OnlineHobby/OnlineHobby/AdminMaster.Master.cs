@@ -18,7 +18,7 @@ namespace OnlineHobby
                 lbtnReports.Visible = true;
                 lbtnApplication.Visible = true;
                 lbtnEduSU.Visible = true;
-                lbtnNewCourse.Visible = true;
+                //lbtnNewCourse.Visible = true;
                 lbtnEduIncidents.Visible = true;
             }
             else
@@ -28,7 +28,7 @@ namespace OnlineHobby
                 lbtnReports.Visible = false;
                 lbtnApplication.Visible = false;
                 lbtnEduSU.Visible = false;
-                lbtnNewCourse.Visible = false;
+                //lbtnNewCourse.Visible = false;
                 lbtnEduIncidents.Visible = false;
             }
         }

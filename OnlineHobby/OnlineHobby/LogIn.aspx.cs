@@ -84,12 +84,12 @@ namespace OnlineHobby
                         Session["UserId"] = UserId.ToString();
 
                         //Session save name
-                        string cmd3 = "Select studName from Student where studEmail=@studEmail";
-                        SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
-                        cmdSelect3.Parameters.AddWithValue("@studEmail", GetUserEmail);
-                        string UserName = cmdSelect3.ExecuteScalar().ToString();
-                        Session["UserName"] = UserName.ToString();
-                        con.Close();
+                        //string cmd3 = "Select studName from Student where studEmail=@studEmail";
+                        //SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+                        //cmdSelect3.Parameters.AddWithValue("@studEmail", GetUserEmail);
+                        //string UserName = cmdSelect3.ExecuteScalar().ToString();
+                        //Session["UserName"] = UserName.ToString();
+                        //con.Close();
 
                         //Session save role
                         Session["Role"] = "stud";
@@ -143,15 +143,15 @@ namespace OnlineHobby
                             Session["UserId"] = UserId.ToString();
 
                             //Session save name
-                            string cmd6 = "Select eduName from Educator where eduEmail=@eduEmail";
-                            SqlCommand cmdSelect6 = new SqlCommand(cmd6, con);
-                            cmdSelect6.Parameters.AddWithValue("@eduEmail", GetUserEmail);
-                            string UserName = cmdSelect6.ExecuteScalar().ToString();
-                            Session["UserName"] = UserName.ToString();
-                            con.Close();
+                            //string cmd6 = "Select eduName from Educator where eduEmail=@eduEmail";
+                            //SqlCommand cmdSelect6 = new SqlCommand(cmd6, con);
+                            //cmdSelect6.Parameters.AddWithValue("@eduEmail", GetUserEmail);
+                            //string UserName = cmdSelect6.ExecuteScalar().ToString();
+                            //Session["UserName"] = UserName.ToString();
+                            //con.Close();
 
                             //Session save role
-                            Session["Role"] = "stud";
+                            Session["Role"] = "edu";
 
                             Response.Redirect("Homepage.aspx");
                             //Response.Write("<script>alert('" + Session["UserEmail"] + Session["UserId"] + Session["UserName"] + "') </script>");
