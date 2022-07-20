@@ -23,11 +23,12 @@ namespace OnlineHobby
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 GUIDValue = Request.QueryString["id"];
+                role = Request.QueryString["role"];
                 String NotUsed = "Not Used";
 
                 if (GUIDValue != null)
                 {
-                    SqlCommand cmd = new SqlCommand("Select * from ForgotPassword where id=@id and linkStatus=@linkStatus", con);
+                    SqlCommand cmd = new SqlCommand("Select * from ForgotPassword where forgotPswdId=@id and linkStatus=@linkStatus", con);
                     con.Open();
                     cmd.Parameters.AddWithValue("@id", GUIDValue);
                     cmd.Parameters.AddWithValue("@linkStatus", NotUsed);
@@ -36,7 +37,15 @@ namespace OnlineHobby
                     sda.Fill(dt);
                     if (dt.Rows.Count != 0)
                     {
-                        UserId = Convert.ToInt32(dt.Rows[0][1]);
+                        if(role == "stud")
+                        {
+                            UserId = Convert.ToInt32(dt.Rows[0][1]);
+                        }
+                        else
+                        {
+                            UserId = Convert.ToInt32(dt.Rows[0][2]);
+                        }
+                        
                     }
                     else
                     {
@@ -139,7 +148,7 @@ namespace OnlineHobby
                         }
 
                         string Invalid = "Invalid";
-                        SqlCommand cmd3 = new SqlCommand("Update ForgotPassword set linkStatus=@linkStatus where id='" + GUIDValue + "'", con);
+                        SqlCommand cmd3 = new SqlCommand("Update ForgotPassword set linkStatus=@linkStatus where forgotPswdId='" + GUIDValue + "'", con);
                         cmd3.Parameters.AddWithValue("@LinkStatus", Invalid);
                         cmd3.ExecuteNonQuery();
 
