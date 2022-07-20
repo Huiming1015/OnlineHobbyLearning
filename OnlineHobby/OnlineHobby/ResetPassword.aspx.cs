@@ -24,7 +24,7 @@ namespace OnlineHobby
             {
                 GUIDValue = Request.QueryString["id"];
                 role = Request.QueryString["role"];
-                String NotUsed = "Not Used";
+                String NotUsed = "valid";
 
                 if (GUIDValue != null)
                 {
@@ -147,7 +147,7 @@ namespace OnlineHobby
                             cmd2.ExecuteNonQuery();
                         }
 
-                        string Invalid = "Invalid";
+                        string Invalid = "invalid";
                         SqlCommand cmd3 = new SqlCommand("Update ForgotPassword set linkStatus=@linkStatus where forgotPswdId='" + GUIDValue + "'", con);
                         cmd3.Parameters.AddWithValue("@LinkStatus", Invalid);
                         cmd3.ExecuteNonQuery();

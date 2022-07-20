@@ -47,7 +47,7 @@ namespace OnlineHobby
                 string Email = dt.Rows[0][2].ToString();
 
                 //pass user role 
-                SqlCommand cmd1 = new SqlCommand("Insert into ForgotPassword(forgotPswdId,studId,email,linkStatus) values('" + myGUID + "','" + UserId + "','" + Email + "','Not Used')", con);
+                SqlCommand cmd1 = new SqlCommand("Insert into ForgotPassword(forgotPswdId,studId,email,linkStatus) values('" + myGUID + "','" + UserId + "','" + Email + "','valid')", con);
                 cmd1.ExecuteNonQuery();
 
                 string ToEmailAddress = dt.Rows[0][2].ToString();
@@ -95,7 +95,7 @@ namespace OnlineHobby
                     int UserId = Convert.ToInt32(dt2.Rows[0][0]);
                     string Email = dt2.Rows[0][2].ToString();
 
-                    SqlCommand cmd3 = new SqlCommand("Insert into ForgotPassword(forgotPswdId,eduId,email,linkStatus) values('" + myGUID + "','" + UserId + "','" + Email + "','Not Used')", con);
+                    SqlCommand cmd3 = new SqlCommand("Insert into ForgotPassword(forgotPswdId,eduId,email,linkStatus) values('" + myGUID + "','" + UserId + "','" + Email + "','valid')", con);
                     cmd3.ExecuteNonQuery();
 
                     string ToEmailAddress = dt2.Rows[0][2].ToString();
