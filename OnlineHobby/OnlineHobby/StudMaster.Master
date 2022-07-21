@@ -91,7 +91,7 @@
                             </li>
 
                             <div class="pt-2">
-                                <asp:ImageButton ID="ImageButton1" runat="server" Height="32px" ImageUrl="~/Resources/cart_orange.png" Width="32px" PostBackUrl="#" />
+                                <asp:ImageButton ID="imgBtnCart" runat="server" Height="32px" ImageUrl="~/Resources/cart_orange.png" Width="32px" PostBackUrl="#" />
                             </div>
 
 

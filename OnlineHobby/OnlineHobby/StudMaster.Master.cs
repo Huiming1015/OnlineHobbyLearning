@@ -27,6 +27,7 @@ namespace OnlineHobby
                 lbtnMyOrder.Visible = true;
                 lbtnChats.Visible = true;
                 lbtnCourseTimetable.Visible = true;
+                imgBtnCart.Visible = true;
 
                 Int64 UserId = Convert.ToInt64(Session["UserId"]);
                 string role = Session["Role"].ToString();
@@ -84,6 +85,7 @@ namespace OnlineHobby
                 lbtnMyOrder.Visible = false;
                 lbtnChats.Visible = false;
                 lbtnCourseTimetable.Visible = false;
+                imgBtnCart.Visible = false;
 
             }
         }
