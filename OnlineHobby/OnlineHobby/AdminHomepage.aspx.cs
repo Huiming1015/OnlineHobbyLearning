@@ -11,7 +11,10 @@ namespace OnlineHobby
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["AdminEmail"] == null)
+            {
+                Response.Redirect("AdminLogIn.aspx");
+            }
         }
     }
 }

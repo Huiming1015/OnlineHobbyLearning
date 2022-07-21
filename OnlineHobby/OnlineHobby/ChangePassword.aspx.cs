@@ -17,17 +17,25 @@ namespace OnlineHobby
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            if (Session["UserEmail"] != null)
             {
-                string Password = txtPCurrentPasword.Text;
-                txtPCurrentPasword.Attributes.Add("value", Password);
+                if (IsPostBack)
+                {
+                    string Password = txtPCurrentPasword.Text;
+                    txtPCurrentPasword.Attributes.Add("value", Password);
 
-                string Password2 = txtPNewPassword.Text;
-                txtPNewPassword.Attributes.Add("value", Password2);
+                    string Password2 = txtPNewPassword.Text;
+                    txtPNewPassword.Attributes.Add("value", Password2);
 
-                string Password3 = txtPConfirmPassword.Text;
-                txtPConfirmPassword.Attributes.Add("value", Password3);
+                    string Password3 = txtPConfirmPassword.Text;
+                    txtPConfirmPassword.Attributes.Add("value", Password3);
+                }
             }
+            else
+            {
+                Response.Redirect("LogIn.aspx");
+            }
+           
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)

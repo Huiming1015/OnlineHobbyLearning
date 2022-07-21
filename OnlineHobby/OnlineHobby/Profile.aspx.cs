@@ -18,60 +18,68 @@ namespace OnlineHobby
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["UserEmail"] != null)
             {
-                Int64 UserId = Convert.ToInt64(Session["UserId"]);
-                string role = Session["Role"].ToString();
-
-                con = new SqlConnection(strCon);
-
-                if (role == "stud")
+                if (!IsPostBack)
                 {
-                    con.Open();
-                    string cmd = "Select studName,studEmail,profileImg from Student where studId =" + UserId;
-                    SqlCommand cmdSelect = new SqlCommand(cmd, con);
-                    SqlDataReader dr = cmdSelect.ExecuteReader();
-                    while (dr.Read())
+                    Int64 UserId = Convert.ToInt64(Session["UserId"]);
+                    string role = Session["Role"].ToString();
+
+                    con = new SqlConnection(strCon);
+
+                    if (role == "stud")
                     {
-
-                        txtPName.Text = dr.GetValue(0).ToString();
-                        txtPEmail.Text = dr.GetValue(1).ToString();
-                        if (dr.GetValue(2) == DBNull.Value)
+                        con.Open();
+                        string cmd = "Select studName,studEmail,profileImg from Student where studId =" + UserId;
+                        SqlCommand cmdSelect = new SqlCommand(cmd, con);
+                        SqlDataReader dr = cmdSelect.ExecuteReader();
+                        while (dr.Read())
                         {
-                            imgProfile.ImageUrl = "~/Resources/profile_orange.png";
-                        }
-                        else
-                        {
-                            imgProfile.ImageUrl = dr.GetValue(2).ToString();
-                        }
 
+                            txtPName.Text = dr.GetValue(0).ToString();
+                            txtPEmail.Text = dr.GetValue(1).ToString();
+                            if (dr.GetValue(2) == DBNull.Value)
+                            {
+                                imgProfile.ImageUrl = "~/Resources/profile_orange.png";
+                            }
+                            else
+                            {
+                                imgProfile.ImageUrl = dr.GetValue(2).ToString();
+                            }
+
+                        }
                     }
-                }
-                else
-                {
-                    con.Open();
-                    string cmd2 = "Select eduName,eduEmail,profileImg,about from Educator where eduId =" + UserId;
-                    SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
-                    SqlDataReader dr = cmdSelect2.ExecuteReader();
-                    while (dr.Read())
+                    else
                     {
-                        txtPName.Text = dr.GetValue(0).ToString();
-                        txtPEmail.Text = dr.GetValue(1).ToString();
-                        if (dr.GetValue(2) == DBNull.Value)
+                        con.Open();
+                        string cmd2 = "Select eduName,eduEmail,profileImg,about from Educator where eduId =" + UserId;
+                        SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
+                        SqlDataReader dr = cmdSelect2.ExecuteReader();
+                        while (dr.Read())
                         {
-                            imgProfile.ImageUrl = "~/Resources/profile_orange.png";
-                        }
-                        else
-                        {
-                            imgProfile.ImageUrl = dr.GetValue(2).ToString();
-                        }
-                        txtPAbout.Text = dr.GetValue(3).ToString();
-                        Panel1.Visible = true;
+                            txtPName.Text = dr.GetValue(0).ToString();
+                            txtPEmail.Text = dr.GetValue(1).ToString();
+                            if (dr.GetValue(2) == DBNull.Value)
+                            {
+                                imgProfile.ImageUrl = "~/Resources/profile_orange.png";
+                            }
+                            else
+                            {
+                                imgProfile.ImageUrl = dr.GetValue(2).ToString();
+                            }
+                            txtPAbout.Text = dr.GetValue(3).ToString();
+                            Panel1.Visible = true;
 
+                        }
                     }
-                }
 
+                }
             }
+            else
+            {
+                Response.Redirect("LogIn.aspx");
+            }
+            
 
             //if (fileUploadImg.PostedFile != null && fileUploadImg.PostedFile.ContentLength > 0) { UploadAndDisplayImage(); }
         }

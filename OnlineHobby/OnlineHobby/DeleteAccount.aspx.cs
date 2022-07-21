@@ -16,7 +16,15 @@ namespace OnlineHobby
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnDelete.Enabled = false;
+            if (Session["UserEmail"] != null)
+            {
+                btnDelete.Enabled = false;
+            }
+            else
+            {
+                Response.Redirect("LogIn.aspx");
+            }
+                
         }
 
         protected void txtVerify_TextChanged(object sender, EventArgs e)

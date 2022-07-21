@@ -59,8 +59,8 @@ namespace OnlineHobby
                 if (dt.Rows.Count != 0)
                 {
                     //Session save email
-                    Session["UserEmail"] = txtLoginEmail.Text;
-                    string GetUserEmail = Session["UserEmail"].ToString();
+                    Session["AdminEmail"] = txtLoginEmail.Text;
+                    string GetUserEmail = Session["AdminEmail"].ToString();
 
                     //Session save id
                     string cmd2 = "Select adminId from Admin where adminEmail=@adminEmail";
@@ -70,7 +70,7 @@ namespace OnlineHobby
                     SqlDataAdapter sda2 = new SqlDataAdapter(cmdSelect2);
                     sda2.Fill(dt2);
                     Int64 UserId = Convert.ToInt64(dt2.Rows[0][0]);
-                    Session["UserId"] = UserId.ToString();
+                    Session["AdminId"] = UserId.ToString();
 
                     //Session save name
                     //string cmd3 = "Select adminName from Admin where adminEmail=@adminEmail";
