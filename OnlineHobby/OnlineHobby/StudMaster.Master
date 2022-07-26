@@ -48,6 +48,26 @@
         .navbar-custom.navbar-toggler {
             border-color: #5E3C18;
         }
+
+        .navChange > a,
+        .navChange2 > a{
+            color: #5E3C18;
+        }
+
+            .navChange > a:hover,
+            .navChange2 > a:hover{
+                color: #BB7930;
+            }
+
+        .navChange2{
+            padding-left:1.5em;
+            padding-right:1.5em;
+        }
+
+         .navChange{
+            padding-left:1.5em;
+            padding-right:1.5em;
+        }
     </style>
 </head>
 <body>
@@ -76,9 +96,19 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Material Kits</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="SignUpEducator.aspx">Teach</a>
-                            </li>
+                            <asp:Panel ID="Panel1" runat="server">
+                                <li class="navChange">
+                                    <asp:LinkButton ID="lbtnTeach" runat="server"><a class="nav-link" href="SignUpEducator.aspx">Teach</a></asp:LinkButton>
+                                </li>
+                            </asp:Panel>
+
+
+                            <asp:Panel ID="Panel2" runat="server">
+                                <li class="navChange2">
+                                        <asp:LinkButton ID="lbtnReport" runat="server"><a class="nav-link" href="#">Reports</a></asp:LinkButton>
+                                </li>
+                            </asp:Panel>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="AboutUs.aspx">About Us</a>
                             </li>
@@ -87,7 +117,7 @@
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <%--<a class="nav-link" href="#">Course Timetable</a>--%>
-                                <asp:LinkButton ID="lbtnCourseTimetable" runat="server" CssClass="nav-link">Course Timetable</asp:LinkButton>
+                                <asp:LinkButton ID="lbtnCourseTimetable" runat="server" CssClass="nav-link">My Course</asp:LinkButton>
                             </li>
 
                             <div class="pt-2">
@@ -106,11 +136,15 @@
                                     <li>
                                         <asp:LinkButton ID="lbtnMyOrder" runat="server" CssClass="dropdown-item">My Order</asp:LinkButton></li>
                                     <li>
+                                        <asp:LinkButton ID="lbtnOrderHistory" runat="server" CssClass="dropdown-item">Order History</asp:LinkButton></li>
+                                    <li>
+                                        <asp:LinkButton ID="lbtnPaymentList" runat="server" CssClass="dropdown-item">Payment List</asp:LinkButton></li>
+                                    <li>
                                         <asp:LinkButton ID="lbtnChats" runat="server" CssClass="dropdown-item mb-0 pb-0">Chats</asp:LinkButton></li>
                                     <%--<li>
                                         <hr class="dropdown-divider" id="divider" />
                                     </li>--%>
-                                    
+
                                     <asp:Label ID="divider" runat="server" CssClass="dropdown-divider"><hr/></asp:Label>
 
                                     <%--<li><a class="dropdown-item" href="#" id="profile">My Profile</a></li>

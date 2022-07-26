@@ -24,7 +24,7 @@ namespace OnlineHobby
                 lbtnLogout.Visible = true;
                 divider.Visible = true;
                 lbtnMyProfile.Visible = true;
-                lbtnMyOrder.Visible = true;
+                
                 lbtnChats.Visible = true;
                 lbtnCourseTimetable.Visible = true;
                 imgBtnCart.Visible = true;
@@ -36,6 +36,11 @@ namespace OnlineHobby
 
                 if (role == "stud")
                 {
+                    lbtnMyOrder.Visible = true;
+                    lbtnOrderHistory.Visible = false;
+                   Panel1.Visible = true;
+                    Panel2.Visible = false;
+
                     con.Open();
                     string cmd = "Select profileImg from Student where studId =" + UserId;
                     SqlCommand cmdSelect = new SqlCommand(cmd, con);
@@ -55,6 +60,11 @@ namespace OnlineHobby
                 }
                 else
                 {
+                    lbtnMyOrder.Visible = false;
+                    lbtnOrderHistory.Visible = true;
+                    Panel1.Visible = false;
+                    Panel2.Visible = true;
+
                     con.Open();
                     string cmd = "Select profileImg from Educator where eduId =" + UserId;
                     SqlCommand cmdSelect = new SqlCommand(cmd, con);
@@ -83,9 +93,12 @@ namespace OnlineHobby
                 divider.Visible = false;
                 lbtnMyProfile.Visible = false;
                 lbtnMyOrder.Visible = false;
+                lbtnOrderHistory.Visible = false;
+                lbtnPaymentList.Visible = false;
                 lbtnChats.Visible = false;
                 lbtnCourseTimetable.Visible = false;
                 imgBtnCart.Visible = false;
+                Panel2.Visible = false;
 
             }
         }

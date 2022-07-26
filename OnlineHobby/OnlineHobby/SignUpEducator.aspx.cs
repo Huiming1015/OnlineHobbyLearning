@@ -69,7 +69,7 @@ namespace OnlineHobby
 
                     con = new SqlConnection(strCon);
                     con.Open();
-                    string cmd2 = "Insert into EduApplication(eduAppId,eduName,eduEmail,courseCategory,teachingExperience,driveLink) Values('" + id + "','" + txtSUName.Text + "','" + txtSUEmail.Text + "','" + ddlSUCourse.SelectedValue + "','" + rblSUExperience.SelectedValue + "','" + txtSUQualification.Text + "')";
+                    string cmd2 = "Insert into EduApplication(eduAppId,eduName,eduEmail,courseCategory,teachingExperience,driveLink,apprStatus) Values('" + id + "','" + txtSUName.Text + "','" + txtSUEmail.Text + "','" + ddlSUCourse.SelectedValue + "','" + rblSUExperience.SelectedValue + "','" + txtSUQualification.Text + "','" + "pending" + "')";
                     SqlCommand cmdSelect = new SqlCommand(cmd2, con);
                     cmdSelect.ExecuteNonQuery();
                     con.Close();
