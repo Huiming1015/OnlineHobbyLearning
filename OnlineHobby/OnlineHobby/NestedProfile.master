@@ -71,7 +71,7 @@
                     <asp:Panel ID="pnlAddressBook" runat="server">
                         <div class="panel mb-1">
                             <div class="card-header rounded">
-                                <a class="card-link" href="#"><i class="fa fa-address-book"></i>&nbsp Address Book</a>
+                                <a class="card-link" href="AddressBook.aspx"><i class="fa fa-address-book"></i>&nbsp Address Book</a>
                             </div>
                         </div>
                     </asp:Panel>
