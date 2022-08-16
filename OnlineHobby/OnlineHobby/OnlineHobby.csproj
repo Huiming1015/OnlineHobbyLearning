@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
+    <Content Include="Achievements.aspx" />
+    <Content Include="AddAchievement.aspx" />
     <Content Include="AddAddress.aspx" />
     <Content Include="AddressBook.aspx" />
     <Content Include="AdminHomepage.aspx" />
@@ -96,6 +98,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="DeleteAccount.aspx" />
+    <Content Include="EditAchievement.aspx" />
     <Content Include="EditAddress.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Homepage.aspx" />
@@ -155,6 +158,20 @@
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Achievements.aspx.cs">
+      <DependentUpon>Achievements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Achievements.aspx.designer.cs">
+      <DependentUpon>Achievements.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddAchievement.aspx.cs">
+      <DependentUpon>AddAchievement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddAchievement.aspx.designer.cs">
+      <DependentUpon>AddAchievement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddAddress.aspx.cs">
       <DependentUpon>AddAddress.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -196,6 +213,13 @@
     </Compile>
     <Compile Include="DeleteAccount.aspx.designer.cs">
       <DependentUpon>DeleteAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditAchievement.aspx.cs">
+      <DependentUpon>EditAchievement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditAchievement.aspx.designer.cs">
+      <DependentUpon>EditAchievement.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditAddress.aspx.cs">
       <DependentUpon>EditAddress.aspx</DependentUpon>

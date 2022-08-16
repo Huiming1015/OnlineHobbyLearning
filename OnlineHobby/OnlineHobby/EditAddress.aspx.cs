@@ -28,7 +28,7 @@ namespace OnlineHobby
                     con = new SqlConnection(strCon);
                     
                         con.Open();
-                        string cmd2 = "Select name,phone,address from StudAddress where studId =" + UserId + "and addrId =" + Request.QueryString["id"]; //where addrId is ??
+                        string cmd2 = "Select name,phone,address from AddressBook where studId =" + UserId + "and addrId =" + Request.QueryString["id"]; //where addrId is ??
                         SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
                         SqlDataReader dr = cmdSelect2.ExecuteReader();
                         while (dr.Read())
@@ -92,7 +92,7 @@ namespace OnlineHobby
                 else
                 {
                     con.Open();
-                    string cmd = "Update StudAddress set name=@Name,phone=@phone,address=@address where studId =" + UserId + "and addrId =" + Request.QueryString["id"];
+                    string cmd = "Update AddressBook set name=@Name,phone=@phone,address=@address where studId =" + UserId + "and addrId =" + Request.QueryString["id"];
                     SqlCommand cmdSelect = new SqlCommand(cmd, con);
                     cmdSelect.Parameters.AddWithValue("@Name", txtAddrName.Text);
                     cmdSelect.Parameters.AddWithValue("@phone", txtAddrPhone.Text);
@@ -117,7 +117,7 @@ namespace OnlineHobby
 
             con = new SqlConnection(strCon);
             con.Open();
-            string cmd = "Delete from StudAddress  where studId =" + UserId + "and addrId =" + Request.QueryString["id"];
+            string cmd = "Delete from AddressBook  where studId =" + UserId + "and addrId =" + Request.QueryString["id"];
             SqlCommand cmdSelect = new SqlCommand(cmd, con);
             cmdSelect.ExecuteNonQuery();
             con.Close();

@@ -106,7 +106,8 @@
                     <asp:Panel ID="pnlAchivements" runat="server">
                         <div class="panel mb-1">
                             <div class="card-header rounded">
-                                <asp:LinkButton ID="lbtnAchivements" runat="server" CssClass="card-link"><i class="fa fa-trophy"></i>&nbsp Achievements</asp:LinkButton>
+                                <a class="card-link" href="Achievements.aspx"><i class="fa fa-trophy"></i>&nbsp Achievements</a>
+                              <%--  <asp:LinkButton ID="lbtnAchivements" runat="server" CssClass="card-link" href="AddAchievement.aspx"><i class="fa fa-trophy"></i>&nbsp Achievements</asp:LinkButton>--%>
                             </div>
                         </div>
                     </asp:Panel>

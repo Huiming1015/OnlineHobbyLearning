@@ -139,15 +139,6 @@ namespace OnlineHobby {
         protected global::System.Web.UI.WebControls.Panel pnlAchivements;
         
         /// <summary>
-        /// lbtnAchivements control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbtnAchivements;
-        
-        /// <summary>
         /// Body control.
         /// </summary>
         /// <remarks>

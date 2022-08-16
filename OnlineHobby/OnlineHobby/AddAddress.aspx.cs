@@ -45,7 +45,7 @@ namespace OnlineHobby
         {
             con = new SqlConnection(strCon);
             con.Open();
-            SqlCommand cmd = new SqlCommand("Select IsNull(max(addrId),0) from StudAddress", con);
+            SqlCommand cmd = new SqlCommand("Select IsNull(max(addrId),0) from AddressBook", con);
             id = Convert.ToInt64(cmd.ExecuteScalar()) + 1;
             con.Close();
 
@@ -99,7 +99,7 @@ namespace OnlineHobby
                     AutoGenerateUserID();
 
                     con.Open();
-                    string cmd = "Insert into StudAddress(addrId, studId, name, phone, address) Values('" + id + "', '" + UserId + "', '" + txtAddrName.Text + "', '" + txtAddrPhone.Text + "', '" + txtAddrAddress.Text + "')";
+                    string cmd = "Insert into AddressBook(addrId, studId, name, phone, address) Values('" + id + "', '" + UserId + "', '" + txtAddrName.Text + "', '" + txtAddrPhone.Text + "', '" + txtAddrAddress.Text + "')";
                     SqlCommand cmdSelect = new SqlCommand(cmd, con);
                     cmdSelect.ExecuteNonQuery();
                     con.Close();

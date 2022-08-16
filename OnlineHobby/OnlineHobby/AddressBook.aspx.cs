@@ -32,7 +32,7 @@ namespace OnlineHobby
                 {
                     con = new SqlConnection(strCon);
                     con.Open();
-                    string cmd = "Select * from StudAddress where studId=@studId";
+                    string cmd = "Select * from AddressBook where studId=@studId";
                     SqlCommand cmdSelect = new SqlCommand(cmd, con);
                     cmdSelect.Parameters.AddWithValue("@studId", UserId);
 

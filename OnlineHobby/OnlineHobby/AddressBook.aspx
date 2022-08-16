@@ -51,22 +51,22 @@
                         <tr>
                             <td dir="rtl" class="auto-style1">&nbsp;</td>
                             <td dir="ltr" colspan="3" class="auto-style6">
-                                <asp:Label ID="lblAddrName" runat="server" Font-Size="Large"><%#Eval("name")%></asp:Label>
+                                <asp:Label ID="lblAddrName" runat="server" Font-Size="17px"><%#Eval("name")%></asp:Label>
                                 &nbsp;
-                            <asp:Label ID="Label1" runat="server" Font-Size="Large">|</asp:Label>
+                            <asp:Label ID="Label1" runat="server" Font-Size="17px">|</asp:Label>
                                 &nbsp;
-                            <asp:Label ID="lblAddrPhone" runat="server" Font-Size="Large"><%#Eval("phone")%></asp:Label>
+                            <asp:Label ID="lblAddrPhone" runat="server" Font-Size="17px"><%#Eval("phone")%></asp:Label>
                             </td>
                             <td class="auto-style2">&nbsp;</td>
                             <td>&nbsp;</td>
 
                         </tr>
                         <tr>
-                            <td dir="rtl" class="auto-style1"></td>
-                            <td dir="ltr" colspan="3" class="auto-style6">
-                                <asp:Label ID="lblAddrAddress" runat="server" Font-Size="Large"><%#Eval("address")%></asp:Label>
+                            <td dir="rtl" class="auto-style7"></td>
+                            <td dir="ltr" colspan="3" class="auto-style8">
+                                <asp:Label ID="lblAddrAddress" runat="server" Font-Size="17px"><%#Eval("address")%></asp:Label>
                             </td>
-                            <td class="auto-style2">&nbsp;</td>
+                            <td class="auto-style9"></td>
 
                         </tr>
 
@@ -81,20 +81,22 @@
                 </ItemTemplate>
             </asp:Repeater>
 
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="Select StudAddress.addrId,StudAddress.name,StudAddress.phone,StudAddress.address
-FROM StudAddress INNER JOIN Student ON StudAddress.studId = Student.studId  WHERE StudAddress.studId=@UserId">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="Select AddressBook.addrId,AddressBook.name,AddressBook.phone,AddressBook.address
+FROM AddressBook INNER JOIN Student ON AddressBook.studId = Student.studId  WHERE AddressBook.studId=@UserId">
                 <SelectParameters>
                     <asp:SessionParameter Name="UserId" SessionField="UserId" />
                 </SelectParameters>
             </asp:SqlDataSource>
         </div>
         <asp:Panel ID="Panel3" runat="server" Visible="False">
-            <div class="mt-5 mb-5 pb-2 pt-5"></div>
+            <%--5525--%>
+            <div class="mt-5 mb-5 pb-3 pt-5"></div>
             <div class="pt-1"></div>
         </asp:Panel>
 
         <asp:Panel ID="Panel4" runat="server" Visible="False">
-            <div class="mt-1 pt-1 pb-2 mb-1"></div>
+            <%--1121--%>
+            <div class="mt-2 pt-2 pb-2 mb-1"></div>
         </asp:Panel>
 
         <%--//52354--%>
