@@ -79,9 +79,9 @@ namespace OnlineHobby
             {
                 Response.Redirect("LogIn.aspx");
             }
-            
 
-            //if (fileUploadImg.PostedFile != null && fileUploadImg.PostedFile.ContentLength > 0) { UploadAndDisplayImage(); }
+
+            if (fileUploadImg.PostedFile != null && fileUploadImg.PostedFile.ContentLength > 0) { UploadAndDisplayImage(); }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -136,33 +136,22 @@ namespace OnlineHobby
                     }
                     else
                     {
-                        string extenssion = System.IO.Path.GetExtension(fileUploadImg.FileName);
-                        string filename = fileUploadImg.PostedFile.FileName;
-                        if (fileUploadImg.PostedFile != null && fileUploadImg.PostedFile.FileName != "")
+                        if (Session["profileImg"] != null)
                         {
-                            if (extenssion == ".jpg" || extenssion == ".png")
-                            {
-                                string filepath = "Assets/profileImg/" + fileUploadImg.FileName;
-                                fileUploadImg.SaveAs(Server.MapPath("~/Assets/profileImg/") + filename);
-                                imgProfile.ImageUrl = "~/" + filepath;
-                                Session["profileImg"] = filepath;
 
-                                con.Open();
-                                string cmd = "Update Student set studName=@Name,studEmail=@Email,profileImg=@Image where studId =" + UserId;
-                                SqlCommand cmdSelect = new SqlCommand(cmd, con);
-                                cmdSelect.Parameters.AddWithValue("@Name", txtPName.Text);
-                                cmdSelect.Parameters.AddWithValue("@Email", txtPEmail.Text);
-                                cmdSelect.Parameters.AddWithValue("@Image", Session["profileImg"]);
-                                cmdSelect.ExecuteNonQuery();
-                                con.Close();
+                            con.Open();
+                            string cmd = "Update Student set studName=@Name,studEmail=@Email,profileImg=@Image where studId =" + UserId;
+                            SqlCommand cmdSelect = new SqlCommand(cmd, con);
+                            cmdSelect.Parameters.AddWithValue("@Name", txtPName.Text);
+                            cmdSelect.Parameters.AddWithValue("@Email", txtPEmail.Text);
+                            cmdSelect.Parameters.AddWithValue("@Image", Session["profileImg"]);
+                            cmdSelect.ExecuteNonQuery();
+                            con.Close();
 
-                                Response.Redirect("Profile.aspx");
-                                MsgSuccess.Visible = true;
-                            }
-                            else
-                            {
-                                MsgImage.Visible = true;
-                            }
+                            Session["profileImg"] = null;
+                            Response.Redirect("Profile.aspx");
+                            MsgSuccess.Visible = true;
+
                         }
                         else
                         {
@@ -174,7 +163,7 @@ namespace OnlineHobby
                             cmdSelect.ExecuteNonQuery();
                             con.Close();
 
-                            
+
                             MsgSuccess.Visible = true;
 
                         }
@@ -187,7 +176,7 @@ namespace OnlineHobby
             }
             else
             {
-                if(txtPName.Text !="" && txtPEmail.Text !="" && txtPAbout.Text != "")
+                if (txtPName.Text != "" && txtPEmail.Text != "" && txtPAbout.Text != "")
                 {
                     if (!validateName(txtPName.Text))
                     {
@@ -221,34 +210,22 @@ namespace OnlineHobby
                     }
                     else
                     {
-                        string extenssion = System.IO.Path.GetExtension(fileUploadImg.FileName);
-                        string filename = fileUploadImg.PostedFile.FileName;
-                        if (fileUploadImg.PostedFile != null && fileUploadImg.PostedFile.FileName != "")
+                        if (Session["profileImg"] != null)
                         {
-                            if (extenssion == ".jpg" || extenssion == ".png")
-                            {
-                                string filepath = "Assets/profileImg/" + fileUploadImg.FileName;
-                                fileUploadImg.SaveAs(Server.MapPath("~/Assets/profileImg/") + filename);
-                                imgProfile.ImageUrl = "~/" + filepath;
-                                Session["profileImgEdu"] = filepath;
+                            con.Open();
+                            string cmd = "Update Educator set eduName=@Name,eduEmail=@Email,profileImg=@Image,about=@About where eduId =" + UserId;
+                            SqlCommand cmdSelect = new SqlCommand(cmd, con);
+                            cmdSelect.Parameters.AddWithValue("@Name", txtPName.Text);
+                            cmdSelect.Parameters.AddWithValue("@Email", txtPEmail.Text);
+                            cmdSelect.Parameters.AddWithValue("@Image", Session["profileImg"]);
+                            cmdSelect.Parameters.AddWithValue("@About", txtPAbout.Text);
+                            cmdSelect.ExecuteNonQuery();
+                            con.Close();
 
-                                con.Open();
-                                string cmd = "Update Educator set eduName=@Name,eduEmail=@Email,profileImg=@Image,about=@About where eduId =" + UserId;
-                                SqlCommand cmdSelect = new SqlCommand(cmd, con);
-                                cmdSelect.Parameters.AddWithValue("@Name", txtPName.Text);
-                                cmdSelect.Parameters.AddWithValue("@Email", txtPEmail.Text);
-                                cmdSelect.Parameters.AddWithValue("@Image", Session["profileImgEdu"]);
-                                cmdSelect.Parameters.AddWithValue("@About", txtPAbout.Text);
-                                cmdSelect.ExecuteNonQuery();
-                                con.Close();
+                            Session["profileImg"] = null;
+                            Response.Redirect("Profile.aspx");
+                            MsgSuccess.Visible = true;
 
-                                Response.Redirect("Profile.aspx");
-                                MsgSuccess.Visible = true;
-                            }
-                            else
-                            {
-                                MsgImage.Visible = true;
-                            }
                         }
                         else
                         {
@@ -272,25 +249,25 @@ namespace OnlineHobby
             }
         }
 
-        //private void UploadAndDisplayImage()
-        //{
-        //    string extenssion = System.IO.Path.GetExtension(fileUploadImg.FileName);
-        //    string filename = fileUploadImg.PostedFile.FileName;
-        //    if (fileUploadImg.PostedFile != null && fileUploadImg.PostedFile.FileName != "")
-        //    {
-        //        if (extenssion == ".jpg" || extenssion == ".png")
-        //        {
-        //            string filepath = "Assets/profileImg/" + fileUploadImg.FileName;
-        //            fileUploadImg.SaveAs(Server.MapPath("~/Assets/profileImg/") + filename);
-        //            imgProfile.ImageUrl = "~/" + filepath;
-        //            Session["profileImg"] = filepath;
-        //        }
-        //        else
-        //        {
-        //            MsgImage.Visible = true;
-        //        }
-        //    }
-        //}
+        private void UploadAndDisplayImage()
+        {
+            string extenssion = System.IO.Path.GetExtension(fileUploadImg.FileName);
+            string filename = fileUploadImg.PostedFile.FileName;
+            if (fileUploadImg.PostedFile != null && fileUploadImg.PostedFile.FileName != "")
+            {
+                if (extenssion == ".jpg" || extenssion == ".png")
+                {
+                    string filepath = "Assets/profileImg/" + fileUploadImg.FileName;
+                    fileUploadImg.SaveAs(Server.MapPath("~/Assets/profileImg/") + filename);
+                    imgProfile.ImageUrl = "~/" + filepath;
+                    Session["profileImg"] = filepath;
+                }
+                else
+                {
+                    MsgImage.Visible = true;
+                }
+            }
+        }
 
         private Boolean validateName(string name)
         {

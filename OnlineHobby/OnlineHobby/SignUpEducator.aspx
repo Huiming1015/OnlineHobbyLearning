@@ -12,7 +12,7 @@
         }
 
         .icon-background {
-            color: #ccffe1;
+            color: #e6fff0;
         }
 
         .div-background {
@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <div class="row mt-3" style="background-color: #ccffe1;">
+        <div class="row mt-3" style="background-color: #e6fff0;">
             <div class="text-center">
                 <h2 class="mt-3 pt-3 mb-3 pb-3" style="color: #009973; font-weight: bold">- Become An Educator -</h2>
             </div>

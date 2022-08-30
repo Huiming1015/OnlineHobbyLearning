@@ -98,7 +98,7 @@
                     <asp:Panel ID="pnlDashboard" runat="server">
                         <div class="panel mb-1">
                             <div class="card-header rounded">
-                                <asp:LinkButton ID="lbtnDashboard" runat="server" CssClass="card-link"><i class="fa fa-globe"></i>&nbsp Dashboard</asp:LinkButton>
+                                <asp:LinkButton ID="lbtnDashboard" runat="server" CssClass="card-link" href="Posts.aspx"><i class="fa fa-globe"></i>&nbsp Dashboard</asp:LinkButton>
                             </div>
                         </div>
                     </asp:Panel>

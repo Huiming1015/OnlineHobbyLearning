@@ -46,7 +46,7 @@
                         <div class="row">
                             <div class="input-group">
                                 <div class="flex-grow-1">
-                                    <asp:FileUpload ID="fileUploadImg" runat="server" CssClass="form-control" />
+                                    <asp:FileUpload ID="fileUploadImg" runat="server" CssClass="form-control" AutoPostBack="true" onchange="this.form.submit();"/>
                                 </div>
                             </div>
                         </div>
