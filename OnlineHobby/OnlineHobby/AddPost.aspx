@@ -12,6 +12,10 @@
             Post details added successful.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
+        <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgRequired" visible="false">
+            Please fill up all fields.
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
         <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgImage" visible="false">
             Please make sure the image entension is png or jpg file.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -43,7 +47,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 mt-1">
                 <div class="row my-1">
-                    <asp:Label ID="Label1" runat="server" Text="Image (if any)"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Image"></asp:Label>
                 </div>
                 <div class="row">
                     <div class="col-md-4">

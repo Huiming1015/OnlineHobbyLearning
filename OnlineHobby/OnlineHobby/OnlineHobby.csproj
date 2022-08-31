@@ -101,6 +101,8 @@
     <Content Include="DeleteAccount.aspx" />
     <Content Include="EditAchievement.aspx" />
     <Content Include="EditAddress.aspx" />
+    <Content Include="EditPost.aspx" />
+    <Content Include="EduDetails.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -236,6 +238,20 @@
     </Compile>
     <Compile Include="EditAddress.aspx.designer.cs">
       <DependentUpon>EditAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditPost.aspx.cs">
+      <DependentUpon>EditPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditPost.aspx.designer.cs">
+      <DependentUpon>EditPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EduDetails.aspx.cs">
+      <DependentUpon>EduDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EduDetails.aspx.designer.cs">
+      <DependentUpon>EduDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>

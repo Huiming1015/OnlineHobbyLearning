@@ -18,7 +18,15 @@ namespace OnlineHobby
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            MsgSuccess.Visible = false;
+            MsgImage.Visible = false;
+            MsgRequired.Visible = false;
+
+            if (!IsPostBack)
+            {
+                Session["postImg"] = null;
+            }
+
             if (Session["UserEmail"] != null)
             {
                 if (!IsPostBack)
@@ -57,12 +65,16 @@ namespace OnlineHobby
         {
             MsgSuccess.Visible = false;
             MsgImage.Visible = false;
+            MsgRequired.Visible = false;
 
             Int64 UserId = Convert.ToInt64(Session["UserId"]);
             con = new SqlConnection(strCon);
 
-            if (Session["postImg"] != null)
+            //both text & img are required
+            if (txtDesc.Text != "" && Session["postImg"] != null)
             {
+                //if (Session["postImg"] != null)
+                //{
 
                 DateTime time = DateTime.Now;
                 AutoGenerateUserID();
@@ -81,29 +93,33 @@ namespace OnlineHobby
                 MsgSuccess.Visible = true;
                 clr();
                 Session["postImg"] = null;
-                
-
             }
             else
             {
-                DateTime now = DateTime.Now;
-                AutoGenerateUserID();
-
-                con.Open();
-                string cmd = "Insert into Posts(postId, eduId, postDateTime, postContents) Values(@id, @edu, @date, @content)";
-                SqlCommand cmdSelect = new SqlCommand(cmd, con);
-                cmdSelect.Parameters.AddWithValue("@id", id);
-                cmdSelect.Parameters.AddWithValue("@edu", UserId);
-                cmdSelect.Parameters.AddWithValue("@date", now);
-                cmdSelect.Parameters.AddWithValue("@content", txtDesc.Text);
-                cmdSelect.ExecuteNonQuery();
-                con.Close();
-
-
-                MsgSuccess.Visible = true;
-                clr();
-
+                MsgRequired.Visible = true;
             }
+
+            //}
+            //else
+            //{
+            //    DateTime now = DateTime.Now;
+            //    AutoGenerateUserID();
+
+            //    con.Open();
+            //    string cmd = "Insert into Posts(postId, eduId, postDateTime, postContents) Values(@id, @edu, @date, @content)";
+            //    SqlCommand cmdSelect = new SqlCommand(cmd, con);
+            //    cmdSelect.Parameters.AddWithValue("@id", id);
+            //    cmdSelect.Parameters.AddWithValue("@edu", UserId);
+            //    cmdSelect.Parameters.AddWithValue("@date", now);
+            //    cmdSelect.Parameters.AddWithValue("@content", txtDesc.Text);
+            //    cmdSelect.ExecuteNonQuery();
+            //    con.Close();
+
+
+            //    MsgSuccess.Visible = true;
+            //    clr();
+
+            //}
         }
 
         private void UploadAndDisplayImage()
