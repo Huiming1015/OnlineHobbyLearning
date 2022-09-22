@@ -24,7 +24,7 @@ namespace OnlineHobby
                 lbtnLogout.Visible = true;
                 divider.Visible = true;
                 lbtnMyProfile.Visible = true;
-                
+
                 lbtnChats.Visible = true;
                 lbtnCourseTimetable.Visible = true;
                 imgBtnCart.Visible = true;
@@ -36,9 +36,10 @@ namespace OnlineHobby
 
                 if (role == "stud")
                 {
+                    lbtnMaterialKits.PostBackUrl = "~/StudMaterial.aspx";
                     lbtnMyOrder.Visible = true;
                     lbtnOrderHistory.Visible = false;
-                   Panel1.Visible = true;
+                    Panel1.Visible = true;
                     Panel2.Visible = false;
 
                     con.Open();
@@ -60,6 +61,7 @@ namespace OnlineHobby
                 }
                 else
                 {
+                    lbtnMaterialKits.PostBackUrl = "~/EduMaterial.aspx";
                     lbtnMyOrder.Visible = false;
                     lbtnOrderHistory.Visible = true;
                     Panel1.Visible = false;
@@ -99,7 +101,7 @@ namespace OnlineHobby
                 lbtnCourseTimetable.Visible = false;
                 imgBtnCart.Visible = false;
                 Panel2.Visible = false;
-
+                lbtnMaterialKits.PostBackUrl = "~/StudMaterial.aspx";
             }
         }
 
@@ -124,6 +126,6 @@ namespace OnlineHobby
         protected void lbtnMyProfile_Click(object sender, EventArgs e)
         {
             Response.Redirect("Profile.aspx");
-        } 
+        }       
     }
 }

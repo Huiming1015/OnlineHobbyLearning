@@ -91,10 +91,10 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Courses</a>
+                                <asp:LinkButton ID="lbtnCourse" runat="server"  class="nav-link">Courses</asp:LinkButton>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Material Kits</a>
+                                <asp:LinkButton ID="lbtnMaterialKits" runat="server" class="nav-link" PostBackUrl="~/StudMaterial.aspx">Material Kits</asp:LinkButton>
                             </li>
                             <asp:Panel ID="Panel1" runat="server">
                                 <li class="navChange">
@@ -128,7 +128,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">
                                     <asp:Image ID="imgProfile" runat="server" CssClass="rounded-circle img-fluid" Height="35" Width="35" ImageUrl="~/Resources/profile_orange.png" />
-                                    <%--  <img src="Resources/profile_icon.png" class="rounded-circle img-fluid" height='35' width='35'>--%>
+                                <%--  <img src="Resources/profile_icon.png" class="rounded-circle img-fluid" height='35' width='35'>--%>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
                                     <li>
@@ -141,7 +141,7 @@
                                         <asp:LinkButton ID="lbtnPaymentList" runat="server" CssClass="dropdown-item">Payment List</asp:LinkButton></li>
                                     <li>
                                         <asp:LinkButton ID="lbtnChats" runat="server" CssClass="dropdown-item mb-0 pb-0">Chats</asp:LinkButton></li>
-                                    <%--<li>
+                                        <%--<li>
                                         <hr class="dropdown-divider" id="divider" />
                                     </li>--%>
 

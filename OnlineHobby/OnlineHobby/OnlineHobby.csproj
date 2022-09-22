@@ -71,6 +71,7 @@
     <Content Include="Achievements.aspx" />
     <Content Include="AddAchievement.aspx" />
     <Content Include="AddAddress.aspx" />
+    <Content Include="AddMaterial.aspx" />
     <Content Include="AddPost.aspx" />
     <Content Include="AddressBook.aspx" />
     <Content Include="AdminHomepage.aspx" />
@@ -103,6 +104,7 @@
     <Content Include="EditAddress.aspx" />
     <Content Include="EditPost.aspx" />
     <Content Include="EduDetails.aspx" />
+    <Content Include="EduMaterial.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -122,6 +124,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="AdminLogIn.aspx" />
+    <Content Include="ModifyViewMaterial.aspx" />
     <Content Include="Posts.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="ResetPassword.aspx" />
@@ -130,6 +133,10 @@
     <Content Include="Resources\cart.png" />
     <None Include="Resources\profile_orange.png" />
     <None Include="Resources\cart_orange.png" />
+    <None Include="Resources\home.jpg" />
+    <None Include="Resources\return.png" />
+    <None Include="Resources\original.png" />
+    <None Include="Resources\quality.png" />
     <Content Include="SignUpEducator.aspx" />
     <None Include="Resources\passwordShow.png" />
     <None Include="Resources\passwordHide.png" />
@@ -144,6 +151,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="SignUpStud.aspx" />
+    <Content Include="StudMaterial.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -182,6 +190,13 @@
     </Compile>
     <Compile Include="AddAddress.aspx.designer.cs">
       <DependentUpon>AddAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddMaterial.aspx.cs">
+      <DependentUpon>AddMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddMaterial.aspx.designer.cs">
+      <DependentUpon>AddMaterial.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddPost.aspx.cs">
       <DependentUpon>AddPost.aspx</DependentUpon>
@@ -253,6 +268,13 @@
     <Compile Include="EduDetails.aspx.designer.cs">
       <DependentUpon>EduDetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EduMaterial.aspx.cs">
+      <DependentUpon>EduMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EduMaterial.aspx.designer.cs">
+      <DependentUpon>EduMaterial.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -280,6 +302,13 @@
     </Compile>
     <Compile Include="AdminLogIn.aspx.designer.cs">
       <DependentUpon>AdminLogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyViewMaterial.aspx.cs">
+      <DependentUpon>ModifyViewMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifyViewMaterial.aspx.designer.cs">
+      <DependentUpon>ModifyViewMaterial.aspx</DependentUpon>
     </Compile>
     <Compile Include="NestedProfile.master.cs">
       <DependentUpon>NestedProfile.master</DependentUpon>
@@ -336,6 +365,13 @@
     <Compile Include="StudMaster.Master.designer.cs">
       <DependentUpon>StudMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="StudMaterial.aspx.cs">
+      <DependentUpon>StudMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudMaterial.aspx.designer.cs">
+      <DependentUpon>StudMaterial.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminMaster.Master" />
@@ -356,6 +392,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\postImg\" />
+    <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

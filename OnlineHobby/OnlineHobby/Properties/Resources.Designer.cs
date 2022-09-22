@@ -63,9 +63,29 @@ namespace OnlineHobby.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _return {
+            get {
+                object obj = ResourceManager.GetObject("_return", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cart_orange {
             get {
                 object obj = ResourceManager.GetObject("cart_orange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home {
+            get {
+                object obj = ResourceManager.GetObject("home", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,6 +123,16 @@ namespace OnlineHobby.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap original {
+            get {
+                object obj = ResourceManager.GetObject("original", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap passwordHide {
             get {
                 object obj = ResourceManager.GetObject("passwordHide", resourceCulture);
@@ -126,6 +156,16 @@ namespace OnlineHobby.Properties {
         internal static System.Drawing.Bitmap profile_orange {
             get {
                 object obj = ResourceManager.GetObject("profile_orange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quality {
+            get {
+                object obj = ResourceManager.GetObject("quality", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
