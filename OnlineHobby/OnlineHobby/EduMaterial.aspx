@@ -2,10 +2,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-    <link href="Content/bootstrap.css" rel="stylesheet" />
-    <script src="Scripts/bootstrap.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
     <style>
         .button2 {
             height: 45px;
@@ -20,8 +16,12 @@
                 background-color: #f5d8a4;
                 color: black;
             }
+
+        .div-background {
+            background-color: #fffefa;
+        }
     </style>
-    <div class="text-center">
+    <div class="text-center div-background">
         <br />
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Font-Underline="True" ForeColor="Black" Text="MY MATERIAL KIT"></asp:Label>
         <br />

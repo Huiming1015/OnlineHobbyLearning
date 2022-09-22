@@ -6,6 +6,7 @@
     <script src="Scripts/bootstrap.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         function ImagePreview(input) {
             if (input.files && input.files[0]) {
@@ -86,9 +87,12 @@
         .auto-style12 {
             width: 18px;
         }
+        .div-background {
+            background-color: #fffefa;
+        }
     </style>
 
-    <div class="text-center" style="background-position: center center;">
+    <div class="text-center div-background" style="background-position: center center;">
         <strong>
             <br />
             <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
