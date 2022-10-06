@@ -104,6 +104,7 @@
     <Content Include="EditAddress.aspx" />
     <Content Include="EditPost.aspx" />
     <Content Include="EduDetails.aspx" />
+    <Content Include="EduDetails2.aspx" />
     <Content Include="EduMaterial.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Homepage.aspx" />
@@ -267,6 +268,13 @@
     </Compile>
     <Compile Include="EduDetails.aspx.designer.cs">
       <DependentUpon>EduDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EduDetails2.aspx.cs">
+      <DependentUpon>EduDetails2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EduDetails2.aspx.designer.cs">
+      <DependentUpon>EduDetails2.aspx</DependentUpon>
     </Compile>
     <Compile Include="EduMaterial.aspx.cs">
       <DependentUpon>EduMaterial.aspx</DependentUpon>

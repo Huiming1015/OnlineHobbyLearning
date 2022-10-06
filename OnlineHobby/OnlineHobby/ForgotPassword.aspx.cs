@@ -54,7 +54,11 @@ namespace OnlineHobby
                 string UserName = dt.Rows[0][1].ToString();
                 string EmailBody = "Dear " + UserName + ",<br/><br/>Please click the link below to reset your password.<br/> <br/> http://localhost:56927/ResetPassword.aspx?id=" + myGUID + "&role=" + "stud";
 
-                MailMessage PassRecMail = new MailMessage("simhm-wm19@student.tarc.edu.my", ToEmailAddress);
+                //MailMessage PassRecMail = new MailMessage("simhm-wm19@student.tarc.edu.my", ToEmailAddress);
+                MailMessage PassRecMail = new MailMessage();
+                PassRecMail.From = new MailAddress("simhm-wm19@student.tarc.edu.my", "ReLife");
+                PassRecMail.To.Add(new MailAddress(ToEmailAddress));
+
 
                 PassRecMail.Body = EmailBody;
                 PassRecMail.IsBodyHtml = true;

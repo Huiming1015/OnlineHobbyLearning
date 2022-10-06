@@ -48,7 +48,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6 mt-4">
                 <div class="row my-1">
-                    <asp:Label ID="Label1" runat="server" Text="Phone Number"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Phone Number (without dash)"></asp:Label>
                 </div>
                 <div class="row">
                     <div class="input-group">
