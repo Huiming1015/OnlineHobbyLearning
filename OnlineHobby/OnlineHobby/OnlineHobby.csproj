@@ -74,7 +74,11 @@
     <Content Include="AddMaterial.aspx" />
     <Content Include="AddPost.aspx" />
     <Content Include="AddressBook.aspx" />
+    <Content Include="AdminCompletedEduSignUp.aspx" />
+    <Content Include="AdminCompletedEduSignUpDetails.aspx" />
     <Content Include="AdminHomepage.aspx" />
+    <Content Include="AdminPendingEduSignUpDetails.aspx" />
+    <Content Include="AdminPendingEduSignUp.aspx" />
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
@@ -213,6 +217,20 @@
     <Compile Include="AddressBook.aspx.designer.cs">
       <DependentUpon>AddressBook.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminCompletedEduSignUp.aspx.cs">
+      <DependentUpon>AdminCompletedEduSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminCompletedEduSignUp.aspx.designer.cs">
+      <DependentUpon>AdminCompletedEduSignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminCompletedEduSignUpDetails.aspx.cs">
+      <DependentUpon>AdminCompletedEduSignUpDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminCompletedEduSignUpDetails.aspx.designer.cs">
+      <DependentUpon>AdminCompletedEduSignUpDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminHomepage.aspx.cs">
       <DependentUpon>AdminHomepage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,6 +244,20 @@
     </Compile>
     <Compile Include="AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPendingEduSignUpDetails.aspx.cs">
+      <DependentUpon>AdminPendingEduSignUpDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPendingEduSignUpDetails.aspx.designer.cs">
+      <DependentUpon>AdminPendingEduSignUpDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPendingEduSignUp.aspx.cs">
+      <DependentUpon>AdminPendingEduSignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPendingEduSignUp.aspx.designer.cs">
+      <DependentUpon>AdminPendingEduSignUp.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>

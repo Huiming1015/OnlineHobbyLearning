@@ -54,7 +54,7 @@
         <div>
             <nav class="navbar navbar-expand-lg navbar-custom navbar-default">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="AdminHomepage.aspx">
                         <img src="Resources/logoRelife1.png" height="75" alt="ReLife" />
                     </a>
                     <button class="navbar-toggler"
@@ -70,7 +70,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <asp:LinkButton ID="lbtnReports" runat="server" CssClass="nav-link">Reports</asp:LinkButton>
+                                <asp:LinkButton ID="lbtnReports" runat="server" CssClass="nav-link" OnClick="lbtnReports_Click">Reports</asp:LinkButton>
                             </li>
                             <li class="nav-item dropdown">
                                 <%--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">
@@ -82,9 +82,9 @@
                                 </a></asp:LinkButton>
 
                                 <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
-                                    <li><asp:LinkButton ID="lbtnEduSU" runat="server" CssClass="dropdown-item">Educator Sign Up</asp:LinkButton></li>
+                                    <li><asp:LinkButton ID="lbtnEduSU" runat="server" CssClass="dropdown-item" OnClick="lbtnEduSU_Click">Educator Sign Up</asp:LinkButton></li>
                                     <%--<li><asp:LinkButton ID="lbtnNewCourse" runat="server" CssClass="dropdown-item">New Course</asp:LinkButton></li>--%>
-                                    <li><asp:LinkButton ID="lbtnEduIncidents" runat="server" CssClass="dropdown-item">Educator Incidents</asp:LinkButton></li>
+                                    <li><asp:LinkButton ID="lbtnEduIncidents" runat="server" CssClass="dropdown-item" OnClick="lbtnEduIncidents_Click">Educator Incidents</asp:LinkButton></li>
 
                                 </ul>
                             </li>

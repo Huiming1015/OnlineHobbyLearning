@@ -78,7 +78,9 @@ namespace OnlineHobby
                     string UserName = txtSUName.Text;
                     string EmailBody = "Dear " + UserName + ",<br/><br/>We have received your application and will be processing it soon.<br/>Please email to <b>relife.help@gmail.com</b> if you wish to communicate with us regarding the application.<br/>Thank you. ";
 
-                    MailMessage PassRecMail = new MailMessage("simhm-wm19@student.tarc.edu.my", ToEmailAddress);
+                    MailMessage PassRecMail = new MailMessage();
+                    PassRecMail.From = new MailAddress("simhm-wm19@student.tarc.edu.my", "ReLife");
+                    PassRecMail.To.Add(new MailAddress(ToEmailAddress));
 
                     PassRecMail.Body = EmailBody;
                     PassRecMail.IsBodyHtml = true;

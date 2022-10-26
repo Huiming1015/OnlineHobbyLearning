@@ -38,5 +38,20 @@ namespace OnlineHobby
             Session.RemoveAll();
             Response.Redirect("AdminLogIn.aspx");
         }
+
+        protected void lbtnReports_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lbtnEduSU_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminPendingEduSignUp.aspx");
+        }
+
+        protected void lbtnEduIncidents_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminPendingEduIncident.aspx");
+        }
     }
 }
