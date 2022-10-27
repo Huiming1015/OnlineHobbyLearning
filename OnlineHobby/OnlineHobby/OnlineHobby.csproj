@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -74,9 +77,13 @@
     <Content Include="AddMaterial.aspx" />
     <Content Include="AddPost.aspx" />
     <Content Include="AddressBook.aspx" />
+    <Content Include="AdminCompletedEduIncident.aspx" />
+    <Content Include="AdminCompletedEduIncidentDetails.aspx" />
     <Content Include="AdminCompletedEduSignUp.aspx" />
     <Content Include="AdminCompletedEduSignUpDetails.aspx" />
     <Content Include="AdminHomepage.aspx" />
+    <Content Include="AdminPendingEduIncident.aspx" />
+    <Content Include="AdminPendingEduIncidentDetails.aspx" />
     <Content Include="AdminPendingEduSignUpDetails.aspx" />
     <Content Include="AdminPendingEduSignUp.aspx" />
     <Content Include="App_Data\Database.mdf" />
@@ -107,6 +114,7 @@
     <Content Include="EditAchievement.aspx" />
     <Content Include="EditAddress.aspx" />
     <Content Include="EditPost.aspx" />
+    <Content Include="EduComplaint.aspx" />
     <Content Include="EduDetails.aspx" />
     <Content Include="EduDetails2.aspx" />
     <Content Include="EduMaterial.aspx" />
@@ -217,6 +225,20 @@
     <Compile Include="AddressBook.aspx.designer.cs">
       <DependentUpon>AddressBook.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminCompletedEduIncident.aspx.cs">
+      <DependentUpon>AdminCompletedEduIncident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminCompletedEduIncident.aspx.designer.cs">
+      <DependentUpon>AdminCompletedEduIncident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminCompletedEduIncidentDetails.aspx.cs">
+      <DependentUpon>AdminCompletedEduIncidentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminCompletedEduIncidentDetails.aspx.designer.cs">
+      <DependentUpon>AdminCompletedEduIncidentDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminCompletedEduSignUp.aspx.cs">
       <DependentUpon>AdminCompletedEduSignUp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -244,6 +266,20 @@
     </Compile>
     <Compile Include="AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPendingEduIncident.aspx.cs">
+      <DependentUpon>AdminPendingEduIncident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPendingEduIncident.aspx.designer.cs">
+      <DependentUpon>AdminPendingEduIncident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPendingEduIncidentDetails.aspx.cs">
+      <DependentUpon>AdminPendingEduIncidentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPendingEduIncidentDetails.aspx.designer.cs">
+      <DependentUpon>AdminPendingEduIncidentDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPendingEduSignUpDetails.aspx.cs">
       <DependentUpon>AdminPendingEduSignUpDetails.aspx</DependentUpon>
@@ -293,6 +329,13 @@
     </Compile>
     <Compile Include="EditPost.aspx.designer.cs">
       <DependentUpon>EditPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EduComplaint.aspx.cs">
+      <DependentUpon>EduComplaint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EduComplaint.aspx.designer.cs">
+      <DependentUpon>EduComplaint.aspx</DependentUpon>
     </Compile>
     <Compile Include="EduDetails.aspx.cs">
       <DependentUpon>EduDetails.aspx</DependentUpon>

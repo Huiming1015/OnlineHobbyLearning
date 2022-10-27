@@ -14,7 +14,7 @@ namespace OnlineHobby
     {
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-        //Int64 EduDetailsId = Convert.ToInt64(Session["UserId"]);
+        //Int64 EduDetailsId = Convert.ToInt64(Session["UserId"]);   //get queryString fr course page, set to session
         Int64 EduDetailsId = 201; //for testing purpose
 
         string studName;

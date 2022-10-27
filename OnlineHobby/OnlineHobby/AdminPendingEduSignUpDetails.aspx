@@ -28,8 +28,8 @@
                                             &nbsp;
                                             <asp:Label runat="server" Text="-" ID="lblAppId" Font-Bold="True" ForeColor="#F98006"></asp:Label>
                                         </div>
-                                        <div class="col-md-8"></div>
-                                        <div class="col-md-1 ">
+                                        <div class="col-md-7"></div>
+                                        <div class="col-md-2 text-right ">
                                             <asp:Label runat="server" Text="Pending" ID="lblStatus" CssClass="badge badge-warning" Font-Size="13px"></asp:Label>
                                         </div>
                                     </div>

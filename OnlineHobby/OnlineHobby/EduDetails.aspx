@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudMaster.Master" AutoEventWireup="true" CodeBehind="EduDetails.aspx.cs" Inherits="OnlineHobby.EduDetails" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -34,6 +36,28 @@
             width: 50px;
         }
 
+        .Background {
+            background-color: Black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+        }
+
+        .Popup {
+            background-color: #FFFFFF;
+            border-width: 3px;
+            border-style: solid;
+            border-color: black;
+            padding-top: 10px;
+            padding-left: 10px;
+            width: 800px;
+            height: 620px;
+        }
+
+        .lbl {
+            font-size: 16px;
+            font-style: italic;
+            font-weight: bold;
+        }
     </style>
 
     <div class="container-fluid bg">
@@ -67,7 +91,7 @@
 
                 <div class="row text-center mb-4">
                     <div class="col-md-6">
-                        <button runat="server" id="btnFllw" onserverclick="functionFollow" class="btn btn-light btn-lg" style="font-size: small; height: 40px; width: 100px;background-color:rgba(0, 0, 0, 0.03);">
+                        <button runat="server" id="btnFllw" onserverclick="functionFollow" class="btn btn-light btn-lg" style="font-size: small; height: 40px; width: 100px; background-color: rgba(0, 0, 0, 0.03);">
                             <i class="fa fa-plus"></i>&nbsp;Follow
                         </button>
                     </div>
@@ -201,12 +225,28 @@ FROM Achievements INNER JOIN Educator ON Achievements.eduId = Educator.eduId  WH
 
                 <asp:Panel ID="Panel3" runat="server">
                     <div class="d-flex justify-content-center mt-5 pt-1 mb-3 pb-4 mb-lg-4">
-                    <asp:Button ID="btnRate" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="RATE" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" OnClick="btnRate_Click" />
-                    <asp:Button ID="btnReport" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="REPORT" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" OnClick="btnReport_Click" />
-                </div>
+                        <asp:Button ID="btnRate" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="RATE" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" OnClick="btnRate_Click" />
+
+                        <%--popup window--%>
+                        <asp:ScriptManager ID="ScriptManager1" runat="server">
+                        </asp:ScriptManager>
+                        <asp:Button ID="btnReport" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="REPORT" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" OnClick="btnReport_Click" />
+
+                        <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panl1" TargetControlID="btnReport"
+                            CancelControlID="Button2" BackgroundCssClass="Background">
+                        </cc1:ModalPopupExtender>
+                        <asp:Panel ID="Panl1" runat="server" CssClass="Popup" align="center" Style="display: none">
+                           <asp:Panel ID="Panel4" runat="server" align="right" style="padding-right:10px" >
+                               <asp:Button ID="Button2" runat="server" Text="X" Style=" background-color: #f98006;color: white" Font-Bold="True" BorderStyle="None" BorderColor="Silver" />
+                               </asp:Panel>
+                            <iframe style="width: 700px; height: 550px;" id="irm1" src="EduComplaint.aspx" runat="server"></iframe>
+                            <br />
+                            
+                        </asp:Panel>
+                    </div>
                 </asp:Panel>
 
-                
+
 
             </div>
         </div>
