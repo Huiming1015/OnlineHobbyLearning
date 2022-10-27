@@ -56,7 +56,7 @@
                         <asp:Label ID="lblRateWord" runat="server" Text="Ratings"></asp:Label>
                     </div>
                     <div class="col-md-6">
-                        <asp:Label ID="lblFllwWord" runat="server" Text="Following"></asp:Label>
+                        <asp:Label ID="lblFllwWord" runat="server" Text="Followers"></asp:Label>
                     </div>
                 </div>
 

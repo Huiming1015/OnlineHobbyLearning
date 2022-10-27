@@ -85,13 +85,13 @@
                         <asp:Label ID="lblRateWord" runat="server" Text="Ratings"></asp:Label>
                     </div>
                     <div class="col-md-6">
-                        <asp:Label ID="lblFllwWord" runat="server" Text="Following"></asp:Label>
+                        <asp:Label ID="lblFllwWord" runat="server" Text="Followers"></asp:Label>
                     </div>
                 </div>
 
                 <div class="row text-center mb-4">
                     <div class="col-md-6">
-                        <button runat="server" id="btnFllw" onserverclick="functionFollow" class="btn btn-light btn-lg" style="font-size: small; height: 40px; width: 100px; background-color: rgba(0, 0, 0, 0.03);">
+                        <button runat="server" id="btnFllw" onserverclick="functionFollow" class="btn btn-light btn-lg" style="font-size: small; height: 40px; width: 100px; ">
                             <i class="fa fa-plus"></i>&nbsp;Follow
                         </button>
                     </div>
