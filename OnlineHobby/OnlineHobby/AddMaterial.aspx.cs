@@ -54,7 +54,9 @@ namespace OnlineHobby
 
                 if (k != 0)
                 {
-                    MsgBox("Material Kit Added Successfully!", this.Page, this);
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert",
+                "swal('Good job!', 'You clicked Success button!', 'success')", true);
+                    // MsgBox("Material Kit Added Successfully!", this.Page, this);
                     Clear();
                     Response.Redirect("EduMaterial.aspx?");
                 }

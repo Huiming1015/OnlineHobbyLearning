@@ -20,7 +20,6 @@ namespace OnlineHobby
         }
         protected void dlMaterial_ItemCommand(object source, DataListCommandEventArgs e)
         {
-
             Label lblID = e.Item.FindControl("lblID") as Label;
             TextBox txtName = e.Item.FindControl("txtName") as TextBox;
             DropDownList ddlCategory = e.Item.FindControl("ddlCategory") as DropDownList;
@@ -97,6 +96,9 @@ namespace OnlineHobby
 
             if (e.CommandName == "remove")
             {
+
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert",
+                       "swal('Good job!', 'You clicked Success button!', 'success')", true);
                 string confirmValue = Request.Form["confirm_value"];
                 if (confirmValue == "Yes")
                 {
