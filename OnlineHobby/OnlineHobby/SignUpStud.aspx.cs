@@ -167,7 +167,7 @@ namespace OnlineHobby
                         AutoGenerateUserID();
 
                         con.Open();
-                        string cmd2 = "Insert into Student(studId,studName,studEmail,studPassword,status) Values('" + id + "','" + txtSUName.Text + "','" + txtSUEmail.Text + "','" + txtSUPassword.Text + "','" + "active" + "')";
+                        string cmd2 = "Insert into Student(studId,studName,studEmail,studPassword,profileImg,status) Values('" + id + "','" + txtSUName.Text + "','" + txtSUEmail.Text + "','" + txtSUPassword.Text + "','" + "~/Resources/profile_orange.png" + "','" + "active" + "')";
                         SqlCommand cmdSelect = new SqlCommand(cmd2, con);
                         cmdSelect.ExecuteNonQuery();
                         con.Close();

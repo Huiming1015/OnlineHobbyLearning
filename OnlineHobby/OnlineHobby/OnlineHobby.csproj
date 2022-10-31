@@ -118,6 +118,9 @@
     <Content Include="EduDetails.aspx" />
     <Content Include="EduDetails2.aspx" />
     <Content Include="EduMaterial.aspx" />
+    <Content Include="EduRate.aspx" />
+    <Content Include="Followers.aspx" />
+    <Content Include="Following.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -357,6 +360,27 @@
     </Compile>
     <Compile Include="EduMaterial.aspx.designer.cs">
       <DependentUpon>EduMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EduRate.aspx.cs">
+      <DependentUpon>EduRate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EduRate.aspx.designer.cs">
+      <DependentUpon>EduRate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Followers.aspx.cs">
+      <DependentUpon>Followers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Followers.aspx.designer.cs">
+      <DependentUpon>Followers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Following.aspx.cs">
+      <DependentUpon>Following.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Following.aspx.designer.cs">
+      <DependentUpon>Following.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>

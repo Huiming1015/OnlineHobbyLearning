@@ -91,12 +91,13 @@ namespace OnlineHobby
                     AutoGenerateUserID();
 
                     con.Open();
-                    string cmd2 = "Insert into Educator(eduId,eduName,eduEmail,eduPassword,joinedDate,courseCategory,about,status) Values(@id,@name,@email,@password,@date,@category,@about,@status)";
+                    string cmd2 = "Insert into Educator(eduId,eduName,eduEmail,eduPassword,profileImg,joinedDate,courseCategory,about,status) Values(@id,@name,@email,@password,@image,@date,@category,@about,@status)";
                     SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
                     cmdSelect2.Parameters.AddWithValue("@id", id);
                     cmdSelect2.Parameters.AddWithValue("@name", lblName.Text);
                     cmdSelect2.Parameters.AddWithValue("@email", tempEmail);
                     cmdSelect2.Parameters.AddWithValue("@password", tempPswd);
+                    cmdSelect2.Parameters.AddWithValue("@image", "~/Resources/profile_orange.png");
                     cmdSelect2.Parameters.AddWithValue("@date", now);
                     cmdSelect2.Parameters.AddWithValue("@category", lblCategory.Text);
                     cmdSelect2.Parameters.AddWithValue("@about", tempAbout);

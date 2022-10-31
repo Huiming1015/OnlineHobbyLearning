@@ -42,10 +42,10 @@
                 </div>
                 <div class=" row text-center">
                     <div class="col-md-6">
-                        <asp:Label ID="lblRateOrCourses" runat="server" Text="--" ForeColor="#F98006" Font-Bold="True"></asp:Label>
+                        <asp:Label ID="lblRateOrCourses" runat="server" Text="0" ForeColor="#F98006" Font-Bold="True"></asp:Label>
                     </div>
                     <div class="col-md-6">
-                        <asp:Label ID="lblFllw" runat="server" Text="--" ForeColor="#F98006" Font-Bold="True"></asp:Label>
+                        <asp:Label ID="lblFllw" runat="server" Text="0" ForeColor="#F98006" Font-Bold="True"></asp:Label>
                     </div>
                 </div>
                 <div class="row text-center mb-4">
@@ -80,7 +80,7 @@
                         <div class="panel mb-1">
                             <div class="card-header rounded">
                                 <%--Change to Followers when role is edu, and change link also --%>
-                                <asp:LinkButton ID="lbtnFollowing" runat="server"><a class="card-link" href="#"><i class="fa fa-heart"></i>&nbsp Following</a></asp:LinkButton>
+                                <asp:LinkButton ID="lbtnFollowing" runat="server"><a class="card-link" href="Following.aspx"><i class="fa fa-heart"></i>&nbsp Following</a></asp:LinkButton>
                                 <%--<a class="card-link text-dark" href="#">Following</a>--%>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                     <asp:Panel ID="pnlFollowers" runat="server">
                         <div class="panel mb-1">
                             <div class="card-header rounded">
-                                <asp:LinkButton ID="lbtnFollowers" runat="server"><a class="card-link" href="#"><i class="fa fa-heart"></i>&nbsp Followers</a></asp:LinkButton>
+                                <asp:LinkButton ID="lbtnFollowers" runat="server"><a class="card-link" href="Followers.aspx"><i class="fa fa-heart"></i>&nbsp Followers</a></asp:LinkButton>
                             </div>
                         </div>
                     </asp:Panel>

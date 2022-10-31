@@ -50,7 +50,18 @@
             padding-top: 10px;
             padding-left: 10px;
             width: 800px;
-            height: 620px;
+            height: 580px;
+        }
+
+         .Popup2 {
+            background-color: #FFFFFF;
+            border-width: 3px;
+            border-style: solid;
+            border-color: black;
+            padding-top: 10px;
+            padding-left: 10px;
+            width: 650px;
+            height: 280px;
         }
 
         .lbl {
@@ -225,12 +236,23 @@ FROM Achievements INNER JOIN Educator ON Achievements.eduId = Educator.eduId  WH
 
                 <asp:Panel ID="Panel3" runat="server">
                     <div class="d-flex justify-content-center mt-5 pt-1 mb-3 pb-4 mb-lg-4">
-                        <asp:Button ID="btnRate" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="RATE" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" OnClick="btnRate_Click" />
+<%--                        only one instance of script manager can be put, so this one btn the below one--%>
+                        <asp:Button ID="btnRate" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="RATE" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white"  />
+                        <cc1:ModalPopupExtender ID="mp2" runat="server" PopupControlID="Panl2" TargetControlID="btnRate"
+                            CancelControlID="Button1" BackgroundCssClass="Background">
+                        </cc1:ModalPopupExtender>
+                        <asp:Panel ID="Panl2" runat="server" CssClass="Popup2" align="center" Style="display: none">
+                           <asp:Panel ID="Panel6" runat="server" align="right" style="padding-right:10px" >
+                               <asp:Button ID="Button1" runat="server" Text="X" Style=" background-color: #f98006;color: white" Font-Bold="True" BorderStyle="None" BorderColor="Silver" />
+                               </asp:Panel>
+                            <iframe style="width: 550px; height: 230px;" id="Iframe1" src="EduRate.aspx" runat="server"></iframe>
+                            <br />
+                        </asp:Panel>
 
                         <%--popup window--%>
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
-                        <asp:Button ID="btnReport" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="REPORT" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" OnClick="btnReport_Click" />
+                        <asp:Button ID="btnReport" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="REPORT" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white"  />
 
                         <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panl1" TargetControlID="btnReport"
                             CancelControlID="Button2" BackgroundCssClass="Background">
@@ -239,7 +261,7 @@ FROM Achievements INNER JOIN Educator ON Achievements.eduId = Educator.eduId  WH
                            <asp:Panel ID="Panel4" runat="server" align="right" style="padding-right:10px" >
                                <asp:Button ID="Button2" runat="server" Text="X" Style=" background-color: #f98006;color: white" Font-Bold="True" BorderStyle="None" BorderColor="Silver" />
                                </asp:Panel>
-                            <iframe style="width: 700px; height: 550px;" id="irm1" src="EduComplaint.aspx" runat="server"></iframe>
+                            <iframe style="width: 700px; height: 530px;" id="irm1" src="EduComplaint.aspx" runat="server"></iframe>
                             <br />
                             
                         </asp:Panel>

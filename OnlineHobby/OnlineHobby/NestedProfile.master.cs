@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -48,6 +49,9 @@ namespace OnlineHobby
                     }
 
                 }
+                con.Close();
+                getFollowing();
+                //getCourses();
             }
             else
             {
@@ -75,10 +79,99 @@ namespace OnlineHobby
                     }
 
                 }
+                con.Close();
+                getFollowers();
+                getRatings();
 
             }
 
         }
-        
+
+        private void getFollowing()
+        {
+            Int64 UserId = Convert.ToInt64(Session["UserId"]);
+
+            con = new SqlConnection(strCon);
+
+            con.Open();
+            string cmd3 = "SELECT COUNT(fllwId) FROM FollowEngagement where studId=" + UserId;
+            SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+
+            Int64 count = Convert.ToInt64(cmdSelect3.ExecuteScalar());
+            if (count > 0)
+            {
+                lblFllw.Text = count.ToString();
+            }
+            else
+            {
+                lblFllw.Text = "0";
+            }
+            con.Close();
+        }
+
+        private void getCourses()
+        {
+            //nothing
+        }
+
+        private void getFollowers()
+        {
+            Int64 UserId = Convert.ToInt64(Session["UserId"]);
+
+            con = new SqlConnection(strCon);
+
+            con.Open();
+            string cmd3 = "SELECT COUNT(fllwId) FROM FollowEngagement where eduId=" + UserId;
+            SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+            Int64 count = Convert.ToInt64(cmdSelect3.ExecuteScalar());
+            if (count > 0)
+            {
+                lblFllw.Text = count.ToString();
+            }
+            else
+            {
+                lblFllw.Text = "0";
+            }
+            con.Close();
+        }
+
+        private void getRatings()
+        {
+            Int64 UserId = Convert.ToInt64(Session["UserId"]);
+
+            double totalRating = 0.0;
+            int ratingCount = 0;
+            double ratings = 0.0;
+            con = new SqlConnection(strCon);
+
+            //con.Open();
+            string cmd = "Select * from Ratings where eduId=" + UserId;
+            SqlCommand cmdSelect = new SqlCommand(cmd, con);
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmdSelect);
+            sda.Fill(dt);
+
+            if (dt.Rows.Count != 0)
+            {
+                con.Open();
+                string cmd2 = "Select rate from Ratings where eduId=" + UserId;
+                SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
+                SqlDataReader dr = cmdSelect2.ExecuteReader();
+                while (dr.Read())
+                {
+                    totalRating += Convert.ToDouble(dr["rate"]);
+                    ratingCount++;
+                }
+                ratings = totalRating / (double)ratingCount;
+                lblRateOrCourses.Text = String.Format("{0:N1}", ratings);
+                con.Close();
+            }
+            else
+            {
+                lblRateOrCourses.Text = "0.0";
+            }
+            con.Close();
+        }
+
     }
 }

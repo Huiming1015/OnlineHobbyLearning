@@ -34,7 +34,6 @@ namespace OnlineHobby
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             lblRequired.Visible = false;
-            MsgSuccess.Visible = false;
 
             //Int64 EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
             Int64 EduDetailsId = 201;
@@ -78,11 +77,13 @@ namespace OnlineHobby
                 con.Close();
 
                 //Response.Redirect("EduDetails.aspx");
-                MsgSuccess.Visible = true;
+                lblRequired.Text = "*Educator report incident submitted successful. Thank you.";
+                lblRequired.Visible = true;
                 clr();
             }
             else
             {
+                lblRequired.Text = "*Please fill up all fields.";
                 lblRequired.Visible = true;
             }
         }
