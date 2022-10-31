@@ -35,8 +35,8 @@ namespace OnlineHobby
         {
             lblRequired.Visible = false;
 
-            //Int64 EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
-            Int64 EduDetailsId = 201;
+            Int64 EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
+           // Int64 EduDetailsId = 201;
             //Int64 UserId = 101;
             Int64 UserId = Convert.ToInt64(Session["UserId"]);
             DateTime now = DateTime.Now;
