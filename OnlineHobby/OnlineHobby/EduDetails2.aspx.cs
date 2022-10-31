@@ -14,8 +14,9 @@ namespace OnlineHobby
     {
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        Int64 EduDetailsId;
         //Int64 EduDetailsId = Convert.ToInt64(Session["UserId"]);
-        Int64 EduDetailsId = 201; //for testing purpose
+        //Int64 EduDetailsId = 201; //for testing purpose
 
         string studName;
         Int64 idFllw, idChat;
@@ -27,6 +28,8 @@ namespace OnlineHobby
 
         protected void Page_Load(object sender, EventArgs e)
         {
+             EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
+
             getEduDetails();
             getRatings();
             getFollowers();
@@ -61,6 +64,7 @@ namespace OnlineHobby
 
         private void getEduDetails()
         {
+            
             con = new SqlConnection(strCon);
 
             con.Open();
@@ -87,6 +91,8 @@ namespace OnlineHobby
 
         private void getRatings()
         {
+            //Int64 EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
+
             double totalRating = 0.0;
             int ratingCount = 0;
             double ratings = 0.0;
@@ -123,6 +129,7 @@ namespace OnlineHobby
 
         private void getFollowers()
         {
+            //Int64 EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
             con = new SqlConnection(strCon);
 
             con.Open();
@@ -152,6 +159,7 @@ namespace OnlineHobby
 
         private void verifyIsFollow()
         {
+            //Int64 EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
             Int64 UserId = Convert.ToInt64(Session["UserId"]);
             con = new SqlConnection(strCon);
 
@@ -181,6 +189,7 @@ namespace OnlineHobby
 
         protected void functionFollow(object sender, EventArgs e)
         {
+            //Int64 EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
             Int64 UserId = Convert.ToInt64(Session["UserId"]);
             con = new SqlConnection(strCon);
 
@@ -214,6 +223,7 @@ namespace OnlineHobby
 
         protected void functionMessage(object sender, EventArgs e)
         {
+            //Int64 EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
             Int64 UserId = Convert.ToInt64(Session["UserId"]);
             con = new SqlConnection(strCon);
 

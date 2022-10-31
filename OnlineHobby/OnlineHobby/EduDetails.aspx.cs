@@ -14,6 +14,7 @@ namespace OnlineHobby
     {
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        Int64 EduDetailsId;
         //Int64 EduDetailsId = Request.QueryString["id"];   //get queryString fr course page, set to session
         //Int64 EduDetailsId = 201; //for testing purpose
 
@@ -29,6 +30,8 @@ namespace OnlineHobby
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
+
             //read edu details
             getEduDetails();
             //read ratings
@@ -73,12 +76,10 @@ namespace OnlineHobby
 
             }
         }
-
-        //set session["EduDetailsId"] here, so eduComplaint can get it
+        
         private void getEduDetails()
         {
-            Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
-            Session["EduDetailsId"] = EduDetailsId.ToString();
+
             con = new SqlConnection(strCon);
 
             con.Open();
@@ -105,7 +106,7 @@ namespace OnlineHobby
 
         private void getRatings()
         {
-            Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
+            //Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
 
             double totalRating = 0.0;
             int ratingCount = 0;
@@ -143,7 +144,7 @@ namespace OnlineHobby
 
         private void getFollowers()
         {
-            Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
+            //Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
 
             con = new SqlConnection(strCon);
 
@@ -169,7 +170,7 @@ namespace OnlineHobby
 
         private void getAchievements()
         {
-            Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
+            //Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
 
             con = new SqlConnection(strCon);
 
@@ -204,7 +205,7 @@ namespace OnlineHobby
 
         private void verifyIsFollow()
         {
-            Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
+            //Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
             Int64 UserId = Convert.ToInt64(Session["UserId"]);
             con = new SqlConnection(strCon);
 
@@ -234,7 +235,7 @@ namespace OnlineHobby
 
         protected void functionFollow(object sender, EventArgs e)
         {
-            Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
+           // Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
 
             Int64 UserId = Convert.ToInt64(Session["UserId"]);
             con = new SqlConnection(strCon);
@@ -268,7 +269,7 @@ namespace OnlineHobby
 
         protected void functionMessage(object sender, EventArgs e)
         {
-            Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
+            //Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
             Int64 UserId = Convert.ToInt64(Session["UserId"]);
             con = new SqlConnection(strCon);
 
@@ -316,6 +317,6 @@ namespace OnlineHobby
             idChat = Convert.ToInt64(cmd.ExecuteScalar()) + 1;
             con.Close();
         }
-        
+
     }
 }

@@ -77,7 +77,9 @@ namespace OnlineHobby
         {
             if (e.CommandName == "View")
             {
-                Response.Redirect("EduDetails.aspx?id=" + e.CommandArgument.ToString());
+                Session["EduDetailsId"] = e.CommandArgument.ToString();
+                Response.Redirect("EduDetails.aspx");
+                //Response.Redirect("EduDetails.aspx?id=" + e.CommandArgument.ToString());
             }
         }
     }
