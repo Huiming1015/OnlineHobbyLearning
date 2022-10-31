@@ -94,7 +94,7 @@ namespace OnlineHobby
             con = new SqlConnection(strCon);
 
             con.Open();
-            string cmd3 = "SELECT COUNT(fllwId) FROM FollowEngagement where studId=" + UserId;
+            string cmd3 = "SELECT COUNT(fllwId) FROM Follower where studId=" + UserId;
             SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
 
             Int64 count = Convert.ToInt64(cmdSelect3.ExecuteScalar());
@@ -121,7 +121,7 @@ namespace OnlineHobby
             con = new SqlConnection(strCon);
 
             con.Open();
-            string cmd3 = "SELECT COUNT(fllwId) FROM FollowEngagement where eduId=" + UserId;
+            string cmd3 = "SELECT COUNT(fllwId) FROM Follower where eduId=" + UserId;
             SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
             Int64 count = Convert.ToInt64(cmdSelect3.ExecuteScalar());
             if (count > 0)

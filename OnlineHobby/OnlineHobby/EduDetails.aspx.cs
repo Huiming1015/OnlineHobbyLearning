@@ -149,7 +149,7 @@ namespace OnlineHobby
             con = new SqlConnection(strCon);
 
             con.Open();
-            string cmd3 = "SELECT COUNT(fllwId) FROM FollowEngagement where eduId=" + EduDetailsId;
+            string cmd3 = "SELECT COUNT(fllwId) FROM Follower where eduId=" + EduDetailsId;
             SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
             Int64 count = Convert.ToInt64(cmdSelect3.ExecuteScalar());
             if (count > 0)
@@ -210,7 +210,7 @@ namespace OnlineHobby
             con = new SqlConnection(strCon);
 
             con.Open();
-            string cmd = "Select * from FollowEngagement where eduId=" + EduDetailsId + "and studId=" + UserId;
+            string cmd = "Select * from Follower where eduId=" + EduDetailsId + "and studId=" + UserId;
             SqlCommand cmdSelect = new SqlCommand(cmd, con);
             DataTable dt = new DataTable();
             SqlDataAdapter sda = new SqlDataAdapter(cmdSelect);
@@ -243,7 +243,7 @@ namespace OnlineHobby
             if (btnFllw.InnerText == "Following")
             {
                 con.Open();
-                string cmd = "Delete from FollowEngagement where eduId=" + EduDetailsId + "and studId=" + UserId;
+                string cmd = "Delete from Follower where eduId=" + EduDetailsId + "and studId=" + UserId;
                 SqlCommand cmdSelect = new SqlCommand(cmd, con);
                 cmdSelect.ExecuteNonQuery();
                 con.Close();
@@ -256,7 +256,7 @@ namespace OnlineHobby
                 AutoGenerateUserIDFollow();
 
                 con.Open();
-                string cmd2 = "Insert into FollowEngagement(fllwId,studId,studName,eduId,eduName) Values('" + idFllw + "','" + UserId + "','" + studName + "','" + EduDetailsId + "','" + lblName.Text + "')";
+                string cmd2 = "Insert into Follower(fllwId,studId,studName,eduId,eduName) Values('" + idFllw + "','" + UserId + "','" + studName + "','" + EduDetailsId + "','" + lblName.Text + "')";
                 SqlCommand cmdSelect = new SqlCommand(cmd2, con);
                 cmdSelect.ExecuteNonQuery();
                 con.Close();
@@ -304,7 +304,7 @@ namespace OnlineHobby
         {
             con = new SqlConnection(strCon);
             con.Open();
-            SqlCommand cmd = new SqlCommand("Select IsNull(max(fllwId),0) from FollowEngagement", con);
+            SqlCommand cmd = new SqlCommand("Select IsNull(max(fllwId),0) from Follower", con);
             idFllw = Convert.ToInt64(cmd.ExecuteScalar()) + 1;
             con.Close();
         }

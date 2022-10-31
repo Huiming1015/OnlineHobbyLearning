@@ -29,7 +29,7 @@ namespace OnlineHobby
                 {
                     con = new SqlConnection(strCon);
                     con.Open();
-                    string cmd = "Select COUNT(fllwId) from FollowEngagement where eduId=@eduId";
+                    string cmd = "Select COUNT(fllwId) from Follower where eduId=@eduId";
                     SqlCommand cmdSelect = new SqlCommand(cmd, con);
                     cmdSelect.Parameters.AddWithValue("@eduId", UserId);
                     Int64 count = Convert.ToInt64(cmdSelect.ExecuteScalar());

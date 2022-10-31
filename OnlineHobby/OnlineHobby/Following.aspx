@@ -86,8 +86,8 @@
                 </ItemTemplate>
             </asp:Repeater>
 
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="Select FollowEngagement.eduId,FollowEngagement.eduName,Educator.profileImg
-FROM FollowEngagement INNER JOIN Educator ON FollowEngagement.eduId = Educator.eduId  WHERE FollowEngagement.studId=@UserId">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="Select Follower.eduId,Follower.eduName,Educator.profileImg
+FROM Follower INNER JOIN Educator ON Follower.eduId = Educator.eduId  WHERE Follower.studId=@UserId">
                 <SelectParameters>
                     <asp:SessionParameter Name="UserId" SessionField="UserId" />
                 </SelectParameters>
