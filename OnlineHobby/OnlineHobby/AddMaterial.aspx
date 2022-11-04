@@ -12,7 +12,7 @@
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    $('#<%=imgArt.ClientID%>').prop('src', e.target.result)
+                    $('#<%=imgMaterial.ClientID%>').prop('src', e.target.result)
                         .width(300)
                         .height(350);
                 };
@@ -48,16 +48,16 @@
         <strong>
             <br />
             <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
-            <asp:Label ID="Label1" runat="server"  Text="ADD MATERIAL KIT" Style="font-size: xx-large;" BorderStyle="None" Font-Underline="False" Width="427px" ForeColor="Black"></asp:Label></strong><br />
+            <asp:Label ID="lblTitle" runat="server"  Text="ADD MATERIAL KIT" Style="color: #f98006; font-size: x-large; text-align: center; font-weight: bold; text-decoration: underline" ></asp:Label></strong><br />
         <table style="background-color:#FFFFFF" align="center">
 
             <tr>
-                <td rowspan="13">
-                    <asp:Image ID="imgArt" runat="server" Height="350px" Width="300px" ImageAlign="Middle" />
+                <td rowspan="13" Width="350px">
+                    <asp:Image ID="imgMaterial" runat="server" Height="350px" Width="300px" ImageAlign="Middle" />
                     <br />
                     <br />
                     <asp:FileUpload ID="imageUpload" runat="server" AllowMultiple="True" BorderStyle="None" Width="168px" onchange="ImagePreview(this);" />&nbsp;<span class="auto-style2"><br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="imageUpload" ErrorMessage="Please upload material image!" ForeColor="Red" Font-Size="Small" Display="Dynamic">*Please upload artwork image!</asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="requireImage" runat="server" ControlToValidate="imageUpload" ErrorMessage="Please upload material image!" ForeColor="Red" Font-Size="Small" Display="Dynamic">*Please upload material image!</asp:RequiredFieldValidator>
                         <br />
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="imageUpload" ErrorMessage="Only image files are allowed" ForeColor="Red" ValidationExpression=".*\.([gG][iI][fF]|[jJ][pP][gG]|[jJ][pP][eE][gG]|[bB][mM][pP]|[pP][nN][gG])$" Font-Size="Small" Display="Dynamic">*Only image files are allowed</asp:RegularExpressionValidator>
                     </span>
@@ -72,7 +72,7 @@
             <tr>
                 <td class="labelText" style="font-size: large;">Material Kit Name<br />
                 </td>
-                <td style="font-size: large;"><strong class="labelColumn">:</strong></td>
+                <td style="font-size: large;"><strong class="labelColumn">:&nbsp;</strong></td>
                 <td style="font-size: large;" class="cssInputTr">
                     <asp:TextBox ID="txtName" runat="server" Width="454px"></asp:TextBox>
                     <br />
@@ -91,7 +91,7 @@
             </tr>
             <tr>
                 <td class="labelText" style="font-size: large;">Category</td>
-                <td class="labelColumn" style="font-size: large;"><strong>:</strong></td>
+                <td class="labelColumn" style="font-size: large;"><strong>:&nbsp;</strong></td>
                 <td style="font-size: large;" class="cssInputTr">
                     <asp:DropDownList ID="ddlCategory" runat="server" Width="250px">
                         <asp:ListItem Value="draw">Drawing & Painting</asp:ListItem>
@@ -117,7 +117,7 @@
             </tr>
             <tr>
                 <td class="labelText" style="font-size: large;">Description</td>
-                <td class="labelColumn" style="font-size: large;"><strong>:<br />
+                <td class="labelColumn" style="font-size: large;"><strong>:&nbsp;<br />
                     <br />
                     <br />
                     <br />
@@ -140,7 +140,7 @@
             </tr>
             <tr>
                 <td class="labelText">Material Include</td>
-                <td class="labelColumn" style="font-size: large;"><strong>:</strong></td>
+                <td class="labelColumn" style="font-size: large;"><strong>:&nbsp;</strong></td>
                 <td style="font-size: large;" class="cssInputTr">
                     <asp:TextBox ID="txtMaterialIncluded" runat="server" Height="76px" Width="458px" TextMode="MultiLine"></asp:TextBox>
                     <br />
@@ -159,7 +159,7 @@
             </tr>            
             <tr>
                 <td class="labelText" style="font-size: large;">Price</td>
-                <td class="labelColumn" style="font-size: large;"><strong>:</strong></td>
+                <td class="labelColumn" style="font-size: large;"><strong>:&nbsp;</strong></td>
                 <td class="cssInputTr" style="font-size: large;">
                     <asp:TextBox ID="txtPrice" runat="server" CssClass="labelColumn" Width="184px"></asp:TextBox>
                     <br />
@@ -180,7 +180,7 @@
             </tr>
             <tr>
                 <td class="labelText" style="font-size: large;">Stock</td>
-                <td class="labelColumn" style="font-size: large;">:</td>
+                <td class="labelColumn" style="font-size: large;">:&nbsp;</td>
                 <td style="font-size: large;" class="cssInputTr">
                     <asp:TextBox ID="txtStock" runat="server" CssClass="labelColumn" Width="191px"></asp:TextBox><span>units</span></td>
                 <td style="font-size: large;">
@@ -208,7 +208,7 @@
                     <asp:Button ID="btnReset" runat="server" Text="RESET" CausesValidation="false" OnClick="btnReset_Click" CssClass="btn btn-light btn-lg rounded-pill" Style="height: 47px; width: 165px; background-color: #f98006; color: white" />
                     &nbsp;
                         &nbsp;
-                        <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="btnUpload_Click" CssClass="btn btn-light btn-lg rounded-pill" Style="height: 47px; width: 165px; background-color: #f98006; color: white"/>
+                        <asp:Button ID="btnUpload" runat="server" Text="UPLOAD" OnClick="btnUpload_Click" CssClass="btn btn-light btn-lg rounded-pill" Style="height: 47px; width: 165px; background-color: #f98006; color: white"/>
                     <br />
                 </td>
                 <td style="text-align:right">

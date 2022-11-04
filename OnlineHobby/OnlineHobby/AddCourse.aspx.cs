@@ -15,15 +15,61 @@ namespace OnlineHobby
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-        String strCourseID;
+        String strCourseID,strQueryId;
         int intCountID = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            strCourseID = GenerateID();
+            strQueryId = Request.QueryString["courseId"];
+
+            if (strQueryId != null)
+            {
+                if (!IsPostBack)
+                {
+                    lblTitle.Text = "MODIFY COURSE";
+                    String strQ;
+                    con = new SqlConnection(strCon);
+                    con.Open();
+                    strQ = "Select * from Course where courseId = '" + strQueryId + "'";
+                    SqlCommand comID = new SqlCommand(strQ, con);
+                    SqlDataReader dr = comID.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        strCourseID = dr["courseId"].ToString();
+                        imgCourse.ImageUrl = dr["courseImage"].ToString();
+                        requireImage.Enabled = false;
+                        txtName.Text = dr["courseName"].ToString();
+                        txtDescription.Text = dr["description"].ToString();
+                        txtOutcome.Text = dr["learningOutcome"].ToString();
+                        txtTotalClass.Text = dr["totalClass"].ToString();
+                        txtMinAge.Text = dr["minAge"].ToString();
+                        txtMaxAge.Text = dr["maxAge"].ToString();
+                        ddlCategory.SelectedValue = dr["category"].ToString();
+                    }
+                    con.Close();
+                }
+            }
+            else
+            {
+                lblTitle.Text = "ADD COURSE";
+            }
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
+        {
+            if (strQueryId != null)
+            {
+                modifyCourse();
+            }
+            else
+            {
+                strCourseID = GenerateID();
+                addCourse();
+            }
+           
+        }
+
+        private void addCourse()
         {
             try
             {
@@ -35,21 +81,20 @@ namespace OnlineHobby
                 imageUpload.SaveAs(Request.PhysicalApplicationPath + "images/" + imageUpload.FileName.ToString());
 
                 strImage = "images/" + fileName;
-
+                string outcome = txtOutcome.Text.Replace("\r\n", "<br />").Replace("\n", "<br />");
                 con = new SqlConnection(strCon);
                 con.Open();
-                strQAdd = "INSERT INTO [Course](courseId, eduId, courseName, category, description, learningOutcome, totalClass, minutePerClass, minAge, maxAge, courseImage, availability) VALUES (@CourseId, @EduId, @CourseName, @Category, @Description, @LearningOutcome, @TotalClass, @MinutePerClass, @MinAge, @MaxAge, @CourseImage, @Availability)";
+                strQAdd = "INSERT INTO [Course](courseId, eduId, courseName, category, description, learningOutcome, totalClass, minAge, maxAge, courseImage, availability) VALUES (@CourseId, @EduId, @CourseName, @Category, @Description, @LearningOutcome, @TotalClass, @MinAge, @MaxAge, @CourseImage, @Availability)";
                 SqlCommand comAddCourse = new SqlCommand(strQAdd, con);
                 comAddCourse.Parameters.AddWithValue("@CourseId", strCourseID);
                 comAddCourse.Parameters.AddWithValue("@EduId", Session["UserId"]);
                 comAddCourse.Parameters.AddWithValue("@CourseName", txtName.Text);
                 comAddCourse.Parameters.AddWithValue("@Category", ddlCategory.SelectedValue.ToString());
                 comAddCourse.Parameters.AddWithValue("@Description", txtDescription.Text);
-                comAddCourse.Parameters.AddWithValue("@LearningOutcome", txtOutcome.Text);
+                comAddCourse.Parameters.AddWithValue("@LearningOutcome", outcome);
                 comAddCourse.Parameters.AddWithValue("@TotalClass", txtTotalClass.Text);
                 comAddCourse.Parameters.AddWithValue("@MinAge", txtMinAge.Text);
                 comAddCourse.Parameters.AddWithValue("@MaxAge", txtMaxAge.Text);
-                comAddCourse.Parameters.AddWithValue("@MinutePerClass", txtDuration.Text);
                 comAddCourse.Parameters.AddWithValue("@CourseImage", strImage);
                 comAddCourse.Parameters.AddWithValue("@Availability", "available");
                 int k = comAddCourse.ExecuteNonQuery();
@@ -57,10 +102,54 @@ namespace OnlineHobby
                 if (k != 0)
                 {
                     //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert",
-                //"swal('Good job!', 'You clicked Success button!', 'success')", true);
-                    Session["CourseID"] = strCourseID;
+                    //"swal('Good job!', 'You clicked Success button!', 'success')", true);
+                    //Session["CourseID"] = strCourseID;
                     Clear();
-                    Response.Redirect("AddSchedule.aspx?");
+                    Response.Redirect("AddSchedule.aspx?courseId=" + strCourseID);
+                }
+                con.Close();
+            }
+            catch
+            {
+                MsgBox("Please insert the valid data into all required field!", this.Page, this);
+            }
+        }
+
+        private void modifyCourse()
+        {
+            try
+            {
+                string outcome = txtOutcome.Text.Replace("\r\n", "<br />").Replace("\n", "<br />");
+                string strImage = "";
+                if (imageUpload.HasFile != false)
+                {
+                    imageUpload.SaveAs(Request.PhysicalApplicationPath + "images/" + imageUpload.FileName.ToString());
+                    strImage = "images/" + imageUpload.FileName.ToString();
+                }
+                else
+                {
+                    strImage = imgCourse.ImageUrl.ToString();
+                }
+                con = new SqlConnection(strCon);
+                con.Open();
+                string strQModify = "Update Course set courseName=@courseName, category=@category, description=@description, learningOutcome=@learningOutcome, totalClass=@totalClass, minAge=@minAge, maxAge=@maxAge, courseImage=@courseImage where courseId=@courseId";
+                SqlCommand comModifyCourse = new SqlCommand(strQModify, con);
+
+                comModifyCourse.Parameters.AddWithValue("@courseId", strQueryId);
+                comModifyCourse.Parameters.AddWithValue("@courseName", txtName.Text.ToString());
+                comModifyCourse.Parameters.AddWithValue("@category", ddlCategory.SelectedValue.ToString());
+                comModifyCourse.Parameters.AddWithValue("@description", txtDescription.Text.ToString());
+                comModifyCourse.Parameters.AddWithValue("@learningOutcome", outcome);
+                comModifyCourse.Parameters.AddWithValue("@totalClass", txtTotalClass.Text);
+                comModifyCourse.Parameters.AddWithValue("@minAge", txtMinAge.Text);
+                comModifyCourse.Parameters.AddWithValue("@maxAge", txtMaxAge.Text);
+                comModifyCourse.Parameters.AddWithValue("@courseImage", strImage);
+
+                int k = comModifyCourse.ExecuteNonQuery();
+
+                if (k != 0)
+                {
+                    Response.Redirect("AddSchedule.aspx?modifyCourseId=" + strQueryId);
                 }
                 con.Close();
             }
@@ -94,7 +183,6 @@ namespace OnlineHobby
         {
             txtName.Text = "";
             txtDescription.Text = "";
-            txtDuration.Text = "";
             txtMinAge.Text = "";
             txtMaxAge.Text = "";
             txtTotalClass.Text = "";

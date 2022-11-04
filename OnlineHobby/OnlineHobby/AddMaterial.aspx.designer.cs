@@ -22,22 +22,22 @@ namespace OnlineHobby {
         protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource1;
         
         /// <summary>
-        /// Label1 control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
         
         /// <summary>
-        /// imgArt control.
+        /// imgMaterial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgArt;
+        protected global::System.Web.UI.WebControls.Image imgMaterial;
         
         /// <summary>
         /// imageUpload control.
@@ -49,13 +49,13 @@ namespace OnlineHobby {
         protected global::System.Web.UI.WebControls.FileUpload imageUpload;
         
         /// <summary>
-        /// RequiredFieldValidator8 control.
+        /// requireImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requireImage;
         
         /// <summary>
         /// RegularExpressionValidator1 control.

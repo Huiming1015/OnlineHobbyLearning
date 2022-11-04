@@ -15,15 +15,61 @@ namespace OnlineHobby
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-        String strMaterialID;
+        String strMaterialID, strQueryId;
         int intCountID = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            strMaterialID = GenerateID();
+            strQueryId = Request.QueryString["id"];
+
+            if (strQueryId != null)
+            {
+                if (!IsPostBack)
+                {
+                    lblTitle.Text = "MODIFY MATERIAL KIT";
+                    btnUpload.Text = "CONFIRM";
+                    String strQ;
+                    con = new SqlConnection(strCon);
+                    con.Open();
+                    strQ = "Select * from MaterialKit where materialId = '" + strQueryId + "'";
+                    SqlCommand comID = new SqlCommand(strQ, con);
+                    SqlDataReader dr = comID.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        strMaterialID = strQueryId;
+                        imgMaterial.ImageUrl = dr["materialImage"].ToString();
+                        requireImage.Enabled = false;
+                        txtName.Text = dr["materialName"].ToString();
+                        txtDescription.Text = dr["description"].ToString();
+                        txtMaterialIncluded.Text = dr["materialIncluded"].ToString();
+                        txtStock.Text = dr["stock"].ToString();
+                        txtPrice.Text = String.Format("{0:N2}", double.Parse(dr["price"].ToString()));
+                        ddlCategory.SelectedValue = dr["category"].ToString();
+                    }
+                    con.Close();
+                }
+            }
+            else
+            {
+                lblTitle.Text = "ADD MATERIAL KIT";
+                strMaterialID = GenerateID();            
+            }
             lblID.Text = strMaterialID;
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
+        {            
+            if (strQueryId != null)
+            {
+               modifyMaterial();
+            }
+            else
+            {
+               addMaterial();
+            }
+            
+        }
+
+        private void addMaterial()
         {
             try
             {
@@ -35,17 +81,17 @@ namespace OnlineHobby
                 imageUpload.SaveAs(Request.PhysicalApplicationPath + "images/" + imageUpload.FileName.ToString());
 
                 strImage = "images/" + fileName;
-
+                string materialIncluded = txtMaterialIncluded.Text.Replace("\r\n", "<br />").Replace("\n", "<br />");
                 con = new SqlConnection(strCon);
                 con.Open();
                 strQAdd = "INSERT INTO [MaterialKit](materialId, eduId, materialName, category, description, materialIncluded, price, stock, materialImage, availability) VALUES (@MaterialId, @EduId, @MaterialName, @Category, @Description, @MaterialIncluded, @Price, @Stock, @MaterialImage, @Availability)";
                 SqlCommand comAddMaterial = new SqlCommand(strQAdd, con);
                 comAddMaterial.Parameters.AddWithValue("@MaterialId", lblID.Text);
-                comAddMaterial.Parameters.AddWithValue("@EduId",Session["UserId"]);
+                comAddMaterial.Parameters.AddWithValue("@EduId", Session["UserId"]);
                 comAddMaterial.Parameters.AddWithValue("@MaterialName", txtName.Text);
                 comAddMaterial.Parameters.AddWithValue("@Category", ddlCategory.SelectedValue.ToString());
                 comAddMaterial.Parameters.AddWithValue("@Description", txtDescription.Text);
-                comAddMaterial.Parameters.AddWithValue("@MaterialIncluded", txtMaterialIncluded.Text);
+                comAddMaterial.Parameters.AddWithValue("@MaterialIncluded", materialIncluded);
                 comAddMaterial.Parameters.AddWithValue("@Price", txtPrice.Text);
                 comAddMaterial.Parameters.AddWithValue("@Stock", txtStock.Text);
                 comAddMaterial.Parameters.AddWithValue("@MaterialImage", strImage);
@@ -68,6 +114,92 @@ namespace OnlineHobby
                 MsgBox("Please insert the valid data into all required field!", this.Page, this);
             }
         }
+
+        private void modifyMaterial()
+        {
+            try
+            {
+                string strImage = "";
+                if (imageUpload.HasFile != false)
+                {
+                    imageUpload.SaveAs(Request.PhysicalApplicationPath + "images/" + imageUpload.FileName.ToString());
+                    strImage = "images/" + imageUpload.FileName.ToString();
+                }
+                else
+                {
+                    strImage = imgMaterial.ImageUrl.ToString();
+                }
+                con = new SqlConnection(strCon);
+                con.Open();
+                string strQModify = "Update MaterialKit set materialName=@materialName, category=@category, description=@description, materialIncluded=@materialIncluded, price=@price, stock=@stock, materialImage=@materialImage where materialId=@materialId";
+                SqlCommand comModifyMaterial = new SqlCommand(strQModify, con);
+
+                comModifyMaterial.Parameters.AddWithValue("@materialId", strQueryId);
+                comModifyMaterial.Parameters.AddWithValue("@materialName", txtName.Text);
+                comModifyMaterial.Parameters.AddWithValue("@category", ddlCategory.SelectedValue.ToString());
+                comModifyMaterial.Parameters.AddWithValue("@description", txtDescription.Text);
+                comModifyMaterial.Parameters.AddWithValue("@materialIncluded", txtMaterialIncluded.Text);
+                comModifyMaterial.Parameters.AddWithValue("@price", txtPrice.Text);
+                comModifyMaterial.Parameters.AddWithValue("@stock", txtStock.Text);
+                comModifyMaterial.Parameters.AddWithValue("@materialImage", strImage);
+
+                int k = comModifyMaterial.ExecuteNonQuery();
+
+                if (k != 0)
+                {
+                    MsgBox("Your material kit has been successfully modified!", this.Page, this);
+                    Response.Redirect("EduMaterial.aspx?");
+                }
+                con.Close();
+            }
+            catch
+            {
+                MsgBox("Please insert the valid data into all required field!", this.Page, this);
+            }
+        
+        //try
+        //{
+        //    string strQModify;
+        //    string strImage = "";
+        //    if (imageUpload.HasFile != false)
+        //    {
+        //        imageUpload.SaveAs(Request.PhysicalApplicationPath + "images/" + imageUpload.FileName.ToString());
+        //        strImage = "images/" + imageUpload.FileName.ToString();
+        //    }
+        //    else
+        //    {
+        //        strImage = imgMaterial.ImageUrl.ToString();
+        //    }
+        //    string materialIncluded = txtMaterialIncluded.Text.Replace("\r\n", "<br />").Replace("\n", "<br />");
+        //    con = new SqlConnection(strCon);
+        //    con.Open();
+        //    strQModify = "UPDATE MaterialKit SET materialName=@MaterialName, category=@Category, description=@Description, materialIncluded=@MaterialIncluded, price=@Price, stock=@Stock, materialImage=@MaterialImage WHERE materialId=@MaterialId";
+        //    SqlCommand comModifyMaterial = new SqlCommand(strQModify, con);
+        //    comModifyMaterial.Parameters.AddWithValue("@MaterialId", strMaterialID);
+        //    comModifyMaterial.Parameters.AddWithValue("@MaterialName", txtName.Text);
+        //    comModifyMaterial.Parameters.AddWithValue("@Category", ddlCategory.SelectedValue.ToString());
+        //    comModifyMaterial.Parameters.AddWithValue("@Description", txtDescription.Text);
+        //    comModifyMaterial.Parameters.AddWithValue("@MaterialIncluded", materialIncluded);
+        //    comModifyMaterial.Parameters.AddWithValue("@Price", txtPrice.Text);
+        //    comModifyMaterial.Parameters.AddWithValue("@Stock", txtStock.Text);
+        //    comModifyMaterial.Parameters.AddWithValue("@MaterialImage", strImage);
+        //    int k = comModifyMaterial.ExecuteNonQuery();
+
+        //    if (k != 0)
+        //    {
+        //        ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "swal('Good job!', 'You clicked Success button!', 'success')", true);
+        //        MsgBox("Material Kit Added Successfully!", this.Page, this);
+        //        Clear();
+        //        Response.Redirect("EduMaterial.aspx?");
+        //    }
+
+        //    con.Close();
+        //}
+        //catch
+        //{
+        //    MsgBox("Please insert the valid data into all required field!", this.Page, this);
+        //}
+    }
 
         protected void btnReset_Click(object sender, EventArgs e)
         {
