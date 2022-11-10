@@ -18,13 +18,14 @@ namespace OnlineHobby
         //Int64 EduDetailsId = Convert.ToInt64(Session["UserId"]);
         //Int64 EduDetailsId = 201; //for testing purpose
 
-        string studName;
+        //string studName;
         Int64 idFllw, idChat;
 
         //link to course details page, set Session[EduDetailsId] & get userId
-        // message btn
 
         //fllw ok le
+        //message ok
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,6 +34,7 @@ namespace OnlineHobby
             getEduDetails();
             getRatings();
             getFollowers();
+            getPosts();
 
             if (Session["UserEmail"] == null)
             {
@@ -53,8 +55,8 @@ namespace OnlineHobby
                 else
                 {
                     //as stud
-                    getStudName();
-                    
+                    //getStudName();
+
                     //check if user follow edu
                     verifyIsFollow();
                 }
@@ -147,14 +149,30 @@ namespace OnlineHobby
             con.Close();
         }
 
-        private void getStudName()
+        private void getPosts()
         {
-            Int64 UserId = Convert.ToInt64(Session["UserId"]);
+            //Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
+
+            con = new SqlConnection(strCon);
 
             con.Open();
-            string cmd3 = "SELECT studName FROM Student where studId=" + UserId;
-            SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
-            studName = Convert.ToString(cmdSelect3.ExecuteScalar());
+            string cmd5 = "Select * from Posts where eduId =" + EduDetailsId;
+            SqlCommand cmdSelect5 = new SqlCommand(cmd5, con);
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmdSelect5);
+            sda.Fill(dt);
+
+            if (dt.Rows.Count == 0)
+            {
+                Panel1.Visible = false;
+                MsgNotice.Visible = true;
+            }
+            else
+            {
+                Panel1.Visible = true;
+            }
+            con.Close();
         }
 
         private void verifyIsFollow()
@@ -207,6 +225,12 @@ namespace OnlineHobby
             else
             {
                 //Response.Write("<script>alert('follow') </script>");
+                con.Open();
+                string cmd3 = "SELECT studName FROM Student where studId=" + UserId;
+                SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+                string studName = Convert.ToString(cmdSelect3.ExecuteScalar());
+                con.Close();
+
                 AutoGenerateUserIDFollow();
 
                 con.Open();
@@ -236,6 +260,14 @@ namespace OnlineHobby
 
             if (dt.Rows.Count == 0)
             {
+                //no chat before
+                con.Close();
+                con.Open();
+                string cmd3 = "SELECT studName FROM Student where studId=" + UserId;
+                SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+                string studName = Convert.ToString(cmdSelect3.ExecuteScalar());
+                con.Close();
+
                 AutoGenerateUserIDChat();
 
                 con.Open();
@@ -244,11 +276,19 @@ namespace OnlineHobby
                 cmdSelect2.ExecuteNonQuery();
                 con.Close();
 
-                Response.Redirect("Chat.aspx"); //go chat Details page
+                Response.Redirect("ChatDetails.aspx?id=" + idChat);
             }
             else
             {
-                Response.Redirect("Chat.aspx"); //go chat Details page
+                //have chat before
+                con.Close();
+                con.Open();
+                string cmd2 = "Select chatId from Chat where studId =" + UserId + "and eduId=" + EduDetailsId;
+                SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
+                string chatId = cmdSelect2.ExecuteScalar().ToString();
+                con.Close();
+
+                Response.Redirect("ChatDetails.aspx?id=" + chatId);
             }
             con.Close();
 

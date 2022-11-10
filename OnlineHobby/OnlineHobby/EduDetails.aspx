@@ -53,7 +53,7 @@
             height: 580px;
         }
 
-         .Popup2 {
+        .Popup2 {
             background-color: #FFFFFF;
             border-width: 3px;
             border-style: solid;
@@ -68,6 +68,19 @@
             font-size: 16px;
             font-style: italic;
             font-weight: bold;
+        }
+
+        .wrapper {
+            border-radius: 6px;
+            border: 1px solid grey;
+            margin-right: 20px;
+            margin-bottom: 20px
+        }
+
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            border-style: hidden;
         }
     </style>
 
@@ -102,7 +115,7 @@
 
                 <div class="row text-center mb-4">
                     <div class="col-md-6">
-                        <button runat="server" id="btnFllw" onserverclick="functionFollow" class="btn btn-light btn-lg" style="font-size: small; height: 40px; width: 100px; ">
+                        <button runat="server" id="btnFllw" onserverclick="functionFollow" class="btn btn-light btn-lg" style="font-size: small; height: 40px; width: 100px;">
                             <i class="fa fa-plus"></i>&nbsp;Follow
                         </button>
                     </div>
@@ -157,6 +170,28 @@
                 <div class="row ms-4 my-4">
                     <asp:Label ID="Label4" runat="server" Text="Teaching Courses" Font-Bold="True" Font-Size="X-Large"></asp:Label><br />
                     <asp:Label ID="lblTeaching" runat="server" Text=""></asp:Label>
+                    <div style="padding-left: 15px; padding-top: 10px">
+                        <asp:DataList ID="dlCourse" runat="server" RepeatDirection="Horizontal" RepeatColumns="4" CellSpacing="5" OnItemCommand="dlCourse_ItemCommand" Font-Bold="True">
+                            <ItemTemplate>
+                                <div class="wrapper">
+                                    <table style="border-radius: 6px">
+                                        <tr>
+                                            <td>
+                                                <asp:ImageButton ID="imgbMaterial" runat="server" Height="225px" Width="225px" ImageUrl='<%# Eval("courseImage") %>' CommandArgument='<%# Eval("courseId") %>' CommandName="view" type="submit" BorderStyle="Solid" BorderWidth="2px" ImageAlign="Middle" Style="border-radius: 6px" />
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center">
+                                                <asp:LinkButton ID="linkMaterial" runat="server" Style="text-align: center !important" CommandArgument='<%# Eval("courseId") %>' CommandName="view" type="submit" Font-Underline="False" ForeColor="#993333" Height="45px" Font-Bold="True"><%# Eval("courseName") %> </asp:LinkButton>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </ItemTemplate>
+                        </asp:DataList>
+                    </div>
                 </div>
 
                 <asp:Panel ID="Panel1" runat="server">
@@ -223,7 +258,11 @@
                             </asp:Repeater>
 
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="Select Achievements.achievementId,Achievements.title,Achievements.issueOrg,Achievements.issueMonth,Achievements.issueYear,Achievements.credentialURL
-FROM Achievements INNER JOIN Educator ON Achievements.eduId = Educator.eduId  WHERE Achievements.eduId=201"></asp:SqlDataSource>
+FROM Achievements INNER JOIN Educator ON Achievements.eduId = Educator.eduId  WHERE Achievements.eduId=@EduDetailsId">
+                                <SelectParameters>
+                                    <asp:SessionParameter Name="EduDetailsId" SessionField="EduDetailsId" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         </div>
                     </div>
                 </asp:Panel>
@@ -236,15 +275,15 @@ FROM Achievements INNER JOIN Educator ON Achievements.eduId = Educator.eduId  WH
 
                 <asp:Panel ID="Panel3" runat="server">
                     <div class="d-flex justify-content-center mt-5 pt-1 mb-3 pb-4 mb-lg-4">
-<%--                        only one instance of script manager can be put, so this one btn the below one--%>
-                        <asp:Button ID="btnRate" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="RATE" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white"  />
+                        <%--                        only one instance of script manager can be put, so this one btn the below one--%>
+                        <asp:Button ID="btnRate" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="RATE" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" />
                         <cc1:ModalPopupExtender ID="mp2" runat="server" PopupControlID="Panl2" TargetControlID="btnRate"
                             CancelControlID="Button1" BackgroundCssClass="Background">
                         </cc1:ModalPopupExtender>
                         <asp:Panel ID="Panl2" runat="server" CssClass="Popup2" align="center" Style="display: none">
-                           <asp:Panel ID="Panel6" runat="server" align="right" style="padding-right:10px" >
-                               <asp:Button ID="Button1" runat="server" Text="X" Style=" background-color: #f98006;color: white" Font-Bold="True" BorderStyle="None" BorderColor="Silver" />
-                               </asp:Panel>
+                            <asp:Panel ID="Panel6" runat="server" align="right" Style="padding-right: 10px">
+                                <asp:Button ID="Button1" runat="server" Text="X" Style="background-color: #f98006; color: white" Font-Bold="True" BorderStyle="None" BorderColor="Silver" />
+                            </asp:Panel>
                             <iframe style="width: 550px; height: 230px;" id="Iframe1" src="EduRate.aspx" runat="server"></iframe>
                             <br />
                         </asp:Panel>
@@ -252,24 +291,21 @@ FROM Achievements INNER JOIN Educator ON Achievements.eduId = Educator.eduId  WH
                         <%--popup window--%>
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
-                        <asp:Button ID="btnReport" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="REPORT" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white"  />
+                        <asp:Button ID="btnReport" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="REPORT" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" />
 
                         <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panl1" TargetControlID="btnReport"
                             CancelControlID="Button2" BackgroundCssClass="Background">
                         </cc1:ModalPopupExtender>
                         <asp:Panel ID="Panl1" runat="server" CssClass="Popup" align="center" Style="display: none">
-                           <asp:Panel ID="Panel4" runat="server" align="right" style="padding-right:10px" >
-                               <asp:Button ID="Button2" runat="server" Text="X" Style=" background-color: #f98006;color: white" Font-Bold="True" BorderStyle="None" BorderColor="Silver" />
-                               </asp:Panel>
+                            <asp:Panel ID="Panel4" runat="server" align="right" Style="padding-right: 10px">
+                                <asp:Button ID="Button2" runat="server" Text="X" Style="background-color: #f98006; color: white" Font-Bold="True" BorderStyle="None" BorderColor="Silver" />
+                            </asp:Panel>
                             <iframe style="width: 700px; height: 530px;" id="irm1" src="EduComplaint.aspx" runat="server"></iframe>
                             <br />
-                            
+
                         </asp:Panel>
                     </div>
                 </asp:Panel>
-
-
-
             </div>
         </div>
 

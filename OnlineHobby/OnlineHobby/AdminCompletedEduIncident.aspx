@@ -43,7 +43,7 @@
 
     <div class="container-fluid bg">
         <div class="text-center">
-            <h2 class="mt-5 mb-3 pb-3" style="color: #f98006; font-weight: bold; font-size: xx-large">Educator Incident</h2>
+            <h2 class="pt-5 mb-3 pb-3" style="color: #f98006; font-weight: bold; font-size: xx-large">Educator Incident</h2>
         </div>
 
         <div class="row justify-content-center mt-4 pt-1 mb-3 pb-4 mb-lg-4">
@@ -96,6 +96,24 @@
                         </tr>
                     </table>
                 </ItemTemplate>
+                 <AlternatingItemTemplate>
+                    <table style="background-color: rgba(0, 0, 0, 0.2);" border="1">
+                        <tr>
+                            <td class="auto-style1" style="text-align: center; border-right: 1px solid">
+                                <asp:Label ID="lblAddrName" runat="server" Font-Size="17px"><%#Eval("complaintId").ToString()%></asp:Label></td>
+                            <td class="auto-style2" style="text-align: center; border-right: 1px solid">
+                                <asp:Label ID="Label1" runat="server" Font-Size="17px"><%#Eval("studName").ToString()%></asp:Label></td>
+                            <td class="auto-style3" style="text-align: center; border-right: 1px solid">
+                                <asp:Label ID="Label2" runat="server" Font-Size="17px"><%#Eval("eduName").ToString()%></asp:Label></td>
+                            <td class="auto-style4" style="text-align: center; border-right: 1px solid">
+                                <asp:Label ID="Label4" runat="server" Font-Size="17px"><%#Eval("incidentType").ToString()%></asp:Label></td>
+                            <td class="auto-style6" style="text-align: center; border-right: 1px solid">
+                                <asp:Label ID="Label5" runat="server" Font-Size="17px"><%#Eval("apprStatus").ToString()%></asp:Label></td>
+                            <td class="auto-style5" style="text-align: center">
+                                <asp:LinkButton ID="lbtnView" runat="server" ForeColor="#f98006" Text="View" CommandArgument='<%# Eval("complaintId") %>' CommandName="View" type="submit"></asp:LinkButton></td>
+                        </tr>
+                    </table>
+                </AlternatingItemTemplate>
             </asp:Repeater>
 
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [complaintId], [studName], [eduName], [incidentType], [apprStatus] FROM [Complaint] WHERE ([apprStatus] = 'Approve' OR [apprStatus] = 'Reject')"></asp:SqlDataSource>

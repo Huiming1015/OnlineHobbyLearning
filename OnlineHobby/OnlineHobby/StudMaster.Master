@@ -140,7 +140,7 @@
                                     <li>
                                         <asp:LinkButton ID="lbtnPaymentList" runat="server" CssClass="dropdown-item">Payment List</asp:LinkButton></li>
                                     <li>
-                                        <asp:LinkButton ID="lbtnChats" runat="server" CssClass="dropdown-item mb-0 pb-0">Chats</asp:LinkButton></li>
+                                        <asp:LinkButton ID="lbtnChats" runat="server" CssClass="dropdown-item mb-0 pb-0" OnClick="lbtnChats_Click">Chats</asp:LinkButton></li>
                                         <%--<li>
                                         <hr class="dropdown-divider" id="divider" />
                                     </li>--%>
