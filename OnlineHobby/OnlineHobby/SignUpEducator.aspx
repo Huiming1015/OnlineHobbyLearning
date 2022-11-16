@@ -162,9 +162,15 @@
                         <div class="input-group">
                             <div class="flex-grow-1">
                                 <asp:DropDownList ID="ddlSUCourse" runat="server" CssClass="form-control">
-                                    <asp:ListItem>Painting</asp:ListItem>
+                                    <asp:ListItem>Drawing &amp; Painting</asp:ListItem>
+                                    <asp:ListItem>Floral</asp:ListItem>
+                                    <asp:ListItem>Sewing &amp; Crochet</asp:ListItem>
+                                    <asp:ListItem>Jewelleries</asp:ListItem>
+                                    <asp:ListItem>Music</asp:ListItem>
+                                    <asp:ListItem>Food &amp; Beverage</asp:ListItem>
+                                    <asp:ListItem>Language</asp:ListItem>
                                     <asp:ListItem>Craft</asp:ListItem>
-                                    <asp:ListItem>Photography &amp; Video</asp:ListItem>
+                                    <asp:ListItem>Others</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                         </div>

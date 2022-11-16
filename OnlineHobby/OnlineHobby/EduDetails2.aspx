@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <style>
+     <style>
         .bg {
             background-color: #fffefa;
         }
@@ -174,14 +174,15 @@
                             </asp:Repeater>
 
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="Select Posts.postId,Posts.postDateTime, Posts.postContents, Posts.postImg
-FROM Posts INNER JOIN Educator ON Posts.eduId = Educator.eduId  WHERE Posts.eduId=201 ORDER BY Posts.postDateTime DESC">
+FROM Posts INNER JOIN Educator ON Posts.eduId = Educator.eduId  WHERE Posts.eduId=@EduDetailsId ORDER BY Posts.postDateTime DESC">
+                                <SelectParameters>
+                                    <asp:SessionParameter Name="EduDetailsId" SessionField="EduDetailsId" />
+                                </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
                     </div>
                 </asp:Panel>
-
             </div>
         </div>
-
     </div>
 </asp:Content>

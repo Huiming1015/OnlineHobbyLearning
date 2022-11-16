@@ -90,10 +90,15 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\adminHomepage.png" />
+    <Content Include="Assets\backArrow.png" />
     <Content Include="Assets\background.png" />
     <Content Include="Assets\eduBackground.png" />
     <Content Include="Assets\profileImg\art3.png" />
+    <Content Include="Assets\sendBtn.png" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="ChatDetails.aspx" />
+    <Content Include="Chats.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -304,6 +309,20 @@
     </Compile>
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChatDetails.aspx.cs">
+      <DependentUpon>ChatDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChatDetails.aspx.designer.cs">
+      <DependentUpon>ChatDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chats.aspx.cs">
+      <DependentUpon>Chats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chats.aspx.designer.cs">
+      <DependentUpon>Chats.aspx</DependentUpon>
     </Compile>
     <Compile Include="DeleteAccount.aspx.cs">
       <DependentUpon>DeleteAccount.aspx</DependentUpon>

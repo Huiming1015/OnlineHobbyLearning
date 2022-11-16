@@ -134,41 +134,49 @@ namespace OnlineHobby
                 }
                 else
                 {
-                    con.Open();
-                    string cmd = "Update EduApplication set dateApproval=@date,apprStatus=@status,adminId=@adminId where eduAppId =" + Request.QueryString["id"];
-                    SqlCommand cmdSelect = new SqlCommand(cmd, con);
-                    cmdSelect.Parameters.AddWithValue("@date", now);
-                    cmdSelect.Parameters.AddWithValue("@status", rblApprovalAction.SelectedValue);
-                    cmdSelect.Parameters.AddWithValue("@adminId", AdminId);
-                    cmdSelect.ExecuteNonQuery();
-                    con.Close();
-
-                    string ToEmailAddress = lblEmail.Text;
-                    string UserName = lblName.Text;
-                    string EmailBody = "Dear " + UserName + ",<br/><br/>Thank you for taking the time to consider ReLife. Our team reviewed your application and we'd like to inform you that your sign up application as a ReLife educator has been rejected. " +
-                                                           "Please ensure all the details are completed and correct before submitting. " + "<br/><br/>Please email to <b>relife.help@gmail.com</b> if you wish to communicate with us regarding the application.<br/>Thank you. ";
-
-                    MailMessage PassRecMail = new MailMessage();
-                    PassRecMail.From = new MailAddress("simhm-wm19@student.tarc.edu.my", "ReLife");
-                    PassRecMail.To.Add(new MailAddress(ToEmailAddress));
-
-                    PassRecMail.Body = EmailBody;
-                    PassRecMail.IsBodyHtml = true;
-                    PassRecMail.Subject = "ReLife Educator Sign Up Application - Rejected";
-
-                    using (SmtpClient client = new SmtpClient())
+                    if (txtRejectedReason.Text != "")
                     {
-                        client.EnableSsl = true;
-                        client.UseDefaultCredentials = false;
-                        client.Credentials = new NetworkCredential("simhm-wm19@student.tarc.edu.my", "simhm1015");
-                        client.Host = "smtp.gmail.com";
-                        client.Port = 587;
-                        client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        con.Open();
+                        string cmd = "Update EduApplication set dateApproval=@date,apprStatus=@status,adminId=@adminId,rejectedReason=@reason where eduAppId =" + Request.QueryString["id"];
+                        SqlCommand cmdSelect = new SqlCommand(cmd, con);
+                        cmdSelect.Parameters.AddWithValue("@date", now);
+                        cmdSelect.Parameters.AddWithValue("@status", rblApprovalAction.SelectedValue);
+                        cmdSelect.Parameters.AddWithValue("@adminId", AdminId);
+                        cmdSelect.Parameters.AddWithValue("@reason", txtRejectedReason.Text);
+                        cmdSelect.ExecuteNonQuery();
+                        con.Close();
 
-                        client.Send(PassRecMail);
+                        string ToEmailAddress = lblEmail.Text;
+                        string UserName = lblName.Text;
+                        string EmailBody = "Dear " + UserName + ",<br/><br/>Thank you for taking the time to consider ReLife. Our team reviewed your application and we'd like to inform you that your sign up application as a ReLife educator has been rejected due to <b>" + txtRejectedReason.Text +
+                                                               "</b>. Please ensure all the details are completed and correct before submitting. " + "<br/><br/>Please email to <b>relife.help@gmail.com</b> if you wish to communicate with us regarding the application.<br/>Thank you. ";
+
+                        MailMessage PassRecMail = new MailMessage();
+                        PassRecMail.From = new MailAddress("simhm-wm19@student.tarc.edu.my", "ReLife");
+                        PassRecMail.To.Add(new MailAddress(ToEmailAddress));
+
+                        PassRecMail.Body = EmailBody;
+                        PassRecMail.IsBodyHtml = true;
+                        PassRecMail.Subject = "ReLife Educator Sign Up Application - Rejected";
+
+                        using (SmtpClient client = new SmtpClient())
+                        {
+                            client.EnableSsl = true;
+                            client.UseDefaultCredentials = false;
+                            client.Credentials = new NetworkCredential("simhm-wm19@student.tarc.edu.my", "simhm1015");
+                            client.Host = "smtp.gmail.com";
+                            client.Port = 587;
+                            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+                            client.Send(PassRecMail);
+                        }
+
+                        Response.Redirect("AdminCompletedEduSignUp.aspx");
                     }
-
-                    Response.Redirect("AdminCompletedEduSignUp.aspx");
+                    else
+                    {
+                        MsgRequiredReason.Visible = true;
+                    }
                 }
             }
             else
@@ -190,6 +198,19 @@ namespace OnlineHobby
         {
             Response.Redirect("AdminPendingEduSignUp.aspx");
 
+        }
+
+        protected void rblApprovalAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblApprovalAction.SelectedValue == "Reject")
+            {
+                Panel1.Visible = true;
+            }
+            else
+            {
+                Panel1.Visible = false;
+
+            }
         }
     }
 }

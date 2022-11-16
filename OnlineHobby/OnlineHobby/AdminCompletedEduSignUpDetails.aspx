@@ -77,6 +77,13 @@
                                             <asp:Label ID="lblApprovalDate" runat="server" Text="Approved on:"></asp:Label>&nbsp;
                                             <asp:Label ID="lblDate" runat="server" Text="-"></asp:Label>
                                     </div>
+                                    <asp:Panel ID="Panel1" runat="server" Visible="False">
+                                         <div class="container px-3 pt-2">
+                                            <asp:Label ID="lblReject" runat="server" Text="Rejection reason:"></asp:Label>&nbsp;
+                                            <asp:Label ID="lblRejectionReason" runat="server" Text="-"></asp:Label>
+                                    </div>
+                                    </asp:Panel>
+
                                     <div class="d-flex justify-content-center my-3 py-4 mb-lg-4">
                                         <asp:Button ID="btnBack" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="BACK" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" OnClick="btnBack_Click" />
                                     </div>

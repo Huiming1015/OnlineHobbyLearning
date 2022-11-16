@@ -126,6 +126,11 @@ namespace OnlineHobby
         protected void lbtnMyProfile_Click(object sender, EventArgs e)
         {
             Response.Redirect("Profile.aspx");
-        }       
+        }
+
+        protected void lbtnChats_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Chats.aspx");
+        }
     }
 }

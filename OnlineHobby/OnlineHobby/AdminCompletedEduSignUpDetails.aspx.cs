@@ -23,7 +23,7 @@ namespace OnlineHobby
                 con = new SqlConnection(strCon);
 
                 con.Open();
-                string cmd = "Select eduAppId,eduName,eduEmail,courseCategory,teachingExperience,driveLink,dateApproval,apprStatus,adminId from EduApplication where eduAppId =" + Request.QueryString["id"];
+                string cmd = "Select eduAppId,eduName,eduEmail,courseCategory,teachingExperience,driveLink,dateApproval,apprStatus,adminId,rejectedReason from EduApplication where eduAppId =" + Request.QueryString["id"];
                 SqlCommand cmdSelect = new SqlCommand(cmd, con);
                 SqlDataReader dr = cmdSelect.ExecuteReader();
                 while (dr.Read())
@@ -51,7 +51,17 @@ namespace OnlineHobby
                         lblApprovalDate.Text = "Rejected on:";
                     }
 
+
                     adminId = dr.GetValue(8).ToString();
+                    if (dr.GetValue(9) == DBNull.Value)
+                    {
+                        Panel1.Visible = false;
+                    }
+                    else
+                    {
+                        lblRejectionReason.Text = dr.GetValue(9).ToString();
+                        Panel1.Visible = true;
+                    }
 
 
                 }
@@ -68,8 +78,6 @@ namespace OnlineHobby
             {
                 Response.Redirect("AdminLogin.aspx");
             }
-               
-            
         }
 
         protected void btnBack_Click(object sender, EventArgs e)

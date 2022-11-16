@@ -9,7 +9,7 @@
             background-color: #fffefa;
         }
     </style>
-    <section class="h-70 bg">
+     <section class="h-70 bg">
         <div class="container bg py-5 h-70">
             <div class="row d-flex justify-content-center align-items-center h-70">
                 <div class="col">
@@ -17,6 +17,11 @@
                         Please select an approval action.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     </div>
+                    <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgRequiredReason" visible="false">
+                        Please provide a rejection reason.
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+
                     <div class="card card-registration my-4 mx-5">
                         <div class="row g-0">
                             <div class="container p-md-7 text-black">
@@ -40,7 +45,8 @@
 
                                     </div>
                                     <div class="container px-3 pt-2">
-                                        <asp:Label ID="Label10" runat="server" Text="Name: "></asp:Label> &nbsp;
+                                        <asp:Label ID="Label10" runat="server" Text="Name: "></asp:Label>
+                                        &nbsp;
                                         <asp:Label ID="lblName" runat="server" Text="-"></asp:Label>
                                     </div>
                                     <div class="container px-3 pt-2">
@@ -75,12 +81,28 @@
                                             <asp:Label ID="Label5" runat="server" Text="Approval Action: "></asp:Label>
                                         </div>
                                         <div class="col-md-10 px-0">
-                                            <asp:RadioButtonList ID="rblApprovalAction" runat="server">
+                                            <asp:RadioButtonList ID="rblApprovalAction" runat="server" AutoPostBack="True" OnSelectedIndexChanged="rblApprovalAction_SelectedIndexChanged">
                                                 <asp:ListItem>Approve</asp:ListItem>
                                                 <asp:ListItem>Reject</asp:ListItem>
                                             </asp:RadioButtonList>
                                         </div>
                                     </div>
+                                    <%--Rejected Reason--%>
+                                    <asp:Panel ID="Panel1" runat="server" Visible="False">
+                                        <div class="row px-3 py-2">
+                                            <div class="col-md-2">
+                                                <asp:Label ID="Label2" runat="server" Text="Rejected Reason: "></asp:Label>
+                                            </div>
+                                            <div class="col-md-10 px-0">
+                                                <div class="input-group">
+                                                    <div class="flex-grow-1">
+                                                        <asp:TextBox ID="txtRejectedReason" type="text" placeholder="Enter a rejection reason." CssClass="form-control" runat="server" Width="800px"></asp:TextBox>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </asp:Panel>
                                     <div class="d-flex justify-content-center my-3 py-4 mb-lg-4">
                                         <asp:Button ID="btnBack" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="BACK" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" OnClick="btnBack_Click" />
                                         <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-light btn-lg rounded-pill mx-5" Text="SUBMIT" type="submit" Style="height: 47px; width: 165px; background-color: #f98006; color: white" OnClick="btnSubmit_Click" />

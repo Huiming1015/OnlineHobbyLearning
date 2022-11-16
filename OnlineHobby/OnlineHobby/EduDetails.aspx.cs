@@ -18,62 +18,66 @@ namespace OnlineHobby
         //Int64 EduDetailsId = Request.QueryString["id"];   //get queryString fr course page, set to session
         //Int64 EduDetailsId = 201; //for testing purpose
 
-        string studName;
+        //string studName;
         Int64 idFllw, idChat;
 
         //link to course details page, set Session[EduDetailsId] & get userId
-        // message btn
-        //get courses
         //check if student of edu or not(rate & report btn visibility)
 
         //fllw ok le
+        //message ok le
+        //get courses ok le
 
         protected void Page_Load(object sender, EventArgs e)
         {
             EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);
 
-            //read edu details
-            getEduDetails();
-            //read ratings
-            getRatings();
-            //read followers
-            getFollowers();
-            //read courses
-            //getCourses();
-            //read achievements
-            getAchievements();
-
-            if (Session["UserEmail"] == null)
+            if (!IsPostBack)
             {
-                //as guest
-                btnFllw.Visible = false;
-                btnMsg.Visible = false;
-                Panel3.Visible = false;
-            }
-            else
-            {
-                string role = Session["Role"].ToString();
+                //read edu details
+                getEduDetails();
+                //read ratings
+                getRatings();
+                //read followers
+                getFollowers();
+                //read courses
+                getCourses();
+                //read achievements
+                getAchievements();
 
-                if (role == "edu")
+                if (Session["UserEmail"] == null)
                 {
-                    //as edu
+                    //as guest
                     btnFllw.Visible = false;
                     btnMsg.Visible = false;
                     Panel3.Visible = false;
                 }
                 else
                 {
-                    //as stud
-                    getStudName();
+                    string role = Session["Role"].ToString();
 
-                    //check if stud is the student of edu
-                    //btnRate.Visible = false;
-                    //btnReport.Visible = false;
+                    if (role == "edu")
+                    {
+                        //as edu
+                        btnFllw.Visible = false;
+                        btnMsg.Visible = false;
+                        Panel3.Visible = false;
+                    }
+                    else
+                    {
+                        //as stud
+                        //getStudName();
 
-                    //check if user follow edu
-                    verifyIsFollow();
+                        //check if stud is the student of edu
+                        //verifyIsStudent();
+                        //btnRate.Visible = false;
+                        //btnReport.Visible = false;
+
+                        //check if user follow edu
+                        verifyIsFollow();
+                    }
+
                 }
-
             }
         }
         
@@ -165,7 +169,39 @@ namespace OnlineHobby
 
         private void getCourses()
         {
-            //nothing
+            con = new SqlConnection(strCon);
+
+            con.Open();
+            string cmd5 = "Select * from Course where eduId =" + EduDetailsId + " and availability ='available'";
+            SqlCommand cmdSelect5 = new SqlCommand(cmd5, con);
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter sda = new SqlDataAdapter(cmdSelect5);
+            sda.Fill(dt);
+
+            if (dt.Rows.Count == 0)
+            {
+                //no course
+                lblTeaching.Text = "No course created.";
+                lblTeaching.Visible = true;
+                con.Close();
+
+            }
+            else
+            {
+                //have course
+                lblTeaching.Visible = false;
+
+                con.Close();
+                con.Open();
+                string cmd2 = "Select courseId,courseName,courseImage from Course where eduId =" + EduDetailsId + " and availability='available'";
+                SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
+                dlCourse.DataSource = cmdSelect2.ExecuteReader();
+                dlCourse.DataBind();
+                con.Close();
+
+            }
+            con.Close();
         }
 
         private void getAchievements()
@@ -193,15 +229,15 @@ namespace OnlineHobby
             con.Close();
         }
 
-        private void getStudName()
-        {
-            Int64 UserId = Convert.ToInt64(Session["UserId"]);
+        //private void getStudName()
+        //{
+        //    Int64 UserId = Convert.ToInt64(Session["UserId"]);
 
-            con.Open();
-            string cmd3 = "SELECT studName FROM Student where studId=" + UserId;
-            SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
-            studName = Convert.ToString(cmdSelect3.ExecuteScalar());
-        }
+        //    con.Open();
+        //    string cmd3 = "SELECT studName FROM Student where studId=" + UserId;
+        //    SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+        //    studName = Convert.ToString(cmdSelect3.ExecuteScalar());
+        //}
 
         private void verifyIsFollow()
         {
@@ -223,6 +259,11 @@ namespace OnlineHobby
             con.Close();
         }
 
+        private void verifyIsStudent()
+        {
+            //nothing
+        }
+
         protected void lbtnEduAbout_Click(object sender, EventArgs e)
         {
             Response.Redirect("EduDetails.aspx");
@@ -235,7 +276,7 @@ namespace OnlineHobby
 
         protected void functionFollow(object sender, EventArgs e)
         {
-           // Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
+            // Int64 EduDetailsId = Convert.ToInt64(Request.QueryString["id"]);
 
             Int64 UserId = Convert.ToInt64(Session["UserId"]);
             con = new SqlConnection(strCon);
@@ -253,6 +294,12 @@ namespace OnlineHobby
             }
             else
             {
+                con.Open();
+                string cmd3 = "SELECT studName FROM Student where studId=" + UserId;
+                SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+                string studName = Convert.ToString(cmdSelect3.ExecuteScalar());
+                con.Close();
+
                 AutoGenerateUserIDFollow();
 
                 con.Open();
@@ -282,6 +329,14 @@ namespace OnlineHobby
 
             if (dt.Rows.Count == 0)
             {
+                //no chat before
+                con.Close();
+                con.Open();
+                string cmd3 = "SELECT studName FROM Student where studId=" + UserId;
+                SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+                string studName = Convert.ToString(cmdSelect3.ExecuteScalar());
+                con.Close();
+
                 AutoGenerateUserIDChat();
 
                 con.Open();
@@ -290,11 +345,19 @@ namespace OnlineHobby
                 cmdSelect2.ExecuteNonQuery();
                 con.Close();
 
-                Response.Redirect("Chat.aspx"); //go chat Details page
+                Response.Redirect("ChatDetails.aspx?id=" + idChat);
             }
             else
             {
-                Response.Redirect("Chat.aspx"); //go chat Details page
+                //have chat before
+                con.Close();
+                con.Open();
+                string cmd2 = "Select chatId from Chat where studId =" + UserId + "and eduId=" + EduDetailsId;
+                SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
+                string chatId = cmdSelect2.ExecuteScalar().ToString();
+                con.Close();
+
+                Response.Redirect("ChatDetails.aspx?id=" + chatId);
             }
             con.Close();
 
@@ -307,6 +370,16 @@ namespace OnlineHobby
             SqlCommand cmd = new SqlCommand("Select IsNull(max(fllwId),0) from Follower", con);
             idFllw = Convert.ToInt64(cmd.ExecuteScalar()) + 1;
             con.Close();
+        }
+
+        protected void dlCourse_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+
+            if (e.CommandName == "view")
+            {
+                //Response.Write("<script>alert('" + e.CommandArgument.ToString() + "') </script>");
+                Response.Redirect("ViewCourse.aspx?courseId=" + e.CommandArgument.ToString());
+            }
         }
 
         private void AutoGenerateUserIDChat()
