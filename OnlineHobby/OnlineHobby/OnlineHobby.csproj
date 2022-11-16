@@ -74,6 +74,7 @@
     <Content Include="Achievements.aspx" />
     <Content Include="AddAchievement.aspx" />
     <Content Include="AddAddress.aspx" />
+    <Content Include="AddCourse.aspx" />
     <Content Include="AddMaterial.aspx" />
     <Content Include="AddPost.aspx" />
     <Content Include="AddressBook.aspx" />
@@ -158,6 +159,13 @@
     <None Include="Resources\return.png" />
     <None Include="Resources\original.png" />
     <None Include="Resources\quality.png" />
+    <None Include="Resources\cartEmpty.png" />
+    <None Include="Resources\credit.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\paypal %282%29.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\minus.png" />
     <Content Include="SignUpEducator.aspx" />
     <None Include="Resources\passwordShow.png" />
     <None Include="Resources\passwordHide.png" />
@@ -211,6 +219,13 @@
     </Compile>
     <Compile Include="AddAddress.aspx.designer.cs">
       <DependentUpon>AddAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddCourse.aspx.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCourse.aspx.designer.cs">
+      <DependentUpon>AddCourse.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddMaterial.aspx.cs">
       <DependentUpon>AddMaterial.aspx</DependentUpon>
