@@ -11,16 +11,12 @@
         }
     </style>
 
-    <div style="border: 1px solid grey; padding: 20px; font-size: 20px; width: 90%; margin-left: 5%; margin-right: 5%; text-align: center">
+    <div style="border: 1px solid grey; padding: 20px; font-size: 20px; width: 90%; margin-left: 5%; margin-right: 5%; text-align: center; min-height:610px;">
         <h3 style="color: #990000; text-align: center;">Selects the material kits to link to the course</h3>
-        <asp:DataList ID="dlMaterialKit" runat="server" DataSourceID="SqlDataSource1" HorizontalAlign="Center" RepeatDirection="Horizontal" RepeatColumns="5" CellSpacing="15">
+        <p style="font-size:small; color:#808080;">Leave the Discount Rate field blank when you do not need to link material kit and course</p>
+        <asp:DataList ID="dlMaterialKit" runat="server" DataSourceID="SqlDataSource1" HorizontalAlign="Center" RepeatDirection="Horizontal" RepeatColumns="5" CellSpacing="30" CellPadding="5">
             <ItemTemplate>
-                <table style="width: 225px; font-size: 20px; border: 1px solid grey;">
-                    <tr>
-                        <td align="left">
-                            <asp:CheckBox ID="cbMaterial" runat="server" OnCheckedChanged="cbMaterial_CheckedChanged" AutoPostBack="True" />
-                        </td>
-                    </tr>
+                <table style="width: 225px; font-size: 20px; border: 1px solid grey; margin-right:15px;">
                     <tr>
                         <td class="auto-style1">
                             <asp:Image ID="imgMaterial" class="card-img-top" runat="server" Height="200px" Width="200px" ImageUrl='<%# Eval("materialImage") %>' BorderStyle="Solid" BorderWidth="3px" ImageAlign="Middle" />
@@ -28,19 +24,32 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="text-align: center;" class="auto-style1">
-                            <asp:Label ID="lblMaterialName" class="card-body" runat="server" Style="text-align: center !important" Font-Underline="False" Height="50px" ForeColor="#993333"><%# Eval("materialName") %> </asp:Label>
+                        <td style="text-align: center; height:60px;">
+                            <asp:Label ID="lblMaterialName" class="card-body" runat="server" Style="text-align: center !important" Font-Underline="False" ForeColor="#993333"><%# Eval("materialName") %> </asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style1">Discount Rate:
-                                    <asp:TextBox ID="txtDiscount" runat="server" Width="60px" Enabled="False"></asp:TextBox>
-                            %
-                        </td>
+                        <td class="auto-style1">Discount Rate:<asp:DataList ID="dlDiscount" runat="server" DataSourceID="sqlDiscount" RepeatColumns="1" RepeatDirection="Horizontal" RepeatLayout="Flow">
+                                        <ItemTemplate>
+                                            <asp:TextBox ID="txtDiscount" runat="server" Text='<%# Eval("discount") %>' Width="60px"></asp:TextBox>
+                                            %                                           
+                                            <br />
+                                            <span>
+                                            <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="txtDiscount" Display="Dynamic" ErrorMessage="*Discount Rate must between 1 to 100!" Font-Size="Small" ForeColor="Red" MaximumValue="100" MinimumValue="0" Type="Integer"></asp:RangeValidator>
+                                            </span>                                           
+                                        </ItemTemplate>
+                            </asp:DataList>
+                            &nbsp;</td>
                     </tr>
                     <tr>
                         <td class="auto-style1">
                             <asp:Label ID="lblMaterialId" runat="server" Text='<%# Eval("materialId") %>' Visible="False"></asp:Label>
+                            <asp:SqlDataSource ID="sqlDiscount" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT ISNULL((SELECT [discountRate] FROM [Discount] WHERE (([courseId] = @courseId) AND ([materialId] = @materialId))),0) AS discount">
+                                <SelectParameters>
+                                    <asp:QueryStringParameter Name="courseId" QueryStringField="courseId" Type="String" />
+                                    <asp:ControlParameter ControlID="lblMaterialId" Name="materialId" PropertyName="Text" Type="String" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         </td>
                     </tr>
                 </table>

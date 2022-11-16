@@ -15,55 +15,68 @@ namespace OnlineHobby
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-        String strDiscountID;
+        String strDiscountID, strCourseID;
         String strMaterialID;
         Double dDiscountRate = 0.00;
         int intCountID = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void cbMaterial_CheckedChanged(object sender, EventArgs e)
-        {
-            foreach (DataListItem li in dlMaterialKit.Items)
-            {
-                CheckBox cbMaterial = li.FindControl("cbMaterial") as CheckBox;
-                TextBox txtDiscount = li.FindControl("txtDiscount") as TextBox;
-                if (cbMaterial.Checked == true)
-                {
-                    txtDiscount.Enabled = true;
-                }
-                else
-                {
-                    txtDiscount.Text = "";
-                    txtDiscount.Enabled = false;
-                }
-
-            }
+            strCourseID = Request.QueryString["courseId"].ToString();
         }
 
         protected void btnFinish_Click(object sender, EventArgs e)
         {
             foreach (DataListItem li in dlMaterialKit.Items)
             {
-                CheckBox cbMaterial = li.FindControl("cbMaterial") as CheckBox;
-                TextBox txtDiscount = li.FindControl("txtDiscount") as TextBox;
+                DataList dlDiscount = li.FindControl("dlDiscount") as DataList;
                 Label lblMaterialId = li.FindControl("lblMaterialId") as Label;
                 Button btnLink = li.FindControl("btnLink") as Button;
-                if (cbMaterial.Checked == true)
+                strMaterialID = lblMaterialId.Text.ToString();
+                foreach (DataListItem discount in dlDiscount.Items)
                 {
-                    strDiscountID = GenerateID();
-                    strMaterialID = lblMaterialId.Text.ToString();
-                    dDiscountRate = double.Parse(txtDiscount.Text.ToString());
-                    addDiscount();
-                }
-                else
-                {
-                    removeDiscount();
+                    TextBox txtDiscount = discount.FindControl("txtDiscount") as TextBox;
+                    if (txtDiscount.Text.ToString() != "")
+                    {
+                        if (Convert.ToInt16(txtDiscount.Text) > 0)
+                        {
+                            dDiscountRate = Convert.ToInt32(txtDiscount.Text);
+                        }
+                    }
+
+                    String strQ;
+                    con = new SqlConnection(strCon);
+                    con.Open();
+                    strQ = "SELECT * FROM Discount WHERE materialId=@MaterialId AND courseId=@CourseId";
+                    SqlCommand com = new SqlCommand(strQ, con);
+                    com.Parameters.AddWithValue("@MaterialId", strMaterialID);
+                    com.Parameters.AddWithValue("@CourseId", strCourseID);
+                    SqlDataReader dr = com.ExecuteReader();
+                    if (txtDiscount.Text != "" && dDiscountRate > 0)
+                    {
+                        if (dr.HasRows)
+                        {
+                            while (dr.Read())
+                            {
+                                strDiscountID = dr["discountId"].ToString();
+                            }
+                            modifyDiscount();
+                        }
+                        else
+                        {
+                            strDiscountID = GenerateID();
+                            addDiscount();
+                        }
+                    }
+                    else
+                    {
+                        removeDiscount();
+                        con.Close();
+                    }
                 }
             }
+            MsgBox("Course details has been successfully saved!", this.Page, this);
+            ScriptManager.RegisterStartupScript(this, GetType(), "", "window.location = '" + Page.ResolveUrl("~/EduCourseList.aspx") + "';", true);
         }
 
         private void addDiscount()
@@ -74,20 +87,13 @@ namespace OnlineHobby
                 con = new SqlConnection(strCon);
                 con.Open();
                 strQAdd = "INSERT INTO [Discount](discountId, courseId, materialId, discountRate) VALUES (@DiscountId, @CourseId, @MaterialId, @DiscountRate)";
-                SqlCommand comAddMaterial = new SqlCommand(strQAdd, con);
-                comAddMaterial.Parameters.AddWithValue("@DiscountId", strDiscountID);
-                comAddMaterial.Parameters.AddWithValue("@CourseId", Session["CourseID"].ToString());
-                comAddMaterial.Parameters.AddWithValue("@MaterialId", strMaterialID);
-                comAddMaterial.Parameters.AddWithValue("@DiscountRate", dDiscountRate);
-                int k = comAddMaterial.ExecuteNonQuery();
+                SqlCommand comAddDiscount = new SqlCommand(strQAdd, con);
+                comAddDiscount.Parameters.AddWithValue("@DiscountId", strDiscountID);
+                comAddDiscount.Parameters.AddWithValue("@CourseId", strCourseID);
+                comAddDiscount.Parameters.AddWithValue("@MaterialId", strMaterialID);
+                comAddDiscount.Parameters.AddWithValue("@DiscountRate", dDiscountRate);
+                int k = comAddDiscount.ExecuteNonQuery();
 
-                if (k != 0)
-                {
-                    //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert",
-                    //"swal('Good job!', 'You clicked Success button!', 'success')", true);
-                    MsgBox("Material Linked Successfully!", this.Page, this);
-                    //Response.Redirect("LinkMaterial.aspx?");
-                }
                 con.Close();
             }
             catch
@@ -98,8 +104,56 @@ namespace OnlineHobby
 
         private void removeDiscount()
         {
+            try
+            {
+                string strQDelete;
+                con = new SqlConnection(strCon);
+                con.Open();
+                strQDelete = "DELETE FROM Discount WHERE materialId=@MaterialId AND courseId=@CourseId";
+                SqlCommand comRemoveDiscount = new SqlCommand(strQDelete, con);
+                comRemoveDiscount.Parameters.AddWithValue("@MaterialId", strMaterialID);
+                comRemoveDiscount.Parameters.AddWithValue("@CourseId", strCourseID);
+                int k = comRemoveDiscount.ExecuteNonQuery();
 
+                if (k != 0)
+                {
+                    MsgBox("Course details has been successfully saved!", this.Page, this);
+                    Response.Redirect("EduCourseList.aspx?");
+                }
+                con.Close();
+            }
+            catch
+            {
+                MsgBox("Please insert the valid data into all required field!", this.Page, this);
+            }
         }
+
+        private void modifyDiscount()
+        {
+            try
+            {
+                string strQModify;
+                con = new SqlConnection(strCon);
+                con.Open();
+                strQModify = "UPDATE Discount SET discountRate=@DiscountRate WHERE discountId=@DiscountId";
+                SqlCommand comModifyDiscount = new SqlCommand(strQModify, con);
+                comModifyDiscount.Parameters.AddWithValue("@DiscountId", strDiscountID);
+                comModifyDiscount.Parameters.AddWithValue("@DiscountRate", dDiscountRate);
+                int k = comModifyDiscount.ExecuteNonQuery();
+
+                if (k != 0)
+                {
+                    MsgBox("Course details has been successfully saved!", this.Page, this);
+                    Response.Redirect("EduCourseList.aspx?");
+                }
+                con.Close();
+            }
+            catch
+            {
+                MsgBox("Please insert the valid data into all required field!", this.Page, this);
+            }
+        }
+
         private string GenerateID()
         {
             string id = "";
@@ -119,19 +173,6 @@ namespace OnlineHobby
             return "D" + intCountID.ToString("0000");
         }
 
-        //private Int64 GenerateID()
-        //{
-        //    Int64 id;
-        //    String strQDiscount;
-        //    con = new SqlConnection(strCon);
-        //    con.Open();
-        //    strQDiscount = "Select IsNull(max(discountId),0) from Discount";
-        //    SqlCommand comID = new SqlCommand(strQDiscount, con);
-        //    id = Convert.ToInt64(comID.ExecuteScalar()) + 1;
-        //    con.Close();
-        //    return id;
-        //}
-
         public void MsgBox(String ex, Page pg, Object obj)
         {
             string s = "<SCRIPT language='javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
@@ -139,6 +180,6 @@ namespace OnlineHobby
             ClientScriptManager cs = pg.ClientScript;
             cs.RegisterClientScriptBlock(cstype, s, s.ToString());
         }
-        
+
     }
 }

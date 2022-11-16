@@ -37,8 +37,12 @@ namespace OnlineHobby
                 if (role == "stud")
                 {
                     lbtnMaterialKits.PostBackUrl = "~/StudMaterial.aspx";
-                    lbtnMyOrder.Visible = true;
-                    lbtnOrderHistory.Visible = false;
+                    lbtnCourse.PostBackUrl = "~/StudCourseList.aspx";
+                    lbtnMyPurchase.PostBackUrl = "~/OrderList.aspx";
+                    lbtnMyPurchase.Text = "Purchase History";
+                    lbtnCourseTimetable.Text = "My Course";
+                    lbtnCourseTimetable.PostBackUrl = "~/EnrolledCourseList.aspx";
+                    imgBtnCart.PostBackUrl = "~/Cart.aspx";
                     Panel1.Visible = true;
                     Panel2.Visible = false;
 
@@ -62,8 +66,11 @@ namespace OnlineHobby
                 else
                 {
                     lbtnMaterialKits.PostBackUrl = "~/EduMaterial.aspx";
-                    lbtnMyOrder.Visible = false;
-                    lbtnOrderHistory.Visible = true;
+                    lbtnCourse.PostBackUrl = "~/EduCourseList.aspx";
+                    lbtnMyPurchase.PostBackUrl = "~/OrderList.aspx";
+                    lbtnMyPurchase.Text = "Sales Record";
+                    lbtnCourseTimetable.Text = "Timetable";
+                    lbtnCourseTimetable.PostBackUrl = "~/TimetableEdu.aspx";
                     Panel1.Visible = false;
                     Panel2.Visible = true;
 
@@ -94,14 +101,13 @@ namespace OnlineHobby
                 lbtnLogout.Visible = false;
                 divider.Visible = false;
                 lbtnMyProfile.Visible = false;
-                lbtnMyOrder.Visible = false;
-                lbtnOrderHistory.Visible = false;
-                lbtnPaymentList.Visible = false;
+                lbtnMyPurchase.Visible = false;
                 lbtnChats.Visible = false;
                 lbtnCourseTimetable.Visible = false;
                 imgBtnCart.Visible = false;
                 Panel2.Visible = false;
                 lbtnMaterialKits.PostBackUrl = "~/StudMaterial.aspx";
+                lbtnCourse.PostBackUrl = "~/StudCourseList.aspx";
             }
         }
 

@@ -19,6 +19,7 @@
 
         .div-background {
             background-color: #fffefa;
+            min-height:610px;
         }
     </style>
     <div class="text-center div-background">
@@ -33,7 +34,7 @@
         <div class="text-center">
             <asp:DataList ID="dlMaterialKit" runat="server" DataSourceID="SqlDataSource1" HorizontalAlign="Center" RepeatDirection="Horizontal" RepeatColumns="5" OnItemCommand="dlMaterialKit_ItemCommand" CellSpacing="15">
                 <ItemTemplate>
-                    <div class="card" style="text-align: left !important">
+                    <div class="card" style="text-align: left !important; margin-right:15px;">
                         <asp:ImageButton ID="imgbMaterial" class="card-img-top" runat="server" Height="250px" Width="250px" ImageUrl='<%# Eval("materialImage") %>' CommandArgument='<%# Eval("materialId") %>' CommandName="viewModify" BorderStyle="Solid" BorderWidth="3px" ImageAlign="Middle" />
                         <asp:LinkButton ID="linkMaterial" class="card-body" runat="server" Style="text-align: center !important" CommandArgument='<%# Eval("materialId") %>' CommandName="viewModify" Font-Underline="False" ForeColor="#993333"><%# Eval("materialName") %> </asp:LinkButton>
                 </ItemTemplate>

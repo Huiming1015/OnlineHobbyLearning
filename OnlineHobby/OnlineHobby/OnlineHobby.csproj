@@ -75,9 +75,11 @@
     <Content Include="AddAchievement.aspx" />
     <Content Include="AddAddress.aspx" />
     <Content Include="AddCourse.aspx" />
+    <Content Include="AddCourseToCart.aspx" />
     <Content Include="AddMaterial.aspx" />
     <Content Include="AddPost.aspx" />
     <Content Include="AddressBook.aspx" />
+    <Content Include="AddSchedule.aspx" />
     <Content Include="AdminCompletedEduIncident.aspx" />
     <Content Include="AdminCompletedEduIncidentDetails.aspx" />
     <Content Include="AdminCompletedEduSignUp.aspx" />
@@ -97,9 +99,12 @@
     <Content Include="Assets\eduBackground.png" />
     <Content Include="Assets\profileImg\art3.png" />
     <Content Include="Assets\sendBtn.png" />
+    <Content Include="CancelForm.aspx" />
+    <Content Include="Cart.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="ChatDetails.aspx" />
     <Content Include="Chats.aspx" />
+    <Content Include="CheckOut.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -116,15 +121,20 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="CreditCard.aspx" />
     <Content Include="DeleteAccount.aspx" />
     <Content Include="EditAchievement.aspx" />
     <Content Include="EditAddress.aspx" />
     <Content Include="EditPost.aspx" />
     <Content Include="EduComplaint.aspx" />
+    <Content Include="EduCourseList.aspx" />
     <Content Include="EduDetails.aspx" />
     <Content Include="EduDetails2.aspx" />
     <Content Include="EduMaterial.aspx" />
     <Content Include="EduRate.aspx" />
+    <Content Include="EnrolledCourseList.aspx" />
+    <Content Include="EnrollmentDetails.aspx" />
+    <Content Include="EnrollmentList.aspx" />
     <Content Include="Followers.aspx" />
     <Content Include="Following.aspx" />
     <Content Include="ForgotPassword.aspx" />
@@ -146,11 +156,18 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="AdminLogIn.aspx" />
-    <Content Include="ModifyViewMaterial.aspx" />
+    <Content Include="LinkMaterial.aspx" />
+    <Content Include="MyCourseDetails.aspx" />
+    <Content Include="OrderDetails.aspx" />
+    <Content Include="OrderList.aspx" />
+    <Content Include="PaymentDetails.aspx" />
+    <Content Include="PayPal.aspx" />
     <Content Include="Posts.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="NestedProfile.master" />
+    <Content Include="NestedOrder.Master" />
+    <Content Include="PurchaseSellMaster.Master" />
     <None Include="Resources\loginAdmin.png" />
     <Content Include="Resources\cart.png" />
     <None Include="Resources\profile_orange.png" />
@@ -180,7 +197,13 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="SignUpStud.aspx" />
+    <Content Include="StudCourseList.aspx" />
     <Content Include="StudMaterial.aspx" />
+    <Content Include="TimetableEdu.aspx" />
+    <Content Include="TimetableStud.aspx" />
+    <Content Include="ViewCourse.aspx" />
+    <Content Include="viewMaterial.aspx" />
+    <Content Include="ViewStudNameList.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -227,6 +250,13 @@
     <Compile Include="AddCourse.aspx.designer.cs">
       <DependentUpon>AddCourse.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddCourseToCart.aspx.cs">
+      <DependentUpon>AddCourseToCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCourseToCart.aspx.designer.cs">
+      <DependentUpon>AddCourseToCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddMaterial.aspx.cs">
       <DependentUpon>AddMaterial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -247,6 +277,13 @@
     </Compile>
     <Compile Include="AddressBook.aspx.designer.cs">
       <DependentUpon>AddressBook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddSchedule.aspx.cs">
+      <DependentUpon>AddSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddSchedule.aspx.designer.cs">
+      <DependentUpon>AddSchedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminCompletedEduIncident.aspx.cs">
       <DependentUpon>AdminCompletedEduIncident.aspx</DependentUpon>
@@ -318,6 +355,20 @@
     <Compile Include="AdminPendingEduSignUp.aspx.designer.cs">
       <DependentUpon>AdminPendingEduSignUp.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CancelForm.aspx.cs">
+      <DependentUpon>CancelForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CancelForm.aspx.designer.cs">
+      <DependentUpon>CancelForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,6 +389,20 @@
     </Compile>
     <Compile Include="Chats.aspx.designer.cs">
       <DependentUpon>Chats.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut.aspx.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckOut.aspx.designer.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreditCard.aspx.cs">
+      <DependentUpon>CreditCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreditCard.aspx.designer.cs">
+      <DependentUpon>CreditCard.aspx</DependentUpon>
     </Compile>
     <Compile Include="DeleteAccount.aspx.cs">
       <DependentUpon>DeleteAccount.aspx</DependentUpon>
@@ -374,6 +439,13 @@
     <Compile Include="EduComplaint.aspx.designer.cs">
       <DependentUpon>EduComplaint.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EduCourseList.aspx.cs">
+      <DependentUpon>EduCourseList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EduCourseList.aspx.designer.cs">
+      <DependentUpon>EduCourseList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EduDetails.aspx.cs">
       <DependentUpon>EduDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -401,6 +473,27 @@
     </Compile>
     <Compile Include="EduRate.aspx.designer.cs">
       <DependentUpon>EduRate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnrolledCourseList.aspx.cs">
+      <DependentUpon>EnrolledCourseList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnrolledCourseList.aspx.designer.cs">
+      <DependentUpon>EnrolledCourseList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentDetails.aspx.cs">
+      <DependentUpon>EnrollmentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnrollmentDetails.aspx.designer.cs">
+      <DependentUpon>EnrollmentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentList.aspx.cs">
+      <DependentUpon>EnrollmentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnrollmentList.aspx.designer.cs">
+      <DependentUpon>EnrollmentList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Followers.aspx.cs">
       <DependentUpon>Followers.aspx</DependentUpon>
@@ -430,6 +523,13 @@
     <Compile Include="Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LinkMaterial.aspx.cs">
+      <DependentUpon>LinkMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LinkMaterial.aspx.designer.cs">
+      <DependentUpon>LinkMaterial.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -444,12 +544,19 @@
     <Compile Include="AdminLogIn.aspx.designer.cs">
       <DependentUpon>AdminLogIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ModifyViewMaterial.aspx.cs">
-      <DependentUpon>ModifyViewMaterial.aspx</DependentUpon>
+    <Compile Include="MyCourseDetails.aspx.cs">
+      <DependentUpon>MyCourseDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ModifyViewMaterial.aspx.designer.cs">
-      <DependentUpon>ModifyViewMaterial.aspx</DependentUpon>
+    <Compile Include="MyCourseDetails.aspx.designer.cs">
+      <DependentUpon>MyCourseDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NestedOrder.Master.cs">
+      <DependentUpon>NestedOrder.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NestedOrder.Master.designer.cs">
+      <DependentUpon>NestedOrder.Master</DependentUpon>
     </Compile>
     <Compile Include="NestedProfile.master.cs">
       <DependentUpon>NestedProfile.master</DependentUpon>
@@ -457,6 +564,34 @@
     </Compile>
     <Compile Include="NestedProfile.master.designer.cs">
       <DependentUpon>NestedProfile.master</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetails.aspx.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderDetails.aspx.designer.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderList.aspx.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderList.aspx.designer.cs">
+      <DependentUpon>OrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentDetails.aspx.cs">
+      <DependentUpon>PaymentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentDetails.aspx.designer.cs">
+      <DependentUpon>PaymentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PayPal.aspx.cs">
+      <DependentUpon>PayPal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayPal.aspx.designer.cs">
+      <DependentUpon>PayPal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Posts.aspx.cs">
       <DependentUpon>Posts.aspx</DependentUpon>
@@ -477,6 +612,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseSellMaster.Master.cs">
+      <DependentUpon>PurchaseSellMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PurchaseSellMaster.Master.designer.cs">
+      <DependentUpon>PurchaseSellMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="ResetPassword.aspx.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
@@ -499,6 +641,13 @@
     <Compile Include="SignUpEducator.aspx.designer.cs">
       <DependentUpon>SignUpEducator.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StudCourseList.aspx.cs">
+      <DependentUpon>StudCourseList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudCourseList.aspx.designer.cs">
+      <DependentUpon>StudCourseList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="StudMaster.Master.cs">
       <DependentUpon>StudMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -512,6 +661,41 @@
     </Compile>
     <Compile Include="StudMaterial.aspx.designer.cs">
       <DependentUpon>StudMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TimetableEdu.aspx.cs">
+      <DependentUpon>TimetableEdu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TimetableEdu.aspx.designer.cs">
+      <DependentUpon>TimetableEdu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TimetableStud.aspx.cs">
+      <DependentUpon>TimetableStud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TimetableStud.aspx.designer.cs">
+      <DependentUpon>TimetableStud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCourse.aspx.cs">
+      <DependentUpon>ViewCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCourse.aspx.designer.cs">
+      <DependentUpon>ViewCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewMaterial.aspx.cs">
+      <DependentUpon>viewMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewMaterial.aspx.designer.cs">
+      <DependentUpon>viewMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewStudNameList.aspx.cs">
+      <DependentUpon>ViewStudNameList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewStudNameList.aspx.designer.cs">
+      <DependentUpon>ViewStudNameList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

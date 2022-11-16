@@ -18,7 +18,7 @@ namespace OnlineHobby
         {
             if (e.CommandName == "viewModify")
             {
-                Response.Redirect("ModifyViewMaterial.aspx?id=" + e.CommandArgument.ToString());
+                Response.Redirect("ViewMaterial.aspx?id=" + e.CommandArgument.ToString());
             }
         }
     }

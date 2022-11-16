@@ -91,10 +91,10 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <asp:LinkButton ID="lbtnCourse" runat="server"  class="nav-link"  PostBackUrl="~/AddCourse.aspx">Courses</asp:LinkButton>
+                                <asp:LinkButton ID="lbtnCourse" runat="server"  class="nav-link">Courses</asp:LinkButton>
                             </li>
                             <li class="nav-item">
-                                <asp:LinkButton ID="lbtnMaterialKits" runat="server" class="nav-link" PostBackUrl="~/StudMaterial.aspx">Material Kits</asp:LinkButton>
+                                <asp:LinkButton ID="lbtnMaterialKits" runat="server" class="nav-link">Material Kits</asp:LinkButton>
                             </li>
                             <asp:Panel ID="Panel1" runat="server">
                                 <li class="navChange">
@@ -116,7 +116,6 @@
 
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <%--<a class="nav-link" href="#">Course Timetable</a>--%>
                                 <asp:LinkButton ID="lbtnCourseTimetable" runat="server" CssClass="nav-link">My Course</asp:LinkButton>
                             </li>
 
@@ -134,11 +133,7 @@
                                     <li>
                                         <asp:LinkButton ID="lbtnMyProfile" runat="server" CssClass="dropdown-item" OnClick="lbtnMyProfile_Click">My Profile</asp:LinkButton></li>
                                     <li>
-                                        <asp:LinkButton ID="lbtnMyOrder" runat="server" CssClass="dropdown-item">My Order</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lbtnOrderHistory" runat="server" CssClass="dropdown-item">Order History</asp:LinkButton></li>
-                                    <li>
-                                        <asp:LinkButton ID="lbtnPaymentList" runat="server" CssClass="dropdown-item">Payment List</asp:LinkButton></li>
+                                        <asp:LinkButton ID="lbtnMyPurchase" runat="server" CssClass="dropdown-item" Text="Purchase History"></asp:LinkButton></li>
                                     <li>
                                         <asp:LinkButton ID="lbtnChats" runat="server" CssClass="dropdown-item mb-0 pb-0" OnClick="lbtnChats_Click">Chats</asp:LinkButton></li>
                                         <%--<li>

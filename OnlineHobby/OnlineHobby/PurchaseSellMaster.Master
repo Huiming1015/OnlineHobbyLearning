@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PurchaseSellMaster.master.cs" Inherits="OnlineHobby.PurchaseSellMaster" MasterPageFile="~/StudMaster.Master"%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container mt-5 mb-5 align-content-center" style="width: 90%; min-height:650px; margin-left: 5%; font-size:large">
+        <div class="row g-0">
+            <div class="col-md-2">
+                <asp:Button ID="btnOrderList" runat="server" Text="Order List" CssClass="border-1 w-100" BackColor="#FFF0E1" BorderColor="Black" OnClick="btnOrderList_Click" />
+            </div>
+            <div class="col-md-2">
+                <asp:Button ID="btnEnrollmentList" runat="server" Text="Enrollment List" CssClass="border-1 w-100" BackColor="#FFF0E1" BorderColor="Black" OnClick="btnEnrollmentList_Click" />
+            </div>
+            <div class="col-md-8">
+            </div>
+        </div>
+        <div class="border border-dark">
+            <asp:ContentPlaceHolder ID="Body" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
