@@ -15,18 +15,12 @@ namespace OnlineHobby
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         Int64 EduDetailsId;
-        //Int64 EduDetailsId = Request.QueryString["id"];   //get queryString fr course page, set to session
+        //Int64 EduDetailsId = Request.QueryString["id"];  
         //Int64 EduDetailsId = 201; //for testing purpose
 
         //string studName;
         Int64 idFllw, idChat;
-
-        //link to course details page, set Session[EduDetailsId] & get userId
-        //check if student of edu or not(rate & report btn visibility)
-
-        //fllw ok le
-        //message ok le
-        //get courses ok le
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -69,9 +63,7 @@ namespace OnlineHobby
                         //getStudName();
 
                         //check if stud is the student of edu
-                        //verifyIsStudent();
-                        //btnRate.Visible = false;
-                        //btnReport.Visible = false;
+                        verifyIsStudent();
 
                         //check if user follow edu
                         verifyIsFollow();
@@ -261,7 +253,24 @@ namespace OnlineHobby
 
         private void verifyIsStudent()
         {
-            //nothing
+            Int64 UserId = Convert.ToInt64(Session["UserId"]);
+            con = new SqlConnection(strCon);
+
+            con.Open();
+            string cmd3 = "SELECT COUNT(e.enrollmentId) FROM EnrolledCourse e INNER JOIN EnrolDetails ed ON e.enrollmentId = ed.enrollmentId INNER JOIN CourseSchedule s ON ed.scheduleId = s.scheduleId INNER JOIN Course c ON s.courseId = c.courseId INNER JOIN Educator edu ON c.eduId = edu.eduId where studId = " + UserId + "and edu.eduId=" + EduDetailsId;
+            SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+            Int64 count = Convert.ToInt64(cmdSelect3.ExecuteScalar());
+            if (count > 0)
+            {
+                btnRate.Visible = true;
+                btnReport.Visible = true;
+            }
+            else
+            {
+                btnRate.Visible = false;
+                btnReport.Visible = false;
+            }
+            con.Close();
         }
 
         protected void lbtnEduAbout_Click(object sender, EventArgs e)

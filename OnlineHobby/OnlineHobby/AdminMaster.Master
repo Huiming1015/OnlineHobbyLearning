@@ -8,7 +8,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<%--    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>--%>
     <style>
         .navbar-custom {
             background-color: #fff0d4;
@@ -47,6 +47,20 @@
         .navbar-custom.navbar-toggler {
             border-color: #5E3C18;
         }
+
+        .nav-link:hover{
+             color: #BB7930;
+             text-decoration: none;
+        }
+
+        .nav-links{
+             color: #212529;
+             padding-top: 0.25rem;
+             padding-bottom: 0.25rem;
+             padding-left: 0.6rem;
+             padding-right: 0.6rem;
+             text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -82,9 +96,10 @@
                                 </a></asp:LinkButton>
 
                                 <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
-                                    <li><asp:LinkButton ID="lbtnEduSU" runat="server" CssClass="dropdown-item" OnClick="lbtnEduSU_Click">Educator Sign Up</asp:LinkButton></li>
+                                    <%--<li><asp:LinkButton ID="lbtnEduSU" runat="server" CssClass="dropdown-item" OnClick="lbtnEduSU_Click">Educator Sign Up</asp:LinkButton></li>--%>
+                                    <li><asp:LinkButton ID="lbtnEduSU" runat="server" CssClass="dropdown-item"><a class="nav-links" href="AdminPendingEduSignUp.aspx">Educator Sign Up</a></asp:LinkButton></li>
                                     <%--<li><asp:LinkButton ID="lbtnNewCourse" runat="server" CssClass="dropdown-item">New Course</asp:LinkButton></li>--%>
-                                    <li><asp:LinkButton ID="lbtnEduIncidents" runat="server" CssClass="dropdown-item" OnClick="lbtnEduIncidents_Click">Educator Incidents</asp:LinkButton></li>
+                                    <li><asp:LinkButton ID="lbtnEduIncidents" runat="server" CssClass="dropdown-item" ><a class="nav-links" href="AdminPendingEduIncident.aspx">Educator Incidents</a></asp:LinkButton></li>
 
                                 </ul>
                             </li>

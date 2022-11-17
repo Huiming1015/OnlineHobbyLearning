@@ -51,7 +51,7 @@ namespace OnlineHobby
                 }
                 con.Close();
                 getFollowing();
-                //getCourses();
+                getCourses();
             }
             else
             {
@@ -101,17 +101,38 @@ namespace OnlineHobby
             if (count > 0)
             {
                 lblFllw.Text = count.ToString();
+                con.Close();
             }
             else
             {
                 lblFllw.Text = "0";
+                con.Close();
             }
             con.Close();
         }
 
         private void getCourses()
         {
-            //nothing
+            Int64 UserId = Convert.ToInt64(Session["UserId"]);
+
+            con = new SqlConnection(strCon);
+
+            con.Open();
+            string cmd3 = "SELECT COUNT(distinct c.courseId) from Course c INNER JOIN CourseSchedule s ON c.courseId = s.courseId INNER JOIN EnrolDetails ed ON s.scheduleId = ed.scheduleId INNER JOIN EnrolledCourse e ON ed.enrollmentId = e.enrollmentId where e.studId =" + UserId;
+            SqlCommand cmdSelect3 = new SqlCommand(cmd3, con);
+
+            Int64 count = Convert.ToInt64(cmdSelect3.ExecuteScalar());
+            if (count > 0)
+            {
+                lblRateOrCourses.Text = count.ToString();
+                con.Close();
+            }
+            else
+            {
+                lblRateOrCourses.Text = "0";
+                con.Close();
+            }
+            con.Close();
         }
 
         private void getFollowers()

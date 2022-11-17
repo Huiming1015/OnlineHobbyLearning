@@ -20,13 +20,7 @@ namespace OnlineHobby
 
         //string studName;
         Int64 idFllw, idChat;
-
-        //link to course details page, set Session[EduDetailsId] & get userId
-
-        //fllw ok le
-        //message ok
-
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
              EduDetailsId = Convert.ToInt64(Session["EduDetailsId"]);

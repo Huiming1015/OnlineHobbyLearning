@@ -34,7 +34,7 @@
     <form id="form2" runat="server">
         <div class="container-fluid bg">
             <div class="container text-center">
-                <h2 class="mt-3 mb-2 pb-2" style="color: #f98006; font-weight: bold; font-size: xx-large;">Select Your Preffered Schedule</h2>
+                <h2 class="mt-3 mb-2 pb-2" style="color: #f98006; font-weight: bold; font-size: xx-large;">Select Your Preferred Schedule</h2>
             </div>
             <div class="row">
                 <div class="col-md-1"></div>

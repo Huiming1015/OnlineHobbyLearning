@@ -80,7 +80,7 @@
          <h3 class="pt-3 mb-1 pb-3" style="color: #f98006; font-weight: bold; text-align: center">Course Details</h3>
         <hr />
         <div align="center">
-            <asp:DataList ID="dlCourse" runat="server" DataKeyField="courseId" DataSourceID="SqlDataSource1" RepeatColumns="1" HorizontalAlign="Center" Width="100%" BorderStyle="None">
+            <asp:DataList ID="dlCourse" runat="server" DataKeyField="courseId" DataSourceID="SqlDataSource1" RepeatColumns="1" HorizontalAlign="Center" Width="100%" BorderStyle="None" OnItemCommand="dlCourse_ItemCommand">
                 <ItemTemplate>
                     <table style="vertical-align: central; width: 100%; height: 90%">
                         <tr>
@@ -102,7 +102,7 @@
                         </tr>
                         <tr>
                             <td class="text-center">
-                                <asp:LinkButton ID="lblEdu" runat="server" Text='<%# Eval("eduName") %>' Width="300px"></asp:LinkButton>
+                                <asp:LinkButton ID="lblEdu" runat="server" Text='<%# Eval("eduName") %>' Width="300px"  CommandArgument='<%# Eval("eduId") %>' CommandName="viewEdu" type="submit"></asp:LinkButton>
                             </td>
                         </tr>
                         <tr>
@@ -125,7 +125,7 @@
             </asp:DataList>
         </div>
         <hr />
-        <h3 class="mt-3 pt-3 pb-3" style="color: #f98006; font-weight: bold; text-align: center">Course Schdule</h3>
+        <h3 class="mt-3 pt-3 pb-3" style="color: #f98006; font-weight: bold; text-align: center">Course Schedule</h3>
         <div class="text-center w-100" align="center">
             <asp:DataList ID="dlSchedule" runat="server" DataSourceID="SqlDataSource3" HorizontalAlign="Center" class="text-center" RepeatDirection="Horizontal" RepeatColumns="4" CellSpacing="15" BorderStyle="None" CellPadding="30" Font-Size="20px">
                 <ItemTemplate>

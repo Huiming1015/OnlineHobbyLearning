@@ -41,7 +41,7 @@ namespace OnlineHobby
 
         protected void lbtnReports_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AdminReports.aspx");
         }
 
         protected void lbtnEduSU_Click(object sender, EventArgs e)

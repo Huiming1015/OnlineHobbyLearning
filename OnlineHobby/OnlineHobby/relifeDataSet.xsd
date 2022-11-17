@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="relifeDataSet" targetNamespace="http://tempuri.org/relifeDataSet.xsd" xmlns:mstns="http://tempuri.org/relifeDataSet.xsd" xmlns="http://tempuri.org/relifeDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="relifeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="relifeDataSet" msprop:Generator_UserDSName="relifeDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Educator" msprop:Generator_TableClassName="EducatorDataTable" msprop:Generator_TableVarName="tableEducator" msprop:Generator_TablePropName="Educator" msprop:Generator_RowDeletingName="EducatorRowDeleting" msprop:Generator_RowChangingName="EducatorRowChanging" msprop:Generator_RowEvHandlerName="EducatorRowChangeEventHandler" msprop:Generator_RowDeletedName="EducatorRowDeleted" msprop:Generator_UserTableName="Educator" msprop:Generator_RowChangedName="EducatorRowChanged" msprop:Generator_RowEvArgName="EducatorRowChangeEvent" msprop:Generator_RowClassName="EducatorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="eduId" msprop:Generator_ColumnVarNameInTable="columneduId" msprop:Generator_ColumnPropNameInRow="eduId" msprop:Generator_ColumnPropNameInTable="eduIdColumn" msprop:Generator_UserColumnName="eduId" type="xs:int" />
+              <xs:element name="eduName" msprop:Generator_ColumnVarNameInTable="columneduName" msprop:Generator_ColumnPropNameInRow="eduName" msprop:Generator_ColumnPropNameInTable="eduNameColumn" msprop:Generator_UserColumnName="eduName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="eduEmail" msprop:Generator_ColumnVarNameInTable="columneduEmail" msprop:Generator_ColumnPropNameInRow="eduEmail" msprop:Generator_ColumnPropNameInTable="eduEmailColumn" msprop:Generator_UserColumnName="eduEmail">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="eduPassword" msprop:Generator_ColumnVarNameInTable="columneduPassword" msprop:Generator_ColumnPropNameInRow="eduPassword" msprop:Generator_ColumnPropNameInTable="eduPasswordColumn" msprop:Generator_UserColumnName="eduPassword">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="profileImg" msprop:Generator_ColumnVarNameInTable="columnprofileImg" msprop:Generator_ColumnPropNameInRow="profileImg" msprop:Generator_ColumnPropNameInTable="profileImgColumn" msprop:Generator_UserColumnName="profileImg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="joinedDate" msprop:Generator_ColumnVarNameInTable="columnjoinedDate" msprop:Generator_ColumnPropNameInRow="joinedDate" msprop:Generator_ColumnPropNameInTable="joinedDateColumn" msprop:Generator_UserColumnName="joinedDate" type="xs:dateTime" />
+              <xs:element name="courseCategory" msprop:Generator_ColumnVarNameInTable="columncourseCategory" msprop:Generator_ColumnPropNameInRow="courseCategory" msprop:Generator_ColumnPropNameInTable="courseCategoryColumn" msprop:Generator_UserColumnName="courseCategory">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="about" msprop:Generator_ColumnVarNameInTable="columnabout" msprop:Generator_ColumnPropNameInRow="about" msprop:Generator_ColumnPropNameInTable="aboutColumn" msprop:Generator_UserColumnName="about" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Follower" msprop:Generator_TableClassName="FollowerDataTable" msprop:Generator_TableVarName="tableFollower" msprop:Generator_TablePropName="Follower" msprop:Generator_RowDeletingName="FollowerRowDeleting" msprop:Generator_RowChangingName="FollowerRowChanging" msprop:Generator_RowEvHandlerName="FollowerRowChangeEventHandler" msprop:Generator_RowDeletedName="FollowerRowDeleted" msprop:Generator_UserTableName="Follower" msprop:Generator_RowChangedName="FollowerRowChanged" msprop:Generator_RowEvArgName="FollowerRowChangeEvent" msprop:Generator_RowClassName="FollowerRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fllwId" msprop:Generator_ColumnVarNameInTable="columnfllwId" msprop:Generator_ColumnPropNameInRow="fllwId" msprop:Generator_ColumnPropNameInTable="fllwIdColumn" msprop:Generator_UserColumnName="fllwId" type="xs:int" />
+              <xs:element name="studId" msprop:Generator_ColumnVarNameInTable="columnstudId" msprop:Generator_ColumnPropNameInRow="studId" msprop:Generator_ColumnPropNameInTable="studIdColumn" msprop:Generator_UserColumnName="studId" type="xs:int" />
+              <xs:element name="studName" msprop:Generator_ColumnVarNameInTable="columnstudName" msprop:Generator_ColumnPropNameInRow="studName" msprop:Generator_ColumnPropNameInTable="studNameColumn" msprop:Generator_UserColumnName="studName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="eduId" msprop:Generator_ColumnVarNameInTable="columneduId" msprop:Generator_ColumnPropNameInRow="eduId" msprop:Generator_ColumnPropNameInTable="eduIdColumn" msprop:Generator_UserColumnName="eduId" type="xs:int" />
+              <xs:element name="eduName" msprop:Generator_ColumnVarNameInTable="columneduName" msprop:Generator_ColumnPropNameInRow="eduName" msprop:Generator_ColumnPropNameInTable="eduNameColumn" msprop:Generator_UserColumnName="eduName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Educator" />
+      <xs:field xpath="mstns:eduId" />
+    </xs:unique>
+    <xs:unique name="Follower_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Follower" />
+      <xs:field xpath="mstns:fllwId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -99,5 +99,14 @@ namespace OnlineHobby
         {
             Response.Redirect("ViewStudNameList.aspx?courseId=" + Request.QueryString["courseId"]);
         }
+
+        protected void dlCourse_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "viewEdu")
+            {
+                Session["EduDetailsId"] = e.CommandArgument.ToString();
+                Response.Redirect("EduDetails.aspx");
+            }
+        }
     }
 }

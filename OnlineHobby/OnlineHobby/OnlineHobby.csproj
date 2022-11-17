@@ -46,6 +46,10 @@
     <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -89,6 +93,7 @@
     <Content Include="AdminPendingEduIncidentDetails.aspx" />
     <Content Include="AdminPendingEduSignUpDetails.aspx" />
     <Content Include="AdminPendingEduSignUp.aspx" />
+    <Content Include="AdminReports.aspx" />
     <Content Include="App_Data\Database.mdf" />
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
@@ -168,6 +173,17 @@
     <Content Include="NestedProfile.master" />
     <Content Include="NestedOrder.Master" />
     <Content Include="PurchaseSellMaster.Master" />
+    <Content Include="relifeDataSet.xsc">
+      <DependentUpon>relifeDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="relifeDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>relifeDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="relifeDataSet.xss">
+      <DependentUpon>relifeDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Resources\loginAdmin.png" />
     <Content Include="Resources\cart.png" />
     <None Include="Resources\profile_orange.png" />
@@ -355,6 +371,13 @@
     <Compile Include="AdminPendingEduSignUp.aspx.designer.cs">
       <DependentUpon>AdminPendingEduSignUp.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminReports.aspx.cs">
+      <DependentUpon>AdminReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminReports.aspx.designer.cs">
+      <DependentUpon>AdminReports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CancelForm.aspx.cs">
       <DependentUpon>CancelForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -403,6 +426,18 @@
     </Compile>
     <Compile Include="CreditCard.aspx.designer.cs">
       <DependentUpon>CreditCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReportNewEduJoined.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportNewEduJoined.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReportTop5MostFollowed.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportTop5MostFollowed.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DeleteAccount.aspx.cs">
       <DependentUpon>DeleteAccount.aspx</DependentUpon>
@@ -620,6 +655,11 @@
     <Compile Include="PurchaseSellMaster.Master.designer.cs">
       <DependentUpon>PurchaseSellMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="relifeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>relifeDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ResetPassword.aspx.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -710,6 +750,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CrystalReportNewEduJoined.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportNewEduJoined.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportTop5MostFollowed.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportTop5MostFollowed.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -718,6 +766,9 @@
   <ItemGroup>
     <Folder Include="Assets\postImg\" />
     <Folder Include="images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
