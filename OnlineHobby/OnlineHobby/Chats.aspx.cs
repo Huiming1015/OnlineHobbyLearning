@@ -80,7 +80,7 @@ namespace OnlineHobby
 
                         con = new SqlConnection(strCon);
                         con.Open();
-                        string cmd2 = "SELECT cd.chatId as id, cd.messageContents as messageContents, c.eduId, c.eduName as name, s.profileImg from(SELECT *, ROW_NUMBER() OVER(PARTITION BY chatid ORDER BY messageDateTime DESC) AS RN FROM ChatDetails) cd INNER JOIN Chat c ON c.chatId = cd.chatId INNER JOIN Student s ON c.studId = s.studId WHERE RN = 1 and c.eduId = " + UserId;
+                        string cmd2 = "SELECT cd.chatId as id, cd.messageContents as messageContents, c.studId, c.studName as name, s.profileImg from(SELECT *, ROW_NUMBER() OVER(PARTITION BY chatid ORDER BY messageDateTime DESC) AS RN FROM ChatDetails) cd INNER JOIN Chat c ON c.chatId = cd.chatId INNER JOIN Student s ON c.studId = s.studId WHERE RN = 1 and c.eduId = " + UserId;
                         SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
                         Repeater1.DataSource = cmdSelect2.ExecuteReader();
                         Repeater1.DataBind();
