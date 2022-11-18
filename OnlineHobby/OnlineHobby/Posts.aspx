@@ -22,7 +22,7 @@
     <div class="container-fluid div-background mt-3">
 
         <div class="text-center">
-            <h2 class="mt-5 pt-3 mb-3 pb-3" style="color: #f98006; font-weight: bold">Posts</h2>
+            <h2 class="mt-5 pt-3 mb-3 pb-3" style="color: #f98006; font-weight: bold">Dashboard</h2>
         </div>
         <div class="alert alert-primary alert-dismissible fade show" runat="server" id="MsgNotice" visible="false">
             <h4 class="alert-heading">Info</h4>
