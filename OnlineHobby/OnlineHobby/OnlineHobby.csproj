@@ -98,10 +98,14 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\aboutUs.jpeg" />
     <Content Include="Assets\adminHomepage.png" />
     <Content Include="Assets\backArrow.png" />
     <Content Include="Assets\background.png" />
     <Content Include="Assets\eduBackground.png" />
+    <Content Include="Assets\partner1.png" />
+    <Content Include="Assets\partner2.png" />
+    <Content Include="Assets\partner3.png" />
     <Content Include="Assets\profileImg\art3.png" />
     <Content Include="Assets\sendBtn.png" />
     <Content Include="CancelForm.aspx" />
