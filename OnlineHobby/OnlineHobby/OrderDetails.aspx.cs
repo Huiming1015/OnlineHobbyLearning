@@ -259,7 +259,6 @@ namespace OnlineHobby
             }
         }
 
-
         protected void btnReject_Click(object sender, EventArgs e)
         {
             try
@@ -323,7 +322,7 @@ namespace OnlineHobby
 
                 con = new SqlConnection(strCon);
                 con.Open();
-                strQModifyPayment = "UPDATE Payment SET paymentStatus='refund', refundAmount=@RefundAmount WHERE paymentId=@PaymentId";
+                strQModifyPayment = "UPDATE Payment SET paymentStatus='refund', refundAmount=refundAmount+@RefundAmount WHERE paymentId=@PaymentId";
                 SqlCommand comModifyPay = new SqlCommand(strQModifyPayment, con);
                 comModifyPay.Parameters.AddWithValue("@PaymentId", paymentId);
                 comModifyPay.Parameters.AddWithValue("@RefundAmount", refundAmount);

@@ -18,7 +18,8 @@
             height: 580px;
         }
     </style>
-    <div class="w-100 mt-5 mb-5">
+    <div class="w-100 mt-5 mb-5" style="min-height:550px">
+        <asp:Label ID="lblEmpty" runat="server" Text="There are no any course enrollment for this payment id." Visible="False" Font-Size="XX-Large" Font-Bold="True" Width="100%" CssClass="text-center"></asp:Label>
         <div class="container-fluid bg-white div-background" style="margin-left: 5%; width: 90%">
             <asp:DataList runat="server" ID="dlOrderDetails" DataSourceID="SqlDataSource1" RepeatColumns="1" Width="100%" Font-Size="18px" OnItemDataBound="dlOrderDetails_ItemDataBound" HorizontalAlign="Center" RepeatDirection="Horizontal">
                 <ItemTemplate>
@@ -140,7 +141,7 @@
                     <br />
                     <div class="row">
                         <div class="col-2">
-                            <asp:Label ID="lblCancel" runat="server" Text='Cancel Request: ' Font-Bold="True"></asp:Label></div>
+                            <asp:Label ID="lblCancel" runat="server" Text='Cancel Reason: ' Font-Bold="True"></asp:Label></div>
                         <div class="col-md-6">
                             <asp:Label ID="lblCancelReason" runat="server" Text='<%# Eval("cancelReason") %>'></asp:Label>
                         </div>
@@ -193,6 +194,4 @@
 
         </div>
     </div>
-    <asp:Label ID="lblEmpty" runat="server" Text="There are no any course enrollment for this payment id." Visible="False" Font-Size="XX-Large" Font-Bold="True"></asp:Label>
-
 </asp:Content>

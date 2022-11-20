@@ -48,7 +48,7 @@ namespace OnlineHobby
         {
             con = new SqlConnection(strCon);
             con.Open();
-            string strQNameList = "SELECT Student.studId, Student.studName, Student.studEmail FROM Student INNER JOIN EnrolledCourse ON Student.studId = EnrolledCourse.studId INNER JOIN EnrolDetails ON EnrolledCourse.enrollmentId = EnrolDetails.enrollmentId WHERE(EnrolDetails.scheduleId = @ScheduleId)";
+            string strQNameList = "SELECT Student.studId, Student.studName, Student.studEmail FROM Student INNER JOIN EnrolledCourse ON Student.studId = EnrolledCourse.studId INNER JOIN EnrolDetails ON EnrolledCourse.enrollmentId = EnrolDetails.enrollmentId WHERE(EnrolDetails.scheduleId = @ScheduleId) AND (EnrolDetails.enrolStatus!='Withdrew')";
             SqlCommand comNameList = new SqlCommand(strQNameList, con);
             comNameList.Parameters.AddWithValue("@ScheduleId", scheduleId);
             SqlDataAdapter adpt = new SqlDataAdapter(comNameList);

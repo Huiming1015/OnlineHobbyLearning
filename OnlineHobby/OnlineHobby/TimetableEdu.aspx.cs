@@ -90,5 +90,10 @@ namespace OnlineHobby
         {
             ChangeTimetable();
         }
+
+        protected void btnModifyTimeTable_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificationList.aspx");
+        }
     }
 }

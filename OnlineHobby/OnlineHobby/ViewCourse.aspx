@@ -63,7 +63,7 @@
             var confirm_value = document.createElement("INPUT");
             confirm_value.type = "hidden";
             confirm_value.name = "confirm_value";
-            if (confirm("Do you confirm to remove the course?")) {
+            if (confirm("Do you confirm to remove the course? Students enrolled in courses will receive a full refund.")) {
                 confirm_value.value = "Yes";
             }
             else {
@@ -71,16 +71,15 @@
             }
             document.forms[0].appendChild(confirm_value);
         }
-        function SuccessRemoveAlert() {
-
-        }
     </script>
     <div class="text-center" style="background-position: center center; margin: 3%; background-repeat: repeat; background-attachment: fixed; font-size: 25px; border: 1px solid grey">
-        <div class="row text-end pe-3 mt-2 mb-2 me-5"><asp:LinkButton runat="server" Font-Underline="False" Text="View Student Name List" ID="lbtnNameList" OnClick="lbtnNameList_Click" Font-Size="Medium"></asp:LinkButton></div>
-         <h3 class="pt-3 mb-1 pb-3" style="color: #f98006; font-weight: bold; text-align: center">Course Details</h3>
+        <div class="row text-end pe-3 mt-2 mb-2 me-5">
+            <asp:LinkButton runat="server" Font-Underline="False" Text="View Student Name List" ID="lbtnNameList" OnClick="lbtnNameList_Click" Font-Size="Medium"></asp:LinkButton>
+        </div>
+        <h3 class="pt-3 mb-1 pb-3" style="color: #f98006; font-weight: bold; text-align: center">Course Details</h3>
         <hr />
         <div align="center">
-            <asp:DataList ID="dlCourse" runat="server" DataKeyField="courseId" DataSourceID="SqlDataSource1" RepeatColumns="1" HorizontalAlign="Center" Width="100%" BorderStyle="None" OnItemCommand="dlCourse_ItemCommand">
+            <asp:DataList ID="dlCourse" runat="server" DataKeyField="courseId" DataSourceID="SqlDataSource1" RepeatColumns="1" HorizontalAlign="Center" Width="100%" BorderStyle="None">
                 <ItemTemplate>
                     <table style="vertical-align: central; width: 100%; height: 90%">
                         <tr>
@@ -95,18 +94,18 @@
                                  <asp:Label ID="lblMaxAge" runat="server" Text='<%# Eval("maxAge") %>'></asp:Label>
                                 </p>
                             </td>
-                            <td rowspan="3" align="left" style="border-bottom:1px solid grey;">
+                            <td rowspan="3" align="left" style="border-bottom: 1px solid grey;">
                                 <asp:Image ID="imgEduImage" runat="server" Height="100px" ImageUrl='<%# Eval("profileImg") %>' Width="100px" ImageAlign="Right" />
                             </td>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <td class="text-center">
-                                <asp:LinkButton ID="lblEdu" runat="server" Text='<%# Eval("eduName") %>' Width="300px"  CommandArgument='<%# Eval("eduId") %>' CommandName="viewEdu" type="submit"></asp:LinkButton>
+                                <asp:LinkButton ID="lblEdu" runat="server" Text='<%# Eval("eduName") %>' Width="300px"></asp:LinkButton>
                             </td>
                         </tr>
                         <tr>
-                            <td style="border-bottom:1px solid grey;">&nbsp;</td>
+                            <td style="border-bottom: 1px solid grey;">&nbsp;</td>
                         </tr>
                         <tr align="center">
                             <td class="trLeft">
@@ -125,7 +124,7 @@
             </asp:DataList>
         </div>
         <hr />
-        <h3 class="mt-3 pt-3 pb-3" style="color: #f98006; font-weight: bold; text-align: center">Course Schedule</h3>
+        <h3 class="mt-3 pt-3 pb-3" style="color: #f98006; font-weight: bold; text-align: center">Course Schdule</h3>
         <div class="text-center w-100" align="center">
             <asp:DataList ID="dlSchedule" runat="server" DataSourceID="SqlDataSource3" HorizontalAlign="Center" class="text-center" RepeatDirection="Horizontal" RepeatColumns="4" CellSpacing="15" BorderStyle="None" CellPadding="30" Font-Size="20px">
                 <ItemTemplate>
@@ -216,15 +215,15 @@
         <div class="container w-100">
             <asp:DataList ID="dlMaterialKit" runat="server" DataSourceID="SqlDataSource2" HorizontalAlign="Center" RepeatDirection="Horizontal" RepeatColumns="4" CellSpacing="15" BorderStyle="None" OnItemCommand="dlMaterialKit_ItemCommand" CellPadding="30">
                 <ItemTemplate>
-                    <table style="width:250px; font-size: 20px; border: 1px solid grey; text-align: center">
+                    <table style="width: 250px; font-size: 20px; border: 1px solid grey; text-align: center">
                         <tr>
                             <td>
-                                <asp:ImageButton ID="imgMaterial" class="card-img-top" runat="server" Height="200px" Width="200px" ImageUrl='<%# Eval("materialImage") %>' BorderStyle="Solid" BorderWidth="3px" ImageAlign="Middle" CommandArgument='<%# Eval("materialId") %>'/>
+                                <asp:ImageButton ID="imgMaterial" class="card-img-top" runat="server" Height="200px" Width="200px" ImageUrl='<%# Eval("materialImage") %>' BorderStyle="Solid" BorderWidth="3px" ImageAlign="Middle" CommandArgument='<%# Eval("materialId") %>' />
 
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: center; height:60px;">
+                            <td style="text-align: center; height: 60px;">
                                 <asp:LinkButton ID="lblMaterialName" class="card-body" runat="server" Style="text-align: center !important" Font-Underline="False" ForeColor="#993333" CommandArgument='<%# Eval("materialId") %>' Text='<%# Eval("materialName") %>'></asp:LinkButton>
                             </td>
                         </tr>
@@ -262,26 +261,58 @@
                     <asp:Panel ID="Panel4" runat="server" align="right" Style="padding-right: 10px">
                         <asp:Button ID="Button2" runat="server" Text="X" Style="background-color: #f98006; color: white" Font-Bold="True" BorderStyle="None" BorderColor="Silver" />
                     </asp:Panel>
-                    <iframe style="width: 800px; height: 530px;" id="irm1" src="AddCourseToCart.aspx" runat="server"></iframe>                  
+                    <iframe style="width: 800px; height: 530px;" id="irm1" src="AddCourseToCart.aspx" runat="server"></iframe>
                 </asp:Panel>
             </div>
         </asp:Panel>
         <br />
+        <hr />
+        <asp:Image runat="server" ID="imgStar" imageUrl="Resources/starRate.png" Height="28px" Width="30px" />&nbsp;<asp:Label runat="server" class="mt-5 pt-3 mb-3 pb-3" Style="color: #f98006; font-weight: bold; text-align: center" ID="lblRateTitle" Font-Size="X-Large">Rating For This Course</asp:Label>
+        &nbsp;<asp:Label runat="server" class="mt-5 pt-3 mb-3 pb-3" Style="color: #f98006; font-weight: bold; text-align: center" ID="lblAverage" Font-Size="X-Large"></asp:Label><br />
+        <asp:Label runat="server" class="mt-5 pt-3 mb-3 pb-3" Style="font-weight: bold; text-align: center" ID="lblNoRate" Text="There are no any rating for this course yet..." Visible="false"></asp:Label>
+        <br /><div class="w-100 mt-2" align="center">
+            <asp:DataList ID="dlRating" runat="server" DataKeyField="courseRatingId" DataSourceID="SqlDataSource4" HorizontalAlign="Center" Font-Size="large" align="center" CellPadding="15">
+                <ItemTemplate>
+                    <div class="container-fluid text-start">
+                        <div class="row fw-bold w-100">
+                            <div class="col-3">
+                                <asp:Label ID="lblStudName" runat="server" Text='<%# Eval("studName") %>' />
+                            </div>
+                            <div class="col-1">
+                                (<asp:Label ID="lblRating" runat="server" Text='<%# Eval("rating") %>' />)
+                            </div>
+                            <div class="col-8"></div>
+                        </div>
+                        <div class="row w-100">
+                            <div class="col-12">
+                                <asp:Label ID="lblComment" runat="server" Text='<%# Eval("comment") %>' />
+                            </div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:DataList>
+            </div>
+            <br />
+            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT CourseRating.courseRatingId, CourseRating.rating, CourseRating.comment, Student.studName FROM CourseRating INNER JOIN Student ON CourseRating.studId = Student.studId WHERE (CourseRating.courseId = @courseId)">
+                <SelectParameters>
+                    <asp:QueryStringParameter Name="courseId" QueryStringField="courseId" />
+                </SelectParameters>
+            </asp:SqlDataSource>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM Course INNER JOIN Educator ON Course.eduId = Educator.eduId WHERE ([courseId] = @courseId)">
-            <SelectParameters>
-                <asp:QueryStringParameter Name="courseId" QueryStringField="courseId" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Discount] INNER JOIN [MaterialKit] ON Discount.materialId = MaterialKit.materialId WHERE Discount.courseId = @courseId">
-            <SelectParameters>
-                <asp:QueryStringParameter Name="courseId" QueryStringField="courseId" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [CourseSchedule] WHERE ([courseId] = @courseId)">
-            <SelectParameters>
-                <asp:QueryStringParameter Name="courseId" QueryStringField="courseId" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-    </div>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM Course INNER JOIN Educator ON Course.eduId = Educator.eduId WHERE ([courseId] = @courseId)">
+                <SelectParameters>
+                    <asp:QueryStringParameter Name="courseId" QueryStringField="courseId" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Discount] INNER JOIN [MaterialKit] ON Discount.materialId = MaterialKit.materialId WHERE Discount.courseId = @courseId">
+                <SelectParameters>
+                    <asp:QueryStringParameter Name="courseId" QueryStringField="courseId" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [CourseSchedule] WHERE ([courseId] = @courseId) and (availability='available')">
+                <SelectParameters>
+                    <asp:QueryStringParameter Name="courseId" QueryStringField="courseId" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+        </div>
 </asp:Content>

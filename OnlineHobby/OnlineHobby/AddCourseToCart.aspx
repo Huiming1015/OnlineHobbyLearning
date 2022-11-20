@@ -124,7 +124,7 @@
                     </asp:DataList>
 
                 </div>
-            <asp:SqlDataSource ID="sqlCourse" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [CourseSchedule] WHERE ([courseId] = @courseId)">
+            <asp:SqlDataSource ID="sqlCourse" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [CourseSchedule] WHERE ([courseId] = @courseId) AND availability='available'">
                 <SelectParameters>
                     <asp:SessionParameter DefaultValue="" Name="courseId" SessionField="cartCourseId" Type="String" />
                 </SelectParameters>

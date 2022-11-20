@@ -13,6 +13,8 @@ namespace OnlineHobby
     {
         SqlConnection con;
         string strCon = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        SqlConnection con2;
+        string strCon2 = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
         string strCourseId, strScheduleID;
         int intCountID;
@@ -20,6 +22,7 @@ namespace OnlineHobby
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtCompareDate.Text = DateTime.Today.AddDays(7).ToShortDateString();
             if (Request.QueryString["modifyCourseId"] != null)
             {
                 strCourseId = Request.QueryString["modifyCourseId"];
@@ -42,7 +45,7 @@ namespace OnlineHobby
                 string strQAddSchedule;
                 con = new SqlConnection(strCon);
                 con.Open();
-                strQAddSchedule = "INSERT INTO [CourseSchedule](scheduleId, courseId, tutoringMode, meetingLink, maxStud, price, day, numEnrolled) VALUES (@ScheduleId, @CourseId, @TutoringMode, @MeetingLink, @MaxStud, @Price, @Day, @NumEnrolled)";
+                strQAddSchedule = "INSERT INTO [CourseSchedule](scheduleId, courseId, tutoringMode, meetingLink, maxStud, price, day, numEnrolled, availability) VALUES (@ScheduleId, @CourseId, @TutoringMode, @MeetingLink, @MaxStud, @Price, @Day, @NumEnrolled, @Availability)";
                 SqlCommand comAdd = new SqlCommand(strQAddSchedule, con);
                 comAdd.Parameters.AddWithValue("@ScheduleId", strScheduleID);
                 comAdd.Parameters.AddWithValue("@CourseId", strCourseId);
@@ -52,6 +55,7 @@ namespace OnlineHobby
                 comAdd.Parameters.AddWithValue("@Price", decimal.Parse(txtPrice.Text.ToString()));
                 comAdd.Parameters.AddWithValue("@Day", day.ToString("dddd"));
                 comAdd.Parameters.AddWithValue("@NumEnrolled", 0);
+                comAdd.Parameters.AddWithValue("@Availability", "available");
                 int k = comAdd.ExecuteNonQuery();
 
                 for (Int64 i = 0; i < GetTotalClass(); i++)
@@ -107,23 +111,46 @@ namespace OnlineHobby
         {
             string strQRemoveSchedule, strQRemoveList;
             con = new SqlConnection(strCon);
+            con2 = new SqlConnection(strCon2);
             con.Open();
-            strQRemoveSchedule = "DELETE FROM CourseSchedule WHERE scheduleId = @ScheduleId";
+            strQRemoveSchedule = "UPDATE CourseSchedule SET availability='unavailable' WHERE scheduleId = @ScheduleId";
             SqlCommand comRemoveSchedule = new SqlCommand(strQRemoveSchedule, con);
             comRemoveSchedule.Parameters.AddWithValue("@ScheduleId", gvCourseSchedule.DataKeys[e.RowIndex].Values[0].ToString());
             int k = comRemoveSchedule.ExecuteNonQuery();
-
-            strQRemoveList = "DELETE FROM ScheduleList WHERE scheduleId =  @ScheduleId";
-            SqlCommand comRemoveList = new SqlCommand(strQRemoveList, con);
-            comRemoveList.Parameters.AddWithValue("@ScheduleId", gvCourseSchedule.DataKeys[e.RowIndex].Values[0].ToString());
-            int m = comRemoveList.ExecuteNonQuery();
-
-            if (k != 0)
-            {
-                getScheduleData();
-                getListData();
-            }
             con.Close();
+
+            con.Open();
+            string strQCancel = "Update EnrolDetails set enrolStatus='Cancelled' where scheduleId=@scheduleId";
+            SqlCommand comCancel = new SqlCommand(strQCancel, con);
+            comCancel.Parameters.AddWithValue("@scheduleId", gvCourseSchedule.DataKeys[e.RowIndex].Values[0].ToString());
+            int i = comCancel.ExecuteNonQuery();
+            con.Close();
+
+            con.Open();
+            string cmd2 = "Select EnrolledCourse.paymentId, EnrolDetails.unitPrice from EnrolledCourse INNER JOIN EnrolDetails ON EnrolledCourse.enrollmentId=EnrolDetails.enrollmentId WHERE (EnrolDetails.scheduleId=@scheduleId) AND (EnrolDetails.enrolStatus='Enrolled')";
+            SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
+            cmdSelect2.Parameters.AddWithValue("@scheduleId", gvCourseSchedule.DataKeys[e.RowIndex].Values[0].ToString());
+            SqlDataReader dr = cmdSelect2.ExecuteReader();
+            while (dr.Read())
+            {
+                con2.Open();
+                string strQRefund = "Update Payment set refundAmount=refundAmount+@amount, paymentStatus='refund' where paymentId=@paymentId";
+                SqlCommand comRefund = new SqlCommand(strQRefund, con2);
+                comRefund.Parameters.AddWithValue("@amount", dr["unitPrice"]);
+                comRefund.Parameters.AddWithValue("@paymentId", dr["paymentId"].ToString());
+                int j = comRefund.ExecuteNonQuery();
+                con2.Close();
+                if (k != 0 && j != 0)
+                {
+                    MsgBox("The amount will be refund to the students who enrolled in this schedule.", this.Page, this);
+                    getScheduleData();
+                    getListData();
+                }
+            }
+            dr.Close();
+            con.Close();
+
+
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
@@ -165,7 +192,7 @@ namespace OnlineHobby
             String strQGet;
             con = new SqlConnection(strCon);
             con.Open();
-            strQGet = "Select * from [CourseSchedule] where courseId = @CourseId";
+            strQGet = "Select * from [CourseSchedule] where courseId = @CourseId and availability='available'";
             SqlCommand com = new SqlCommand(strQGet, con);
             com.Parameters.AddWithValue("@CourseId", strCourseId);
             SqlDataReader dr = com.ExecuteReader();

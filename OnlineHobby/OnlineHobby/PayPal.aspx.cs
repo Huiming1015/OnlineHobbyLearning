@@ -67,7 +67,7 @@ namespace OnlineHobby
                 }
 
                 strPaymentId = GeneratePaymentID();
-                con = new SqlConnection(strCon);
+                //con = new SqlConnection(strCon);
                 con.Open();
 
                 strQmaterial = "SELECT Cart.materialId, Cart.quantity, MaterialKit.price FROM Cart INNER JOIN MaterialKit ON MaterialKit.materialId = Cart.materialId WHERE Cart.studId=@StudId AND MaterialKit.eduId=@EduId";
@@ -91,7 +91,7 @@ namespace OnlineHobby
                 con.Close();
 
                 int courseEmpty = 0;
-                con = new SqlConnection(strCon);
+                //con = new SqlConnection(strCon);
                 con.Open();
                 strQCourse = "SELECT scheduleId FROM Cart WHERE studId=@StudId";
                 SqlCommand comCourse = new SqlCommand(strQCourse, con);
@@ -134,7 +134,7 @@ namespace OnlineHobby
                 {
                     double unitCourse = 0, unitMaterial = 0;
                     String strQ;
-                    con = new SqlConnection(strCon);
+                    //con = new SqlConnection(strCon);
                     con.Open();
                     strQ = "SELECT * FROM Discount";
                     SqlCommand com = new SqlCommand(strQ, con);
@@ -145,7 +145,7 @@ namespace OnlineHobby
                         foreach (string courseId in course)
                         {
                             String strQUnitCourse;
-                            con2 = new SqlConnection(strCon2);
+                            //con2 = new SqlConnection(strCon2);
                             con2.Open();
                             strQUnitCourse = "SELECT price, courseId FROM CourseSchedule WHERE scheduleId=@ScheduleId";
                             SqlCommand comUC = new SqlCommand(strQUnitCourse, con2);
@@ -172,7 +172,7 @@ namespace OnlineHobby
                             if (materialId == drDiscount["materialId"].ToString())
                             {
                                 String strQUnit;
-                                con2 = new SqlConnection(strCon2);
+                                //con2 = new SqlConnection(strCon2);
                                 con2.Open();
                                 strQUnit = "SELECT price FROM MaterialKit WHERE materialId=@MaterialId";
                                 SqlCommand comUM = new SqlCommand(strQUnit, con2);
@@ -399,7 +399,7 @@ namespace OnlineHobby
                 comAdd.Parameters.AddWithValue("@enrollmentId", strEnrollmentId);
                 comAdd.Parameters.AddWithValue("@scheduleId", scheduleId);
                 comAdd.Parameters.AddWithValue("@unitPrice", price);
-                comAdd.Parameters.AddWithValue("@enrolStatus", "enrolled");
+                comAdd.Parameters.AddWithValue("@enrolStatus", "Enrolled");
                 int k = comAdd.ExecuteNonQuery();
 
                 if (k != 0)

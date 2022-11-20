@@ -13,6 +13,15 @@ namespace OnlineHobby {
     public partial class OrderDetails {
         
         /// <summary>
+        /// lblEmpty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmpty;
+        
+        /// <summary>
         /// dlOrderDetails control.
         /// </summary>
         /// <remarks>
@@ -137,14 +146,5 @@ namespace OnlineHobby {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReject;
-        
-        /// <summary>
-        /// lblEmpty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmpty;
     }
 }

@@ -32,9 +32,9 @@
             background-color: #fffefa;
         }
     </style>
-
     <div style="padding: 20px; font-size: 20px; margin-left: 5%; margin-right: 5%; text-align: center" class="auto-style1">
-
+        
+                        
         <table style="width: 100%;">
             <tr>
                 <td class="cssTitleTr">Start Date :</td>
@@ -62,14 +62,13 @@
                 <td class="cssError" colspan="2">
                     <span>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtStartDate" ErrorMessage="*Start date should not be empty!" ForeColor="Red" Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
-                    </span></td>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtStartDate" Display="Dynamic" ErrorMessage="*Start date should be at least 14 days after today." Font-Size="Small" ForeColor="Red" Operator="LessThanEqual" Type="Date" ControlToValidate="txtCompareDate"></asp:CompareValidator>
+                    </span><asp:TextBox ID="txtCompareDate" runat="server" Visible="true" Font-Size="0px" Width="0px" Height="0px" BorderStyle="None"></asp:TextBox></td>
             </tr>
             <tr>
                 <td class="cssTitleTr">Time Begin :</td>
                 <td class="cssInputTr">
-
                     <asp:TextBox ID="txtTime" CssClass="form-control" Width="180px" runat="server" TextMode="Time" Font-Size="20px"></asp:TextBox>
-
                 </td>
             </tr>
             <tr>

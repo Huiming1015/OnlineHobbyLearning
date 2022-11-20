@@ -399,7 +399,7 @@ namespace OnlineHobby
                 comAdd.Parameters.AddWithValue("@enrollmentId", strEnrollmentId);
                 comAdd.Parameters.AddWithValue("@scheduleId", scheduleId);
                 comAdd.Parameters.AddWithValue("@unitPrice", price);
-                comAdd.Parameters.AddWithValue("@enrolStatus", "enrolled");
+                comAdd.Parameters.AddWithValue("@enrolStatus", "Enrolled");
                 int k = comAdd.ExecuteNonQuery();
 
                 if (k != 0)

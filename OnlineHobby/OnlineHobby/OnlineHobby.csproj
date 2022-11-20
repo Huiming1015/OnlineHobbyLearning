@@ -130,6 +130,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="CourseRate.aspx" />
     <Content Include="CreditCard.aspx" />
     <Content Include="DeleteAccount.aspx" />
     <Content Include="EditAchievement.aspx" />
@@ -166,6 +167,8 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="AdminLogIn.aspx" />
     <Content Include="LinkMaterial.aspx" />
+    <Content Include="ModificationDetails.aspx" />
+    <Content Include="ModificationList.aspx" />
     <Content Include="MyCourseDetails.aspx" />
     <Content Include="OrderDetails.aspx" />
     <Content Include="OrderList.aspx" />
@@ -220,6 +223,7 @@
     <Content Include="StudCourseList.aspx" />
     <Content Include="StudMaterial.aspx" />
     <Content Include="TimetableEdu.aspx" />
+    <Content Include="TimetableModifyForm.aspx" />
     <Content Include="TimetableStud.aspx" />
     <Content Include="ViewCourse.aspx" />
     <Content Include="viewMaterial.aspx" />
@@ -424,6 +428,13 @@
     <Compile Include="CheckOut.aspx.designer.cs">
       <DependentUpon>CheckOut.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CourseRate.aspx.cs">
+      <DependentUpon>CourseRate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CourseRate.aspx.designer.cs">
+      <DependentUpon>CourseRate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreditCard.aspx.cs">
       <DependentUpon>CreditCard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -583,6 +594,20 @@
     <Compile Include="AdminLogIn.aspx.designer.cs">
       <DependentUpon>AdminLogIn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModificationDetails.aspx.cs">
+      <DependentUpon>ModificationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificationDetails.aspx.designer.cs">
+      <DependentUpon>ModificationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificationList.aspx.cs">
+      <DependentUpon>ModificationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificationList.aspx.designer.cs">
+      <DependentUpon>ModificationList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MyCourseDetails.aspx.cs">
       <DependentUpon>MyCourseDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -712,6 +737,13 @@
     </Compile>
     <Compile Include="TimetableEdu.aspx.designer.cs">
       <DependentUpon>TimetableEdu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TimetableModifyForm.aspx.cs">
+      <DependentUpon>TimetableModifyForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TimetableModifyForm.aspx.designer.cs">
+      <DependentUpon>TimetableModifyForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="TimetableStud.aspx.cs">
       <DependentUpon>TimetableStud.aspx</DependentUpon>

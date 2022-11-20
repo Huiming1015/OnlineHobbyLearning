@@ -8,7 +8,7 @@
                 <asp:Button ID="btnTimetable" runat="server" Text="Timetable" CssClass="border-1 w-100" BackColor="#FFF0E1" BorderColor="Black" Font-Size="Large" />
             </div>
             <div class="col-md-2">
-                <asp:Button ID="btnModifyTimeTable" runat="server" Text="Timetable Modification" CssClass="border-1 w-100" BackColor="#FFF0E1" BorderColor="Black" Font-Size="Large" />
+                <asp:Button ID="btnModifyTimeTable" runat="server" Text="Timetable Modification" CssClass="border-1 w-100" BackColor="#FFF0E1" BorderColor="Black" Font-Size="Large" OnClick="btnModifyTimeTable_Click" />
             </div>
             <div class="col-md-6"></div>
         </div>

@@ -12,10 +12,17 @@
             <div class="col-md-6"></div>
         </div>
         <div class="border border-dark">
-
+            
             <div class="mt-5 mb-5" style="min-height: 550px">
                 <div class="w-100" align="center">
-                    <asp:GridView ID="gvEnrolledList" runat="server" class="w-75 text-center mt-5 mb-5" AutoGenerateColumns="False" DataKeyNames="enrolDetailId" EmptyDataText="There are no data records to display." Font-Size="Large" BorderStyle="None" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="10" CellSpacing="2" OnRowCommand="gvEnrolledList_RowCommand" DataSourceID="SqlDataSource1">
+                    <p style="font-size:large;">Enrolled Course Status&nbsp:&nbsp<asp:DropDownList ID="ddlEnrolStatus" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlEnrolStatus_SelectedIndexChanged">
+                        <asp:ListItem>All</asp:ListItem>
+                        <asp:ListItem Value="Enrolled">In Process</asp:ListItem>
+                        <asp:ListItem>Completed</asp:ListItem>
+                        <asp:ListItem>Withdrew</asp:ListItem>
+                        <asp:ListItem>Cancelled</asp:ListItem>
+                        </asp:DropDownList></p><br />
+                    <asp:GridView ID="gvEnrolledList" runat="server" class="w-75 text-center mt-1 mb-5" AutoGenerateColumns="False" DataKeyNames="enrolDetailId" EmptyDataText="There are no data records to display." Font-Size="Large" BorderStyle="None" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="10" CellSpacing="2" OnRowCommand="gvEnrolledList_RowCommand">
                         <Columns>
                             <asp:TemplateField>
                                 <ItemTemplate>
@@ -53,11 +60,6 @@
                         <SortedDescendingCellStyle BackColor="#F1E5CE" />
                         <SortedDescendingHeaderStyle BackColor="#93451F" />
                     </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT EnrolDetails.enrolDetailId, CourseSchedule.day, Course.courseName, Educator.eduName, Course.courseImage, EnrolDetails.scheduleId FROM EnrolDetails INNER JOIN EnrolledCourse ON EnrolDetails.enrollmentId = EnrolledCourse.enrollmentId INNER JOIN CourseSchedule ON EnrolDetails.scheduleId = CourseSchedule.scheduleId INNER JOIN Course ON Course.courseId = CourseSchedule.courseId INNER JOIN Educator ON Course.eduId = Educator.eduId WHERE (EnrolledCourse.studId = @StudId)">
-                        <SelectParameters>
-                            <asp:SessionParameter Name="StudId" SessionField="UserId" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
                 </div>
             </div>
         </div>

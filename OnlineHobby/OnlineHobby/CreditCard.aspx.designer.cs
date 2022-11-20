@@ -10,7 +10,7 @@
 namespace OnlineHobby {
     
     
-    public partial class CreditCard {
+    public partial class CreditDebitCard {
         
         /// <summary>
         /// imgCreditCard control.
