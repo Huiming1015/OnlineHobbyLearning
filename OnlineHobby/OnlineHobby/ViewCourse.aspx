@@ -109,7 +109,7 @@
                         </tr>
                         <tr align="center">
                             <td class="trLeft">
-                                <asp:Image ID="imgCourseImage" runat="server" Height="500px" ImageUrl='<%# Eval("courseImage") %>' Width="500px" />
+                                <asp:Image ID="imgCourseImage" runat="server" Height="500px" ImageUrl='<%# Eval("courseImage") %>' Width="500px" ImageAlign="Top" />
                                 <br />
                                 <asp:Label ID="lblDescription" runat="server" Font-Size="20px" Height="100px" Text='<%# Eval("description") %>' Width="80%"></asp:Label>
                             </td>
@@ -242,7 +242,6 @@
                 </ItemTemplate>
             </asp:DataList>
         </div>
-        <br />
         <div align="right" style="padding-right: 3%;">
             <asp:Button ID="btnRemove" runat="server" Text="REMOVE" CssClass="btn btn-light btn-lg rounded-pill" Style="height: 47px; width: 165px; background-color: #f98006; color: white" CausesValidation="false" OnClientClick="Confirm()" OnClick="btnRemove_Click" />
             &nbsp;
@@ -251,9 +250,11 @@
         </div>
         <asp:Panel ID="Panel1" runat="server">
             <div class="d-flex justify-content-center mt-5 pt-1 mb-3 pb-4 mb-lg-4">
+                <div class="text-end" style="padding-right: 3%;">
+                <asp:Button ID="btnAddToCart" runat="server" CausesValidation="False" CssClass="btn btn-light btn-lg rounded-pill" Style="height: 47px; width: 200px; background-color: #f98006; color: white" Text="ADD TO CART" CommandArgument='<%# Eval("materialId") %>' CommandName="addToCart" Visible="False" />
+                </div>
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
-                <asp:Button ID="btnAddToCart" runat="server" CausesValidation="False" CssClass="btn btn-light btn-lg rounded-pill" Style="height: 47px; width: 200px; background-color: #f98006; color: white" Text="ADD TO CART" CommandArgument='<%# Eval("materialId") %>' CommandName="addToCart" Visible="False" />
                 <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panl1" TargetControlID="btnAddToCart"
                     CancelControlID="Button2" BackgroundCssClass="Background">
                 </cc1:ModalPopupExtender>

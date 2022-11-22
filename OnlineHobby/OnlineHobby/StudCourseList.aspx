@@ -62,13 +62,12 @@
                                     <table style="border: 1px solid grey;">
                                         <tr>
                                             <td>
-                                                <asp:ImageButton ID="imgbMaterial" class="card-img-top" runat="server" Height="250px" Width="250px" ImageUrl='<%# Eval("courseImage") %>' CommandArgument='<%# Eval("courseId") %>' CommandName="view" BorderStyle="Solid" BorderWidth="3px" ImageAlign="Middle" />
+                                                <asp:ImageButton ID="imgbMaterial" runat="server" Height="250px" Width="250px" ImageUrl='<%# Eval("courseImage") %>' CommandArgument='<%# Eval("courseId") %>' CommandName="view" BorderStyle="Solid" BorderWidth="3px" ImageAlign="Middle" />
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="height:50px;">
-                                                <asp:LinkButton ID="linkCourse" class="card-body" runat="server" Style="text-align: center !important" CommandArgument='<%# Eval("courseId") %>' CommandName="view" Font-Underline="False" ForeColor="#993333"><%# Eval("courseName") %> </asp:LinkButton>
-
+                                            <td>
+                                                <asp:LinkButton ID="linkCourse" class="text-center" runat="server" CommandArgument='<%# Eval("courseId") %>' CommandName="view" Font-Underline="False" ForeColor="#993333" Height="50px" Width="250px" Text='<%# Eval("courseName") %>'></asp:LinkButton>
                                             </td>
                                         </tr>
                                         <tr>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreditCard.aspx.cs" Inherits="OnlineHobby.CreditDebitCard" MasterPageFile="~/StudMaster.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreditCard.aspx.cs" Inherits="OnlineHobby.CreditCard" MasterPageFile="~/StudMaster.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="mt-4 mb-4 border" style="width: 90%; margin-left: 5%; min-height: 600px; font-size: 20px">

@@ -43,7 +43,6 @@ namespace OnlineHobby
                         txtDescription.Text = dr["description"].ToString();
                         txtOutcome.Text = outcome;
                         txtTotalClass.Text = dr["totalClass"].ToString();
-                        // if change the total class, how about schedule
                         txtTotalClass.Enabled = false;
                         txtMinAge.Text = dr["minAge"].ToString();
                         txtMaxAge.Text = dr["maxAge"].ToString();
@@ -104,9 +103,6 @@ namespace OnlineHobby
 
                 if (k != 0)
                 {
-                    //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert",
-                    //"swal('Good job!', 'You clicked Success button!', 'success')", true);
-                    //Session["CourseID"] = strCourseID;
                     Clear();
                     Response.Redirect("AddSchedule.aspx?courseId=" + strCourseID);
                 }

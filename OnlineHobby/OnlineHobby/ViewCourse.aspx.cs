@@ -51,7 +51,10 @@ namespace OnlineHobby
                     btnModify.Visible = false;
                     lbtnNameList.Visible = false;
                 }
-
+                if (dlCourse.Items.Count == 0)
+                {
+                    lblNoRate.Visible = true;
+                }
             }
             if (dlMaterialKit.Items.Count == 0)
             {
@@ -68,10 +71,7 @@ namespace OnlineHobby
             }
             average = rating / i;
             lblAverage.Text = "(" + average.ToString("0.00") + ")";
-            if (dlCourse.Items.Count == 0)
-            {
-                lblNoRate.Visible = true;
-            }
+            
         }
 
         protected void btnRemove_Click(object sender, EventArgs e)
@@ -136,7 +136,7 @@ namespace OnlineHobby
                 if (i != 0 && j != 0 && k != 0 && l != 0)
                 {
                     MsgBox("Your course has been successfully removed!", this.Page, this);
-                    //Response.Redirect("EduCourseList.aspx?");
+                    Response.Redirect("EduCourseList.aspx?");
                 }
                 con.Close();
             }

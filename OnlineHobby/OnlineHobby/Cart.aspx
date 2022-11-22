@@ -168,7 +168,10 @@
                 <asp:SessionParameter Name="StudId" SessionField="UserId" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Cart.cartId, Cart.materialId, Cart.quantity, MaterialKit.materialId AS Expr1, MaterialKit.materialName, MaterialKit.price, MaterialKit.stock, MaterialKit.materialImage, MaterialKit.availability FROM Cart INNER JOIN MaterialKit ON Cart.materialId = MaterialKit.materialId"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT Cart.cartId, Cart.materialId, Cart.quantity, MaterialKit.materialId AS Expr1, MaterialKit.materialName, MaterialKit.price, MaterialKit.stock, MaterialKit.materialImage, MaterialKit.availability FROM Cart INNER JOIN MaterialKit ON Cart.materialId = MaterialKit.materialId WHERE (Cart.studId = @StudId)">
+            <SelectParameters>
+                <asp:SessionParameter Name="StudId" SessionField="UserId" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </div>
 </asp:Content>

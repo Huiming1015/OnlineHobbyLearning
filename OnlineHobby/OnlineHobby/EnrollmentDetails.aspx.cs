@@ -26,8 +26,8 @@ namespace OnlineHobby
                 Session["paymentId"] = com.ExecuteScalar().ToString();
                 con.Close();
             }
-            if (!IsPostBack)
-            {
+            //if (!IsPostBack)
+            //{
                 if (dlEnrollmentDetails.Items.Count <= 0)
                 {
                     lblEmpty.Visible = true;
@@ -36,7 +36,7 @@ namespace OnlineHobby
                 {
                     lblEmpty.Visible = false;
                 }
-            }
+            //}
         }
     }
 }

@@ -142,11 +142,11 @@ namespace OnlineHobby
                 con2.Close();
                 if (k != 0 && j != 0)
                 {
-                    MsgBox("The amount will be refund to the students who enrolled in this schedule.", this.Page, this);
-                    getScheduleData();
-                    getListData();
+                    MsgBox("The amount will be refund to the students who enrolled in this schedule.", this.Page, this);                    
                 }
             }
+            getScheduleData();
+            getListData();
             dr.Close();
             con.Close();
 
@@ -167,6 +167,7 @@ namespace OnlineHobby
             {
                 count += 1;
             }
+            dr.Close();
             con.Close();
             if (count >= 1)
             {
@@ -198,6 +199,7 @@ namespace OnlineHobby
             SqlDataReader dr = com.ExecuteReader();
             gvCourseSchedule.DataSource = dr;
             gvCourseSchedule.DataBind();
+            dr.Close();
             con.Close();
         }
 
@@ -206,18 +208,18 @@ namespace OnlineHobby
             String strQGet;
             con = new SqlConnection(strCon);
             con.Open();
-            strQGet = "SELECT * FROM [ScheduleList] where scheduleId = @ScheduleId";
+            strQGet = "SELECT * FROM [ScheduleList] INNER JOIN CourseSchedule ON ScheduleList.scheduleId=CourseSchedule.scheduleId where ScheduleList.scheduleId = @ScheduleId and CourseSchedule.availability='available'";
             SqlCommand com = new SqlCommand(strQGet, con);
             com.Parameters.AddWithValue("@ScheduleId", strScheduleID);
             SqlDataReader dr = com.ExecuteReader();
             gvScheduleList.DataSource = dr;
             gvScheduleList.DataBind();
+            dr.Close();
             con.Close();
         }
 
         protected void ddlTutoringMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (ddlTutoringMode.SelectedValue.ToString() == "oneToOne")
             {
                 txtMaxStud.Text = "1";

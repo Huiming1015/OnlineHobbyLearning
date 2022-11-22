@@ -27,8 +27,6 @@
             vertical-align: top;
         }
 
-        }
-
         .labelColumn {
             text-align: center;
             vertical-align: top;

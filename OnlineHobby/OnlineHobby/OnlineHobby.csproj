@@ -142,6 +142,7 @@
     <Content Include="EduDetails2.aspx" />
     <Content Include="EduMaterial.aspx" />
     <Content Include="EduRate.aspx" />
+    <Content Include="EduReports.aspx" />
     <Content Include="EnrolledCourseList.aspx" />
     <Content Include="EnrollmentDetails.aspx" />
     <Content Include="EnrollmentList.aspx" />
@@ -206,6 +207,7 @@
     <None Include="Resources\paypal %282%29.png" />
     <None Include="Resources\plus.png" />
     <None Include="Resources\minus.png" />
+    <None Include="Resources\starRate.png" />
     <Content Include="SignUpEducator.aspx" />
     <None Include="Resources\passwordShow.png" />
     <None Include="Resources\passwordHide.png" />
@@ -454,6 +456,12 @@
       <DependentUpon>CrystalReportTop5MostFollowed.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReportTotalIncome.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportTotalIncome.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DeleteAccount.aspx.cs">
       <DependentUpon>DeleteAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -523,6 +531,13 @@
     </Compile>
     <Compile Include="EduRate.aspx.designer.cs">
       <DependentUpon>EduRate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EduReports.aspx.cs">
+      <DependentUpon>EduReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EduReports.aspx.designer.cs">
+      <DependentUpon>EduReports.aspx</DependentUpon>
     </Compile>
     <Compile Include="EnrolledCourseList.aspx.cs">
       <DependentUpon>EnrolledCourseList.aspx</DependentUpon>
@@ -793,6 +808,10 @@
     <EmbeddedResource Include="CrystalReportTop5MostFollowed.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportTop5MostFollowed.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReportTotalIncome.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportTotalIncome.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -50,9 +50,6 @@
                         <asp:Label ID="lblMessage" runat="server" BackColor="White" Text="Sorry, there is no material kit found." Visible="False" Width="100%" Font-Names="Gill Sans MT" Font-Size="Large"></asp:Label>
                         <div style="width: 100%;">
                             <asp:DataList ID="dtMaterial" runat="server" CellSpacing="30" DataKeyField="materialId" HorizontalAlign="Center" RepeatDirection="Horizontal" RepeatColumns="5" OnItemCommand="dtMaterial_ItemCommand" OnItemDataBound="dtMaterial_ItemDataBound" CellPadding="5">
-                                <AlternatingItemStyle Wrap="False" />
-                                <HeaderStyle Wrap="False" />
-                                <ItemStyle Wrap="False" />
                                 <ItemTemplate>
                                     <table style="border: 1px solid grey;">
                                         <tr>
@@ -61,8 +58,8 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="height: 50px;">
-                                                <asp:LinkButton ID="lbMaterialName" runat="server" CommandArgument='<%# Eval("materialId") %>' CommandName="view" Text='<%# Eval("materialName") %>' Font-Underline="False" ForeColor="#993333"></asp:LinkButton>
+                                            <td>
+                                                <asp:LinkButton ID="lbMaterialName" runat="server" CommandArgument='<%# Eval("materialId") %>' CommandName="view" Text='<%# Eval("materialName") %>' Font-Underline="False" ForeColor="#993333" Height="50px" Width="250px" class="text-center"></asp:LinkButton>
                                             </td>
                                         </tr>
                                         <tr>

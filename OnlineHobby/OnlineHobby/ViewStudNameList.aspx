@@ -67,7 +67,7 @@
             </div>
         </div>
         <hr />
-        <asp:SqlDataSource ID="sqlSchedule" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [CourseSchedule] WHERE ([courseId] = @courseId)">
+        <asp:SqlDataSource ID="sqlSchedule" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [CourseSchedule] WHERE ([courseId] = @courseId) AND availability!='unavailable'">
             <SelectParameters>
                 <asp:QueryStringParameter Name="courseId" QueryStringField="courseId" Type="String" />
             </SelectParameters>

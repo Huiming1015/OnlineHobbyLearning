@@ -16,7 +16,7 @@
         <p style="font-size:small; color:#808080;">Leave the Discount Rate field blank when you do not need to link material kit and course</p>
         <asp:DataList ID="dlMaterialKit" runat="server" DataSourceID="SqlDataSource1" HorizontalAlign="Center" RepeatDirection="Horizontal" RepeatColumns="5" CellSpacing="30" CellPadding="5">
             <ItemTemplate>
-                <table style="width: 225px; font-size: 20px; border: 1px solid grey; margin-right:15px;">
+                <table style="width: 225px; font-size: 15px; border: 1px solid grey; margin-right:15px;">
                     <tr>
                         <td class="auto-style1">
                             <asp:Image ID="imgMaterial" class="card-img-top" runat="server" Height="200px" Width="200px" ImageUrl='<%# Eval("materialImage") %>' BorderStyle="Solid" BorderWidth="3px" ImageAlign="Middle" />

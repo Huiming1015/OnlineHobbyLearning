@@ -36,7 +36,7 @@
                 <ItemTemplate>
                     <div class="card" style="text-align: left !important; margin-right:15px;">
                         <asp:ImageButton ID="imgbMaterial" class="card-img-top" runat="server" Height="250px" Width="250px" ImageUrl='<%# Eval("materialImage") %>' CommandArgument='<%# Eval("materialId") %>' CommandName="viewModify" BorderStyle="Solid" BorderWidth="3px" ImageAlign="Middle" />
-                        <asp:LinkButton ID="linkMaterial" class="card-body" runat="server" Style="text-align: center !important" CommandArgument='<%# Eval("materialId") %>' CommandName="viewModify" Font-Underline="False" ForeColor="#993333"><%# Eval("materialName") %> </asp:LinkButton>
+                        <asp:LinkButton ID="linkMaterial" class="card-body" runat="server" CssClass="text-center" CommandArgument='<%# Eval("materialId") %>' CommandName="viewModify" Font-Underline="False" ForeColor="#993333" Height="50px" Width="250px"><%# Eval("materialName") %> </asp:LinkButton>
                 </ItemTemplate>
             </asp:DataList>
         </div>
