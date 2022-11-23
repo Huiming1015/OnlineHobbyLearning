@@ -104,7 +104,6 @@
                         <div class="flex-grow-1">
                             <asp:DropDownList ID="ddlYear" runat="server" CssClass="form-control">
                                 <asp:ListItem Selected hidden>Select Year</asp:ListItem>
-                                <asp:ListItem Value="2021">2021</asp:ListItem>
                                 <asp:ListItem Value="2022">2022</asp:ListItem>
                             </asp:DropDownList>
                         </div>
