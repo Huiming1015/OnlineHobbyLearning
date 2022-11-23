@@ -36,12 +36,13 @@ namespace OnlineHobby
                     while (dr.Read())
                     {
                         string description = dr["description"].ToString().Replace("<br />", "\r\n").Replace("<br />", "\n");
+                        string materialIncluded = dr["materialIncluded"].ToString().Replace("<br />", "\r\n").Replace("<br />", "\n");
                         strMaterialID = strQueryId;
                         imgMaterial.ImageUrl = dr["materialImage"].ToString();
                         requireImage.Enabled = false;
                         txtName.Text = dr["materialName"].ToString();
                         txtDescription.Text = description;
-                        txtMaterialIncluded.Text = dr["materialIncluded"].ToString();
+                        txtMaterialIncluded.Text = materialIncluded;
                         txtStock.Text = dr["stock"].ToString();
                         txtPrice.Text = String.Format("{0:N2}", double.Parse(dr["price"].ToString()));
                         ddlCategory.SelectedValue = dr["category"].ToString();
@@ -134,12 +135,12 @@ namespace OnlineHobby
                 con.Open();
                 string strQModify = "Update MaterialKit set materialName=@materialName, category=@category, description=@description, materialIncluded=@materialIncluded, price=@price, stock=@stock, materialImage=@materialImage where materialId=@materialId";
                 SqlCommand comModifyMaterial = new SqlCommand(strQModify, con);
-
+                string materialIncluded = txtMaterialIncluded.Text.Replace("\r\n", "<br />").Replace("\n", "<br />");
                 comModifyMaterial.Parameters.AddWithValue("@materialId", strQueryId);
                 comModifyMaterial.Parameters.AddWithValue("@materialName", txtName.Text);
                 comModifyMaterial.Parameters.AddWithValue("@category", ddlCategory.SelectedValue.ToString());
                 comModifyMaterial.Parameters.AddWithValue("@description", txtDescription.Text);
-                comModifyMaterial.Parameters.AddWithValue("@materialIncluded", txtMaterialIncluded.Text);
+                comModifyMaterial.Parameters.AddWithValue("@materialIncluded", materialIncluded);
                 comModifyMaterial.Parameters.AddWithValue("@price", txtPrice.Text);
                 comModifyMaterial.Parameters.AddWithValue("@stock", txtStock.Text);
                 comModifyMaterial.Parameters.AddWithValue("@materialImage", strImage);

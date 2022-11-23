@@ -33,7 +33,6 @@
         }
     </style>
     <div style="padding: 20px; font-size: 20px; margin-left: 5%; margin-right: 5%; text-align: center" class="auto-style1">
-        
                         
         <table style="width: 100%;">
             <tr>
