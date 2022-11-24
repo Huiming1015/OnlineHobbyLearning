@@ -26,7 +26,7 @@ namespace OnlineHobby
                 con2.Open();
                 strGetOrderId = "SELECT orderId FROM MaterialOrder WHERE DATEADD(day, 3, orderDate) < @today AND orderStatus='pending'";
                 SqlCommand comOrderID = new SqlCommand(strGetOrderId, con2);
-                comOrderID.Parameters.AddWithValue("@today", today.ToShortDateString());
+                comOrderID.Parameters.AddWithValue("@today", today);
                 SqlDataReader drID = comOrderID.ExecuteReader();
                 while (drID.Read())
                 {
