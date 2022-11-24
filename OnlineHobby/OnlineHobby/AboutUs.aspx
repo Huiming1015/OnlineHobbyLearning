@@ -8,7 +8,7 @@
     </style>
     <div class="container-fluid div-background pt-2">
         <div class="text-center">
-            <h3 class="pt-4 pb-2" style="color: #cc33ff; font-weight: bold; font-size: 35px">Who Are We</h3>
+            <h3 class="pt-4 pb-2" style="color: #8600b3; font-weight: bold; font-size: 35px">Who Are We</h3>
             <asp:Image ID="Image1" runat="server" ImageUrl="~/Assets/aboutUs.jpeg" Height="450px" Width="750px" Style="border-radius: 15px; box-shadow: 5px 5px 7px #f2ccff" />
         </div>
         <div class="container py-4 ps-5 pe-5">
@@ -16,7 +16,7 @@
         </div>
 
         <div class="text-center">
-            <h3 class="pb-2" style="color: #cc33ff; font-weight: bold; font-size: 35px">Our Partners</h3>
+            <h3 class="pb-2" style="color: #8600b3; font-weight: bold; font-size: 35px">Our Partners</h3>
         </div>
         <div class="row pb-5">
             <div class="col-md-4 text-center">

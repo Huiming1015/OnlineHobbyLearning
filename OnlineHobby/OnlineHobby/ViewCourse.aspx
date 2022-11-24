@@ -79,7 +79,7 @@
         <h3 class="pt-3 mb-1 pb-3" style="color: #f98006; font-weight: bold; text-align: center">Course Details</h3>
         <hr />
         <div align="center">
-            <asp:DataList ID="dlCourse" runat="server" DataKeyField="courseId" DataSourceID="SqlDataSource1" RepeatColumns="1" HorizontalAlign="Center" Width="100%" BorderStyle="None">
+            <asp:DataList ID="dlCourse" runat="server" DataKeyField="courseId" DataSourceID="SqlDataSource1" RepeatColumns="1" HorizontalAlign="Center" Width="100%" BorderStyle="None" OnItemCommand="dlCourse_ItemCommand">
                 <ItemTemplate>
                     <table style="vertical-align: central; width: 100%; height: 90%">
                         <tr>
@@ -101,7 +101,7 @@
                         </tr>
                         <tr>
                             <td class="text-center">
-                                <asp:LinkButton ID="lblEdu" runat="server" Text='<%# Eval("eduName") %>' Width="300px"></asp:LinkButton>
+                                <asp:LinkButton ID="lblEdu" runat="server" Text='<%# Eval("eduName") %>' Width="300px" CommandArgument='<%# Eval("eduId") %>' CommandName="viewEdu" type="submit"></asp:LinkButton>
                             </td>
                         </tr>
                         <tr>

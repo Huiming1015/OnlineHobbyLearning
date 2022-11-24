@@ -127,6 +127,12 @@ namespace OnlineHobby
                     }
                 }
             }
+
+            if (e.CommandName == "viewEdu")
+            {
+                Session["EduDetailsId"] = e.CommandArgument.ToString();
+                Response.Redirect("EduDetails.aspx");
+            }
         }
 
         private void addToCart(DataListCommandEventArgs e)

@@ -131,7 +131,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:LinkButton ID="lblEdu" runat="server" Text='<%# Eval("eduName") %>' Width="300px"></asp:LinkButton>
+                            <asp:LinkButton ID="lblEdu" runat="server" Text='<%# Eval("eduName") %>' Width="300px" CommandArgument='<%# Eval("eduId") %>' CommandName="viewEdu" type="submit"></asp:LinkButton>
                         </td>
                     </tr>
                     <tr>
