@@ -24,7 +24,7 @@
     </style>
     <div class="text-center div-background">
         <br />
-        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Font-Underline="True" ForeColor="Black" Text="MY MATERIAL KIT"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Font-Underline="False" ForeColor="#993333" Text="My Material Kits"></asp:Label>
         <br />
         <br />
         <asp:Button ID="btnAdd" runat="server" Font-Bold="True" Font-Italic="False" Font-Size="Large" ForeColor="Black" PostBackUrl="~/AddMaterial.aspx" Text="ADD MATERIAL KIT" CssClass="button2" />

@@ -24,7 +24,7 @@
     </style>
     <div class="text-center div-background" style="min-height: 600px">
         <br />
-        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Font-Underline="True" ForeColor="Black" Text="MY COURSE"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Font-Underline="False" ForeColor="#993333" Text="My Courses"></asp:Label>
         <br />
         <br />
         <asp:Button ID="btnAdd" runat="server" Font-Bold="True" Font-Italic="False" Font-Size="Large" ForeColor="Black" PostBackUrl="~/AddCourse.aspx" Text="ADD COURSE" CssClass="button2" />

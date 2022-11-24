@@ -272,10 +272,10 @@
         &nbsp;<asp:Label runat="server" class="mt-5 pt-3 mb-3 pb-3" Style="color: #f98006; font-weight: bold; text-align: center" ID="lblAverage" Font-Size="X-Large"></asp:Label><br />
         <asp:Label runat="server" class="mt-5 pt-3 mb-3 pb-3" Style="font-weight: bold; text-align: center" ID="lblNoRate" Text="There are no any rating for this course yet..." Visible="false"></asp:Label>
         <br /><div class="w-100 mt-2" align="center">
-            <asp:DataList ID="dlRating" runat="server" DataKeyField="courseRatingId" DataSourceID="SqlDataSource4" HorizontalAlign="Center" Font-Size="large" align="center" CellPadding="15">
+            <asp:DataList ID="dlRating" runat="server" DataKeyField="courseRatingId" DataSourceID="SqlDataSource4" HorizontalAlign="Center" Font-Size="large" align="center" CellPadding="15" Width="100%">
                 <ItemTemplate>
-                    <div class="container-fluid text-start">
-                        <div class="row fw-bold w-100">
+                    <div class="container-fluid text-center">
+                        <div class="row fw-bold">
                             <div class="col-3">
                                 <asp:Label ID="lblStudName" runat="server" Text='<%# Eval("studName") %>' />
                             </div>

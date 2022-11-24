@@ -35,7 +35,7 @@
                     <div>
                         <br />
 
-                        <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Size="XX-Large" Font-Underline="False" ForeColor="#993333" Text="COURSES"></asp:Label>
+                        <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Size="XX-Large" Font-Underline="False" ForeColor="#993333" Text="Courses"></asp:Label>
                         <br />
                         <br />
                         <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" Width="250px" Height="40px" Style="display: inline !important;">
