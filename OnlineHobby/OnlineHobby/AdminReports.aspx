@@ -159,6 +159,40 @@
             </table>
         </div>
 
+        <%--Monthly Commission--%>
+         <div style="padding-left: 300px">
+            <table style="background-color: rgba(0, 0, 0, 0.03)">
+                <tr>
+                    <td dir="rtl" class="auto-style1"></td>
+                    <td dir="rtl" class="auto-style4"></td>
+                    <td class="auto-style4"></td>
+                    <td class="auto-style4"></td>
+                    <td class="auto-style2"></td>
+                    <td class="auto-style3" rowspan="4">
+                        <asp:Button ID="btnCommissionReport" runat="server" CssClass="btn btn-light btn-lg rounded-pill" Text="VIEW" Style="height: 40px; width: 110px; background-color: #f98006; color: white" Font-Size="Medium" OnClick="btnCommissionReport_Click" />
+                        <CR:CrystalReportViewer ID="CrystalReportViewer3" runat="server" AutoDataBind="true" />
+                    </td>
+                    <td dir="rtl" class="auto-style1"></td>
+                </tr>
+                <tr>
+                    <td dir="rtl" class="auto-style1">&nbsp;</td>
+                    <td dir="ltr" colspan="3" class="auto-style6">
+                        <asp:Label ID="Label2" runat="server" Font-Size="17px" Text="Monthly Commission Report"></asp:Label>
+                    </td>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td>&nbsp;</td>
+
+                </tr>
+
+                <tr>
+                    <td class="auto-style1">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="auto-style5">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style2">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
         <asp:Panel ID="Panel1" runat="server">
             <div class="mt-5 pb-2 pt-5"></div>
             <div class="pt-1"></div>

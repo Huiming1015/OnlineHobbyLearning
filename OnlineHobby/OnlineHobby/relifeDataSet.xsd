@@ -105,6 +105,19 @@
               <xs:element name="courseName" msprop:Generator_ColumnVarNameInTable="columncourseName" msprop:Generator_ColumnPropNameInRow="courseName" msprop:Generator_ColumnPropNameInTable="courseNameColumn" msprop:Generator_UserColumnName="courseName" type="xs:string" minOccurs="0" />
               <xs:element name="priceCourse" msprop:Generator_ColumnVarNameInTable="columnpriceCourse" msprop:Generator_ColumnPropNameInRow="priceCourse" msprop:Generator_ColumnPropNameInTable="priceCourseColumn" msprop:Generator_UserColumnName="priceCourse" type="xs:string" minOccurs="0" />
               <xs:element name="discountAmount" msprop:Generator_ColumnVarNameInTable="columndiscountAmount" msprop:Generator_ColumnPropNameInRow="discountAmount" msprop:Generator_ColumnPropNameInTable="discountAmountColumn" msprop:Generator_UserColumnName="discountAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="refundAmount" msprop:Generator_ColumnVarNameInTable="columnrefundAmount" msprop:Generator_ColumnPropNameInRow="refundAmount" msprop:Generator_ColumnPropNameInTable="refundAmountColumn" msprop:Generator_UserColumnName="refundAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="paymentId" msprop:Generator_ColumnVarNameInTable="columnpaymentId" msprop:Generator_ColumnPropNameInRow="paymentId" msprop:Generator_ColumnPropNameInTable="paymentIdColumn" msprop:Generator_UserColumnName="paymentId" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Commission" msprop:Generator_TableClassName="CommissionDataTable" msprop:Generator_TableVarName="tableCommission" msprop:Generator_RowChangedName="CommissionRowChanged" msprop:Generator_TablePropName="Commission" msprop:Generator_RowDeletingName="CommissionRowDeleting" msprop:Generator_RowChangingName="CommissionRowChanging" msprop:Generator_RowEvHandlerName="CommissionRowChangeEventHandler" msprop:Generator_RowDeletedName="CommissionRowDeleted" msprop:Generator_RowClassName="CommissionRow" msprop:Generator_UserTableName="Commission" msprop:Generator_RowEvArgName="CommissionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="paymentAmount" msprop:Generator_ColumnVarNameInTable="columnpaymentAmount" msprop:Generator_ColumnPropNameInRow="paymentAmount" msprop:Generator_ColumnPropNameInTable="paymentAmountColumn" msprop:Generator_UserColumnName="paymentAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="eduId" msprop:Generator_ColumnVarNameInTable="columneduId" msprop:Generator_ColumnPropNameInRow="eduId" msprop:Generator_ColumnPropNameInTable="eduIdColumn" msprop:Generator_UserColumnName="eduId" type="xs:string" minOccurs="0" />
+              <xs:element name="eduName" msprop:Generator_ColumnVarNameInTable="columneduName" msprop:Generator_ColumnPropNameInRow="eduName" msprop:Generator_ColumnPropNameInTable="eduNameColumn" msprop:Generator_UserColumnName="eduName" type="xs:string" minOccurs="0" />
+              <xs:element name="eduEmail" msprop:Generator_ColumnVarNameInTable="columneduEmail" msprop:Generator_ColumnPropNameInRow="eduEmail" msprop:Generator_ColumnPropNameInTable="eduEmailColumn" msprop:Generator_UserColumnName="eduEmail" type="xs:string" minOccurs="0" />
+              <xs:element name="refundAmount" msprop:Generator_ColumnVarNameInTable="columnrefundAmount" msprop:Generator_ColumnPropNameInRow="refundAmount" msprop:Generator_ColumnPropNameInTable="refundAmountColumn" msprop:Generator_UserColumnName="refundAmount" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
