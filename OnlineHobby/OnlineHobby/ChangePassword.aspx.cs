@@ -57,12 +57,12 @@ namespace OnlineHobby
             if (txtPNewPassword.TextMode == TextBoxMode.Password)
             {
                 txtPNewPassword.TextMode = TextBoxMode.SingleLine;
-                ImageButton1.ImageUrl = "Resources/passwordHide.png";
+                ImageButton2.ImageUrl = "Resources/passwordHide.png";
             }
             else
             {
                 txtPNewPassword.TextMode = TextBoxMode.Password;
-                ImageButton1.ImageUrl = "Resources/passwordShow.png";
+                ImageButton2.ImageUrl = "Resources/passwordShow.png";
             }
         }
 
@@ -71,12 +71,12 @@ namespace OnlineHobby
             if (txtPConfirmPassword.TextMode == TextBoxMode.Password)
             {
                 txtPConfirmPassword.TextMode = TextBoxMode.SingleLine;
-                ImageButton1.ImageUrl = "Resources/passwordHide.png";
+                ImageButton3.ImageUrl = "Resources/passwordHide.png";
             }
             else
             {
                 txtPConfirmPassword.TextMode = TextBoxMode.Password;
-                ImageButton1.ImageUrl = "Resources/passwordShow.png";
+                ImageButton3.ImageUrl = "Resources/passwordShow.png";
             }
         }
 
@@ -145,9 +145,9 @@ namespace OnlineHobby
 
         private void clr()
         {
-            txtPCurrentPasword.Text = "";
-            txtPNewPassword.Text = "";
-            txtPConfirmPassword.Text = "";
+            this.txtPCurrentPasword.Attributes.Add("value", "");
+            this.txtPNewPassword.Attributes.Add("value", "");
+            this.txtPConfirmPassword.Attributes.Add("value", "");
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

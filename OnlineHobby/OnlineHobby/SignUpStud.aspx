@@ -25,7 +25,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     </div>
                     <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgSignUpFail" visible="false">
-                        <strong>Opps!</strong> Email has been registered. Please try again.
+                        <strong>Oops!</strong> Email has been registered. Please try again.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     </div>
                     <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgRequired" visible="false">

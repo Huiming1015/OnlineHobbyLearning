@@ -8,7 +8,7 @@
 
     <div class="container-fluid div-background mt-3">
         <div class="alert alert-success alert-dismissible fade show" runat="server" id="MsgSuccess" visible="false">
-            Post details updated successful.
+            Post details updated successfully.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgRequired" visible="false">
@@ -16,7 +16,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgImage" visible="false">
-            Please make sure the image entension is png or jpg file.
+            Please make sure the image extension is png or jpg file.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         <div class="text-center">

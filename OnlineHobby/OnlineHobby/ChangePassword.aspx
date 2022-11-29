@@ -13,7 +13,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         <div class="alert alert-success alert-dismissible fade show" runat="server" id="MsgSuccess" visible="false">
-            Password changed successful.
+            Password changed successfully.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
 

@@ -28,7 +28,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
     <div class="alert alert-danger alert-dismissible fade show m-0" runat="server" id="MsgSignUpFail" visible="false">
-        <strong>Opps!</strong> The application of the email has been received and is in processing. Please try again.
+        <strong>Oops!</strong> The application of the email has been received and is in processing. Please try again.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
     <div class="container-fluid div-background">

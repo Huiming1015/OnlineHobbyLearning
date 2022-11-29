@@ -73,8 +73,8 @@ namespace OnlineHobby
         {
             txtSUName.Text = "";
             txtSUEmail.Text = "";
-            txtSUPassword.Text = "";
-            txtSUConfirmPassword.Text = "";
+            this.txtSUPassword.Attributes.Add("value", "");
+            this.txtSUConfirmPassword.Attributes.Add("value", "");
         }
         
         protected void btnSignUp_Click(object sender, EventArgs e)

@@ -18,7 +18,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     </div>
                     <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgError" visible="false">
-                        <strong>Opps!</strong> Your email entered does not exist. Please try again.
+                        <strong>Oops!</strong> Your email entered does not exist. Please try again.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                     </div>
                     <div class="card card-registration my-4">

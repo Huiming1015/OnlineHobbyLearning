@@ -8,7 +8,7 @@
 
      <div class="container-fluid div-background mt-3">
         <div class="alert alert-success alert-dismissible fade show" runat="server" id="MsgSuccess" visible="false">
-            Achievement details updated successful.
+            Achievement details updated successfully.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgRequired" visible="false">

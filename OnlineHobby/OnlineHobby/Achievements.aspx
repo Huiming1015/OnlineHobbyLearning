@@ -27,7 +27,7 @@
         </div>
         <div class="alert alert-primary alert-dismissible fade show" runat="server" id="MsgNotice" visible="false">
             <h4 class="alert-heading">Info</h4>
-            You have not yet add your achievement/ cerification, add it now.
+            You have not yet add your achievement/ certification, add it now.
         </div>
         <asp:Panel ID="Panel1" runat="server" Visible="False">
             <div class="mt-5 mb-5 pb-3 pt-4"></div>

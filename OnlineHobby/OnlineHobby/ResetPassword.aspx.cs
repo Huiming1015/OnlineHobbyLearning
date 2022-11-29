@@ -95,8 +95,8 @@ namespace OnlineHobby
 
         private void clr()
         {
-            txtNewRPassword.Text = "";
-            txtConfirmRPassword.Text = "";
+            this.txtNewRPassword.Attributes.Add("value", "");
+            this.txtConfirmRPassword.Attributes.Add("value", "");
         }
 
         protected void btnReset_Click(object sender, EventArgs e)

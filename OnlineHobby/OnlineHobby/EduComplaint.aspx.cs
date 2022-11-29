@@ -77,7 +77,7 @@ namespace OnlineHobby
                 con.Close();
 
                 //Response.Redirect("EduDetails.aspx");
-                lblRequired.Text = "*Educator report incident submitted successful. Thank you.";
+                lblRequired.Text = "*Educator report incident submitted successfully. Thank you.";
                 lblRequired.Visible = true;
                 clr();
             }

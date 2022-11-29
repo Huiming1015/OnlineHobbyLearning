@@ -202,6 +202,9 @@ namespace OnlineHobby
 
         protected void rblApprovalAction_SelectedIndexChanged(object sender, EventArgs e)
         {
+            MsgRequired.Visible = false;
+            MsgRequiredReason.Visible = false;
+
             if (rblApprovalAction.SelectedValue == "Reject")
             {
                 Panel1.Visible = true;
