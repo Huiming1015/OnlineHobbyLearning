@@ -22,7 +22,7 @@
         }
     </style>
 
-    <div class="container-fluid bg">
+    <div class="container-fluid bg" style="min-height:600px">
         <div class="alert alert-primary alert-dismissible fade show mt-2" runat="server" id="MsgNotice" visible="false">
             No record found.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
@@ -40,6 +40,7 @@
                     <div class="input-group">
                         <div class="flex-grow-1">
                             <asp:DropDownList ID="ddlMonth" runat="server">
+                                <asp:ListItem Selected hidden>Select Month</asp:ListItem>
                                 <asp:ListItem Value="1">Jan</asp:ListItem>
                                 <asp:ListItem Value="2">Feb</asp:ListItem>
                                 <asp:ListItem Value="3">Mar</asp:ListItem>
@@ -61,6 +62,7 @@
                     <div class="input-group">
                         <div class="flex-grow-1">
                             <asp:DropDownList ID="ddlYear" runat="server">
+                                <asp:ListItem Selected hidden>Select Year</asp:ListItem>
                                 <asp:ListItem Value="2021">2021</asp:ListItem>
                                 <asp:ListItem Value="2022">2022</asp:ListItem>
                             </asp:DropDownList>
@@ -69,9 +71,9 @@
                 </div>
             </div>
         </div>
-
+  
         <div class="row pb-3">
-            <div class="col-md-3" style="margin-right: 68px"></div>
+            <div class="col-md-3" style="margin-right: 70px"></div>
             <div class="col-md-2">
                 <asp:Label ID="lblMonthRequired" runat="server" Text="Please select a month." ForeColor="Red" Font-Size="Small" Visible="false"></asp:Label>
 
@@ -81,7 +83,7 @@
                 <asp:Label ID="lblYearRequired" runat="server" Text="Please select a year." ForeColor="Red" Font-Size="Small" Visible="false"></asp:Label>
             </div>
         </div>
-  
+
         <div style="padding-left: 300px">
             <table style="background-color: rgba(0, 0, 0, 0.03)">
                 <tr>

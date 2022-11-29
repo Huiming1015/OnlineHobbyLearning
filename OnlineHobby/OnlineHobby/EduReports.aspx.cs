@@ -38,32 +38,38 @@ namespace OnlineHobby
             {
                 lblYearRequired.Visible = true;
             }
-
-
+            
             if (ddlMonth.SelectedIndex != 0 && ddlYear.SelectedIndex != 0)
             {
                 con.Open();
-                string cmd = "select * from MaterialOrder MO INNER JOIN OrderDetails OD ON MO.orderId=OD.orderId INNER JOIN MaterialKit MK ON OD.materialId=MK.materialId where MK.eduId ='" + Session["UserId"] + "' and month(MO.orderDate)=" + ddlMonth.SelectedValue + "and year(MO.orderDate)=" + ddlYear.SelectedValue;
+                string cmd = "Select * from Payment P inner join MaterialOrder MO on P.paymentId=MO.paymentId inner join EnrolledCourse EC ON P.paymentId=EC.paymentId INNER JOIN OrderDetails OD On MO.orderId = OD.orderId INNER JOIN MaterialKit MK ON OD.materialId = MK.materialId inner join EnrolDetails ED On ED.enrollmentId = EC.enrollmentId INNER JOIN CourseSchedule CS ON ED.scheduleId = CS.scheduleId INNER JOIN Course C ON CS.courseId = C.courseId WHERE (MK.eduId = '" + Session["UserId"] + "' OR C.eduId ='" + Session["UserId"] + "') and month(P.paymentDate)=" + ddlMonth.SelectedValue + "and year(P.paymentDate)=" + ddlYear.SelectedValue;
                 SqlCommand cmdSelect = new SqlCommand(cmd, con);
 
                 DataTable dt = new DataTable();
                 SqlDataAdapter sda = new SqlDataAdapter(cmdSelect);
                 sda.Fill(dt);
 
-                if (dt.Rows.Count == 0)
+                if (dt.Rows.Count <= 0)
                 {
                     con.Close();
                     MsgNotice.Visible = true;
                 }
                 else
                 {
-                    string sql = "select * from MaterialOrder MO INNER JOIN OrderDetails OD ON MO.orderId=OD.orderId INNER JOIN MaterialKit MK ON OD.materialId=MK.materialId where MK.eduId ='" + Session["UserId"] + "' and month(MO.orderDate)=" + ddlMonth.SelectedValue + "and year(MO.orderDate)=" + ddlYear.SelectedValue;
+                    string sqlMaterial = "Select P.discountAmount, OD.materialId, MK.materialName, OD.quantity, OD.unitPrice as priceMaterial from Payment P inner join MaterialOrder MO on P.paymentId = MO.paymentId INNER JOIN OrderDetails OD On MO.orderId = OD.orderId INNER JOIN MaterialKit MK ON OD.materialId = MK.materialId WHERE MK.eduId ='" + Session["UserId"] + "' and month(P.paymentDate)=" + ddlMonth.SelectedValue + "and year(P.paymentDate)=" + ddlYear.SelectedValue;
                     DataSet ds = new DataSet();
-                    SqlDataAdapter adp = new SqlDataAdapter(sql, con);
+                    SqlDataAdapter adp = new SqlDataAdapter(sqlMaterial, con);
+                    
                     adp.Fill(ds);
+                    
+                    string sqlCourse = "Select P.discountAmount, C.courseId, C.courseName, ED.unitPrice as priceCourse from Payment P inner join EnrolledCourse EC ON P.paymentId = EC.paymentId inner join EnrolDetails ED On ED.enrollmentId = EC.enrollmentId INNER JOIN CourseSchedule CS ON ED.scheduleId = CS.scheduleId INNER JOIN Course C ON CS.courseId = C.courseId WHERE C.eduId = '"+Session["UserId"]+ "'and month(P.paymentDate)=" + ddlMonth.SelectedValue + "and year(P.paymentDate)=" + ddlYear.SelectedValue;
+                    SqlDataAdapter adp2 = new SqlDataAdapter(sqlCourse, con);
+                    adp2.Fill(ds);
+
+                    con.Close();
 
                     ReportDocument crystalReport = new ReportDocument();
-                    crystalReport.Load(Server.MapPath("~/CrystalReportTotalIncome.rpt"));
+                    crystalReport.Load(Server.MapPath("~/CrystalReportIncomeEdu.rpt"));
                     crystalReport.SetDataSource(ds.Tables["table"]);
                     crystalReport.SetParameterValue("month", ddlMonth.SelectedItem.Text);
                     crystalReport.SetParameterValue("year", ddlYear.SelectedItem.Text);

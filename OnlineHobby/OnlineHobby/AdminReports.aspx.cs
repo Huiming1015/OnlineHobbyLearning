@@ -82,7 +82,7 @@ namespace OnlineHobby
             {
                 lblYearRequired.Visible = true;
             }
-
+            //Select S.studName, C.courseId, C.courseName from Student S inner join EnrolledCourse EC on S.studId=EC.studId inner join EnrolDetails ED on EC.enrollmentId=ED.enrollmentId inner join CourseSchedule CS on ED.scheduleId=CS.scheduleId inner join Course C on CS.courseId=C.courseId
 
             if (ddlMonth.SelectedIndex != 0 && ddlYear.SelectedIndex != 0)
             {
