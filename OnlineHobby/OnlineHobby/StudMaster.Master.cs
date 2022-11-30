@@ -62,6 +62,7 @@ namespace OnlineHobby
                         }
 
                     }
+                    con.Close();
                 }
                 else
                 {
@@ -90,7 +91,7 @@ namespace OnlineHobby
                         }
 
                     }
-
+                    con.Close();
                 }
             }
             else

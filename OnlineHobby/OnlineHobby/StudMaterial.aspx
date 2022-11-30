@@ -32,7 +32,7 @@
                         <br />
                         <br />
                         <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" Width="250px" Style="display: inline !important;" Height="40px">
-                            <asp:ListItem Value="draw">All</asp:ListItem>
+                            <asp:ListItem Value="all">All</asp:ListItem>
                             <asp:ListItem Value="draw">Drawing & Painting</asp:ListItem>
                             <asp:ListItem Value="floral">Floral</asp:ListItem>
                             <asp:ListItem Value="sew">Sewing & Crochet</asp:ListItem>
