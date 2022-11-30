@@ -444,12 +444,6 @@
     <Compile Include="CreditCard.aspx.designer.cs">
       <DependentUpon>CreditCard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CrystalReportCommission.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReportCommission.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CrystalReportIncomeEdu.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -807,10 +801,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CrystalReportCommission.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReportCommission.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReportIncomeEdu.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReportIncomeEdu.cs</LastGenOutput>
