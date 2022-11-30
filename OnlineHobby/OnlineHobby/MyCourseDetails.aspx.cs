@@ -89,6 +89,7 @@ namespace OnlineHobby
                     if (j != 0 && k != 0 && l != 0)
                     {
                         MsgBox("The course has been successfully withdrew!", this.Page, this);
+                        ScriptManager.RegisterStartupScript(this, GetType(), "", "window.location = '" + Page.ResolveUrl("~/MyCourseDetails.aspx?enrolDetailId="+strEnrolDetailId) + "';", true);
                     }
                 }
             }
@@ -109,48 +110,8 @@ namespace OnlineHobby
                 Label lblEnrolStatus = e.Item.FindControl("lblEnrolStatus") as Label;
                 Label lblCourseId = e.Item.FindControl("lblCourseId") as Label;
                 Label lblScheduleId = e.Item.FindControl("lblScheduleId") as Label;
-                //GridView gvScheduleList = e.Item.FindControl("gvScheduleList") as GridView;
 
                 con = new SqlConnection(strCon);
-                //con2 = new SqlConnection(strCon2);
-                //con2.Open();
-                //string strQ1 = "SELECT scheduleListId FROM ModificationRequest WHERE enrolDetailId=@EnrolDetailId";
-                //SqlCommand com1 = new SqlCommand(strQ1, con2);
-                //com1.Parameters.AddWithValue("@EnrolDetailId", strEnrolDetailId);
-                //SqlDataReader dr1 = com1.ExecuteReader();
-                //if (dr1.HasRows)
-                //{
-                //    while (dr1.Read())
-                //    {
-                //        con.Open();
-                //        string strQBind = "SELECT scheduleListId, startTime, endTime, date FROM ScheduleList WHERE scheduleId=@ScheduleId AND scheduleListId!=@ScheduleListId union select M.scheduleListId as scheduleListId, M.newStartTime as startTime, M.newEndTime as endTime, M.newDate as date from ModificationRequest M INNER JOIN EnrolDetails E ON M.enrolDetailId = E.enrolDetailId WHERE M.scheduleListId = @ScheduleListId AND E.scheduleId = @ScheduleId AND E.enrolDetailId = @EnrolDetailId";
-                //        SqlCommand comBind = new SqlCommand(strQBind, con);
-                //        comBind.Parameters.AddWithValue("@ScheduleId", lblScheduleId.Text.ToString());
-                //        comBind.Parameters.AddWithValue("@ScheduleListId", dr1["scheduleListId"].ToString());
-                //        comBind.Parameters.AddWithValue("@EnrolDetailId", strEnrolDetailId);
-                //        SqlDataAdapter adpt = new SqlDataAdapter(comBind);
-                //        DataTable dt = new DataTable();
-                //        adpt.Fill(dt);
-                //        gvScheduleList.DataSource = dt;
-                //        gvScheduleList.DataBind();
-                //        con.Close();
-                //    }
-                //}
-                //else
-                //{
-                //    con.Open();
-                //    string strQBind = "SELECT scheduleListId, startTime, endTime, date FROM ScheduleList WHERE scheduleId=@ScheduleId";
-                //    SqlCommand comBind = new SqlCommand(strQBind, con);
-                //    comBind.Parameters.AddWithValue("@ScheduleId", lblScheduleId.Text.ToString());
-                //    SqlDataAdapter adpt = new SqlDataAdapter(comBind);
-                //    DataTable dt = new DataTable();
-                //    adpt.Fill(dt);
-                //    gvScheduleList.DataSource = dt;
-                //    gvScheduleList.DataBind();
-                //    con.Close();
-                //}
-                //con2.Close();
-
 
                 if (lblEnrolStatus.Text == "Withdrew" || lblEnrolStatus.Text == "Completed" || lblEnrolStatus.Text == "Cancelled")
                 {

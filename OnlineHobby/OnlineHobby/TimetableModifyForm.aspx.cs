@@ -16,6 +16,7 @@ namespace OnlineHobby
         Int16 duration;
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtToday.Text = DateTime.Today.AddDays(3).ToShortDateString();
             con = new SqlConnection(strCon);
             string scheduleId = "";
 
@@ -96,7 +97,7 @@ namespace OnlineHobby
                         con.Close();
                         if (k != 0)
                         {
-                            MsgBox("Your request has been sent successfully!" + duration.ToString(), this.Page, this);
+                            MsgBox("Your request has been sent successfully!", this.Page, this);
                             ClientScript.RegisterStartupScript(this.GetType(), "RefreshParent", "<script language='javascript'>RefreshParent()</script>");
                         }
                     }

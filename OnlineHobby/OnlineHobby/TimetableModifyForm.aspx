@@ -36,10 +36,12 @@
                             </div>
                     </div>
                 </div>
+                <asp:TextBox runat="server" ID="txtToday" Font-Size="0px" BorderColor="Transparent"></asp:TextBox>
                 <div class="row">
                     <div class="col-md-4"></div>
                     <div class="col-md-8">
                         <span>
+                             <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtNewDate" Display="Dynamic" ErrorMessage="*New date should be at least 3 days after today" Font-Size="Small" ForeColor="Red" Operator="LessThanEqual" Type="Date" ControlToValidate="txtToday"></asp:CompareValidator>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtNewDate" ErrorMessage="*Please choose a new date!" ForeColor="Red" Font-Size="Small" Display="Dynamic"></asp:RequiredFieldValidator>
                         </span>
                     </div>

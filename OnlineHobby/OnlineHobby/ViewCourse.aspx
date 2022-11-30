@@ -275,14 +275,10 @@
             <asp:DataList ID="dlRating" runat="server" DataKeyField="courseRatingId" DataSourceID="SqlDataSource4" HorizontalAlign="Center" Font-Size="large" align="center" CellPadding="15" Width="100%">
                 <ItemTemplate>
                     <div class="container-fluid text-center">
-                        <div class="row fw-bold">
-                            <div class="col-3">
-                                <asp:Label ID="lblStudName" runat="server" Text='<%# Eval("studName") %>' />
+                        <div class="row fw-bold w-100">
+                            <div class="col-12">
+                                <asp:Label ID="lblStudName" runat="server" Text='<%# Eval("studName") %>' />&nbsp(<asp:Label ID="lblRating" runat="server" Text='<%# Eval("rating") %>' />)
                             </div>
-                            <div class="col-1">
-                                (<asp:Label ID="lblRating" runat="server" Text='<%# Eval("rating") %>' />)
-                            </div>
-                            <div class="col-8"></div>
                         </div>
                         <div class="row w-100">
                             <div class="col-12">
