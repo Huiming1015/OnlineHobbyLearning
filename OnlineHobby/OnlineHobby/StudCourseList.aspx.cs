@@ -30,7 +30,7 @@ namespace OnlineHobby
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             string category = ddlCategory.SelectedValue;
-            if (category == "All Category")
+            if (category == "all")
             {
                 displayAll();
             }
