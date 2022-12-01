@@ -89,7 +89,7 @@ namespace OnlineHobby
                     if (j != 0 && k != 0 && l != 0)
                     {
                         MsgBox("The course has been successfully withdrew!", this.Page, this);
-                        ScriptManager.RegisterStartupScript(this, GetType(), "", "window.location = '" + Page.ResolveUrl("~/MyCourseDetails.aspx?enrolDetailId="+strEnrolDetailId) + "';", true);
+                        Response.Redirect("~/MyCourseDetails.aspx?enrolDetailId="+strEnrolDetailId);
                     }
                 }
             }
