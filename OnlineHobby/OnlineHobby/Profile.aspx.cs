@@ -48,6 +48,8 @@ namespace OnlineHobby
                             }
 
                         }
+                        dr.Close();
+                        con.Close();
                     }
                     else
                     {
@@ -71,6 +73,8 @@ namespace OnlineHobby
                             Panel1.Visible = true;
 
                         }
+                        dr.Close();
+                        con.Close();
                     }
 
                 }
@@ -102,7 +106,7 @@ namespace OnlineHobby
 
             if (role == "stud")
             {
-                if (txtPName.Text != "" && txtPEmail.Text != "")
+                if (txtPName.Text != "")
                 {
                     if (!validateName(txtPName.Text))
                     {
@@ -117,19 +121,6 @@ namespace OnlineHobby
                         }
                     }
 
-                    if (!validateEmail(txtPEmail.Text))
-                    {
-                        error += 1;
-                        if (MsgError.InnerHtml == " ")
-                        {
-                            MsgError.InnerHtml = "Please enter a valid email address.";
-                        }
-                        else
-                        {
-                            MsgError.InnerHtml = MsgError.InnerHtml + "</br>" + "Please enter a valid email address.";
-                        }
-                    }
-
                     if (error != 0)
                     {
                         MsgError.Visible = true;
@@ -140,10 +131,9 @@ namespace OnlineHobby
                         {
 
                             con.Open();
-                            string cmd = "Update Student set studName=@Name,studEmail=@Email,profileImg=@Image where studId =" + UserId;
+                            string cmd = "Update Student set studName=@Name,profileImg=@Image where studId =" + UserId;
                             SqlCommand cmdSelect = new SqlCommand(cmd, con);
                             cmdSelect.Parameters.AddWithValue("@Name", txtPName.Text);
-                            cmdSelect.Parameters.AddWithValue("@Email", txtPEmail.Text);
                             cmdSelect.Parameters.AddWithValue("@Image", Session["profileImg"]);
                             cmdSelect.ExecuteNonQuery();
                             con.Close();
@@ -156,10 +146,9 @@ namespace OnlineHobby
                         else
                         {
                             con.Open();
-                            string cmd = "Update Student set studName=@Name,studEmail=@Email where studId =" + UserId;
+                            string cmd = "Update Student set studName=@Name where studId =" + UserId;
                             SqlCommand cmdSelect = new SqlCommand(cmd, con);
                             cmdSelect.Parameters.AddWithValue("@Name", txtPName.Text);
-                            cmdSelect.Parameters.AddWithValue("@Email", txtPEmail.Text);
                             cmdSelect.ExecuteNonQuery();
                             con.Close();
 
@@ -176,7 +165,7 @@ namespace OnlineHobby
             }
             else
             {
-                if (txtPName.Text != "" && txtPEmail.Text != "" && txtPAbout.Text != "")
+                if (txtPName.Text != "" && txtPAbout.Text != "")
                 {
                     if (!validateName(txtPName.Text))
                     {
@@ -191,19 +180,6 @@ namespace OnlineHobby
                         }
                     }
 
-                    if (!validateEmail(txtPEmail.Text))
-                    {
-                        error += 1;
-                        if (MsgError.InnerHtml == " ")
-                        {
-                            MsgError.InnerHtml = "Please enter a valid email address.";
-                        }
-                        else
-                        {
-                            MsgError.InnerHtml = MsgError.InnerHtml + "</br>" + "Please enter a valid email address.";
-                        }
-                    }
-
                     if (error != 0)
                     {
                         MsgError.Visible = true;
@@ -213,10 +189,9 @@ namespace OnlineHobby
                         if (Session["profileImg"] != null)
                         {
                             con.Open();
-                            string cmd = "Update Educator set eduName=@Name,eduEmail=@Email,profileImg=@Image,about=@About where eduId =" + UserId;
+                            string cmd = "Update Educator set eduName=@Name,profileImg=@Image,about=@About where eduId =" + UserId;
                             SqlCommand cmdSelect = new SqlCommand(cmd, con);
                             cmdSelect.Parameters.AddWithValue("@Name", txtPName.Text);
-                            cmdSelect.Parameters.AddWithValue("@Email", txtPEmail.Text);
                             cmdSelect.Parameters.AddWithValue("@Image", Session["profileImg"]);
                             cmdSelect.Parameters.AddWithValue("@About", txtPAbout.Text);
                             cmdSelect.ExecuteNonQuery();
@@ -230,10 +205,9 @@ namespace OnlineHobby
                         else
                         {
                             con.Open();
-                            string cmd = "Update Educator set eduName=@Name,eduEmail=@Email,about=@About where eduId =" + UserId;
+                            string cmd = "Update Educator set eduName=@Name,about=@About where eduId =" + UserId;
                             SqlCommand cmdSelect = new SqlCommand(cmd, con);
                             cmdSelect.Parameters.AddWithValue("@Name", txtPName.Text);
-                            cmdSelect.Parameters.AddWithValue("@Email", txtPEmail.Text);
                             cmdSelect.Parameters.AddWithValue("@About", txtPAbout.Text);
                             cmdSelect.ExecuteNonQuery();
                             con.Close();
@@ -278,15 +252,6 @@ namespace OnlineHobby
             else
                 return false;
         }
-
-        private Boolean validateEmail(string email)
-        {
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            Match match = regex.Match(email);
-            if (match.Success)
-                return true;
-            else
-                return false;
-        }
+        
     }
 }

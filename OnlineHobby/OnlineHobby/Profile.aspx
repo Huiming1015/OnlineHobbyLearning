@@ -13,11 +13,11 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgRequired" visible="false">
-            Name and email are necessary to be fill up.
+            Name are necessary to be fill up.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgRequired2" visible="false">
-            Name, email and about are necessary to be fill up.
+            Name and about are necessary to be fill up.
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
         <div class="alert alert-danger alert-dismissible fade show" runat="server" id="MsgImage" visible="false">
@@ -101,7 +101,7 @@
                 <div class="row">
                     <div class="input-group">
                         <div class="flex-grow-1">
-                            <asp:TextBox ID="txtPEmail" type="text" CssClass="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPEmail" type="text" CssClass="form-control" runat="server" Enabled="False"></asp:TextBox>
                             <%--                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="*Please enter a valid email address." ControlToValidate="txtSUEmail" Font-Size="Small" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">*Please enter a valid email address.</asp:RegularExpressionValidator>--%>
                         </div>
                     </div>
