@@ -41,7 +41,7 @@
             <div class="col-md-5 text-center">
                 <h3 class="pt-3 pb-3" style="color: #011797; font-size: x-large; font-weight: bold; text-align: center">Student List</h3>
                 
-                <asp:GridView ID="gvNameList" runat="server" class="w-100 text-center m-5" AutoGenerateColumns="False" DataKeyNames="studId" EmptyDataText="There are no data records to display." Font-Size="Large" BorderStyle="None" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="10" CellSpacing="2" HorizontalAlign="Center">
+                <asp:GridView ID="gvNameList" runat="server" class="w-100 text-center m-5" AutoGenerateColumns="False" DataKeyNames="studId" EmptyDataText="There are no data records to display." Font-Size="Large" BorderStyle="None" BackColor="#DEBA84" BorderColor="#DEBA84" BorderWidth="1px" CellPadding="10" CellSpacing="2" HorizontalAlign="Center" OnDataBound="gvNameList_DataBound">
                         <Columns>
                             <asp:TemplateField HeaderText="Student Name">
                                 <ItemTemplate>
@@ -64,6 +64,9 @@
                         <SortedDescendingCellStyle BackColor="#F1E5CE" />
                         <SortedDescendingHeaderStyle BackColor="#93451F" />
                     </asp:GridView>
+                <div class="text-start ms-5">
+                    <asp:Label ID="lblCount" runat="server" Font-Size="Large"></asp:Label>
+                </div>
             </div>
         </div>
         <hr />

@@ -18,7 +18,6 @@ namespace OnlineHobby
         protected void Page_Load(object sender, EventArgs e)
         {
             courseId = Request.QueryString["courseId"].ToString();
-
             if (!IsPostBack)
             {
                 lblCourseId.Text = "Course ID : " + courseId;
@@ -31,8 +30,8 @@ namespace OnlineHobby
                 con.Close();
 
                 showNameList(scheduleId);
-
             }
+            
         }
 
         protected void dlSchedule_ItemCommand(object source, DataListCommandEventArgs e)
@@ -57,6 +56,13 @@ namespace OnlineHobby
             gvNameList.DataSource = dt;
             gvNameList.DataBind();
             con.Close();
+        }
+
+        protected void gvNameList_DataBound(object sender, EventArgs e)
+        {
+            int count = 0;
+            count += gvNameList.Rows.Count;
+            lblCount.Text = "Total: " + count.ToString() + " student(s)";
         }
     }
 }

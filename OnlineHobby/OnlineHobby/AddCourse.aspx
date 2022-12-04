@@ -116,7 +116,7 @@
                     <td class="trInput">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>Total Class per Schedule:</td>
+                    <td>Number of Class:</td>
                     <td class="trInput">
                         <asp:TextBox ID="txtTotalClass" runat="server" CssClass="form-control"></asp:TextBox>
                     </td>
