@@ -47,10 +47,12 @@ namespace OnlineHobby
                 if (dlOrderDetails.Items.Count <= 0)
                 {
                     btnCancel.Visible = false;
+                    btnConfirm.Visible = false;
                     lblEmpty.Visible = true;
                 }
                 else
                 {
+                    btnConfirm.Visible = true;
                     btnCancel.Visible = true;
                     lblEmpty.Visible = false;
                 }
