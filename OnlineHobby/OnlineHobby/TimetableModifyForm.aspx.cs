@@ -26,7 +26,7 @@ namespace OnlineHobby
                 con.Open();
                 string cmd = "SELECT scheduleId FROM EnrolDetails WHERE enrolDetailId=@enrolDetailId";
                 SqlCommand cmdSelect = new SqlCommand(cmd, con);
-                cmdSelect.Parameters.AddWithValue("@enrolDetailId", Session["enrolDetailsId"]);
+                cmdSelect.Parameters.AddWithValue("@enrolDetailId", Session["enrolDetailId"]);
                 scheduleId = cmdSelect.ExecuteScalar().ToString();
                 con.Close();
                 con.Open();
@@ -87,7 +87,7 @@ namespace OnlineHobby
                         string cmd2 = "Insert into ModificationRequest(modificationId,enrolDetailId,scheduleListId,newStartTime,newEndTime,newDate,modificationStatus) Values(@modificationId,@enrolDetailId,@scheduleListId,@newStartTime,@newEndTime,@newDate,@modificationStatus)";
                         SqlCommand comInsert = new SqlCommand(cmd2, con);
                         comInsert.Parameters.AddWithValue("@modificationId", GenerateID());
-                        comInsert.Parameters.AddWithValue("@enrolDetailId", Session["enrolDetailsId"]);
+                        comInsert.Parameters.AddWithValue("@enrolDetailId", Session["enrolDetailId"]);
                         comInsert.Parameters.AddWithValue("@scheduleListId", ddlDate.SelectedValue.ToString());
                         comInsert.Parameters.AddWithValue("@newStartTime", Convert.ToDateTime(txtNewTime.Text).ToShortTimeString());
                         comInsert.Parameters.AddWithValue("@newEndTime", Convert.ToDateTime(txtNewTime.Text).AddMinutes(duration).ToShortTimeString());

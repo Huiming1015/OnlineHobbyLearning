@@ -29,7 +29,7 @@ namespace OnlineHobby
         {
             if (e.CommandName == "view")
             {
-                Session["enrolDetailsId"] = e.CommandArgument.ToString();
+                Session["enrolDetailId"] = e.CommandArgument.ToString();
                 Response.Redirect("MyCourseDetails.aspx?enrolDetailId=" + e.CommandArgument.ToString());
             }
         }

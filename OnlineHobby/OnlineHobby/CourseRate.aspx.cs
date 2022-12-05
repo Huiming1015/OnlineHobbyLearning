@@ -47,11 +47,11 @@ namespace OnlineHobby
                 }
                 con = new SqlConnection(strCon);
                 con.Open();
-                string cmd2 = "Insert into CourseRating(courseRatingId,studId,enrolDetailsId,courseId,rating,comment) Values(@courseRatingId,@studId,@enrolDetailsId,@courseId,@rating,@comment)";
+                string cmd2 = "Insert into CourseRating(courseRatingId,studId,enrolDetailId,courseId,rating,comment) Values(@courseRatingId,@studId,@enrolDetailId,@courseId,@rating,@comment)";
                 SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
                 cmdSelect2.Parameters.AddWithValue("@courseRatingId", GenerateID());
                 cmdSelect2.Parameters.AddWithValue("@studId", Session["UserId"]);
-                cmdSelect2.Parameters.AddWithValue("@enrolDetailsId", Session["enrolDetailsId"].ToString());
+                cmdSelect2.Parameters.AddWithValue("@enrolDetailId", Session["enrolDetailId"].ToString());
                 cmdSelect2.Parameters.AddWithValue("@courseId", courseId);
                 cmdSelect2.Parameters.AddWithValue("@rating", ratingValue);
                 cmdSelect2.Parameters.AddWithValue("@comment", comment);
