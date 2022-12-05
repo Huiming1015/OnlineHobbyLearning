@@ -22,7 +22,7 @@ namespace OnlineHobby
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtCompareDate.Text = DateTime.Today.AddDays(7).ToShortDateString();
+            txtCompareDate.Text = DateTime.Today.AddDays(14).ToShortDateString();
             if (Request.QueryString["modifyCourseId"] != null)
             {
                 strCourseId = Request.QueryString["modifyCourseId"];
