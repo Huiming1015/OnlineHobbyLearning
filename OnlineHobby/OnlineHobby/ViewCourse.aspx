@@ -194,7 +194,7 @@
                             </td>
                         </tr>
                     </table>
-                    <asp:SqlDataSource ID="Sql" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [ScheduleList] WHERE ([scheduleId] = @scheduleId)">
+                    <asp:SqlDataSource ID="Sql" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT DISTINCT * FROM [ScheduleList] WHERE ([scheduleId] = @scheduleId)">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="lblScheduleId" Name="scheduleId" PropertyName="Text" Type="String" />
                         </SelectParameters>
