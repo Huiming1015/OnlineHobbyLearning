@@ -72,7 +72,7 @@ namespace OnlineHobby
 
         protected void btnSend_Click(object sender, EventArgs e)
         {
-            if (Session["enrolDetailsId"] != null)
+            if (Session["enrolDetailId"] != null)
             {
                 if (Convert.ToDateTime(txtNewDate.Text) <= DateTime.Today)
                 {

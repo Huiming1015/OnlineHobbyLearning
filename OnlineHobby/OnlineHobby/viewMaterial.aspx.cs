@@ -79,7 +79,7 @@ namespace OnlineHobby
                     {
                         //ClientScript.RegisterStartupScript(this.GetType(), "aa", "SuccessRemoveAlert()", true);
                         MsgBox("Your material kit has been successfully removed!", this.Page, this);
-                        Response.Redirect("EduMaterial.aspx?");
+                        ScriptManager.RegisterStartupScript(this, GetType(), "", "window.location = '" + Page.ResolveUrl("~/EduMaterial.aspx?") + "';", true);
                     }
                     con.Close();
                 }

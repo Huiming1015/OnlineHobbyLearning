@@ -136,7 +136,7 @@ namespace OnlineHobby
                 if (i != 0 && j != 0 && k != 0 && l != 0)
                 {
                     MsgBox("Your course has been successfully removed!", this.Page, this);
-                    Response.Redirect("EduCourseList.aspx?");
+                    ScriptManager.RegisterStartupScript(this, GetType(), "", "window.location = '" + Page.ResolveUrl("~/EduCourseList.aspx?") + "';", true);
                 }
                 con.Close();
             }

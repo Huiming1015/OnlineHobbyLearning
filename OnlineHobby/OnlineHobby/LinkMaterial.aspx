@@ -61,7 +61,7 @@
             </SelectParameters>
         </asp:SqlDataSource>
         <div align="right">
-            <asp:Button ID="btnFinish" runat="server" Text="Finish" OnClick="btnFinish_Click" CssClass="btn btn-light btn-lg rounded-pill" Style="height: 47px; width: 165px; background-color: #f98006; color: white" />
+            <asp:Button ID="btnFinish" runat="server" Text="FINISH" OnClick="btnFinish_Click" CssClass="btn btn-light btn-lg rounded-pill" Style="height: 47px; width: 165px; background-color: #f98006; color: white" />
         </div>
     </div>
 </asp:Content>
