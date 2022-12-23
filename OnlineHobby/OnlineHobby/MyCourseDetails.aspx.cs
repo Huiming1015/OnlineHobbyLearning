@@ -123,7 +123,7 @@ namespace OnlineHobby
                     string strRate = "Rating : ";
                     string strComment = "Comment: ";
                     con.Open();
-                    string cmd2 = "Select * from CourseRating WHERE studId=@StudId AND enrolDetailId=@EnrolDetailId";
+                    string cmd2 = "Select rating, comment from CourseRating WHERE studId=@StudId AND enrolDetailId=@EnrolDetailId";
                     SqlCommand cmdSelect2 = new SqlCommand(cmd2, con);
                     cmdSelect2.Parameters.AddWithValue("@studId", Session["UserId"]);
                     cmdSelect2.Parameters.AddWithValue("@EnrolDetailId", Session["enrolDetailId"].ToString());
