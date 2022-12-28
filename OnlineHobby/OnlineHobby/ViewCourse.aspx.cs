@@ -132,12 +132,9 @@ namespace OnlineHobby
                 comRemoveMaterial.Parameters.AddWithValue("@courseId", strCourseId);
                 comRemoveMaterial.Parameters.AddWithValue("@availability", "unavailable");
                 l = comRemoveMaterial.ExecuteNonQuery();
-
-                if (i != 0 && j != 0 && k != 0 && l != 0)
-                {
-                    MsgBox("Your course has been successfully removed!", this.Page, this);
-                    ScriptManager.RegisterStartupScript(this, GetType(), "", "window.location = '" + Page.ResolveUrl("~/EduCourseList.aspx?") + "';", true);
-                }
+            
+                MsgBox("Your course has been successfully removed!", this.Page, this);
+                ScriptManager.RegisterStartupScript(this, GetType(), "", "window.location = '" + Page.ResolveUrl("~/EduCourseList.aspx?") + "';", true);             
                 con.Close();
             }
         }
